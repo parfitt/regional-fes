@@ -8,7 +8,7 @@ Let's add a new parameter.
 
 ### Add CSV files
 
-Add the CSV files for this parameter to the [Primaries data directory](https://github.com/odileeds/northern-powergrid/tree/master/data/scenarios/primaries).
+Add the CSV files for this parameter to the [Primaries data directory](https://github.com/odileeds/northern-powergrid/tree/master/data/scenarios/gridsupplypoints).
 
 ### Update the index
 
@@ -22,10 +22,10 @@ We need to let the visualisation know that the CSV files exist and where they ar
     "css": "c9-bg",
     "data": {
       "ev": {
-        "primary": { "file": "primaries/EV-CommunityRenewables.csv" }
+        "primary": { "file": "gridsupplypoints/EV-CommunityRenewables.csv" }
       },
       "newparameter": {
-        "primary": { "file": "primaries/NewParameter-CommunityRenewables.csv" }
+        "primary": { "file": "gridsupplypoints/NewParameter-CommunityRenewables.csv" }
       },
       ...
     }
@@ -63,16 +63,16 @@ The scenarios are defined in [index.json](index.json). There can be as many scen
 		"css": "c9-bg",
 		"data": {
 			"ev": {
-				"primary": { "file": "primaries/EV-S1.csv" }
+				"primary": { "file": "gridsupplypoints/EV-S1.csv" }
 			},
 			"peakdemand":{
-				"primary": { "file": "primaries/PeakDemand-S1.csv" }
+				"primary": { "file": "gridsupplypoints/PeakDemand-S1.csv" }
 			},
 			"peakutilisation":{
-				"primary": { "file": "primaries/PeakUtilisation-S1.csv" }
+				"primary": { "file": "gridsupplypoints/PeakUtilisation-S1.csv" }
 			},
 			"windcapacity":{
-				"primary": { "file": "primaries/WindCapacity-S1.csv" }
+				"primary": { "file": "gridsupplypoints/WindCapacity-S1.csv" }
 			}
 		}
 	},

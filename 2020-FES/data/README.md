@@ -1,18 +1,22 @@
 # Future Energy Scenario Data
 
-Element Energy create yearly predictions for each Primary sub-station over a variety of `parameters` for several `scenarios`. The data are stored in separate files - one for each `scenario`/`parameter` combination - within the [scenarios/primaries](scenarios/primaries/) sub-directory. 
+National Grid ESO create yearly predictions for each Grid Supply Point over a variety of `parameters` for several `scenarios`. The data are stored in separate files - one for each `scenario`/`parameter` combination - within the [scenarios/gridsupplypoints](scenarios/gridsupplypoints/) sub-directory. 
 
 ## Files
 
 The following files are in this directory:
 
+TODO: The first two bullet points relate to the Graphs visualisation. I have not looked at these yet so they are still based on Northern Powergrid code.
+
 * [colours.csv](colours.csv) - this is used to define the colours used for lines on the graphs.
 * [graphs.pl](graphs.pl) - Perl code that generates the graphs and tables. It will need to be re-run if the graph data are updated.
-* [primaries2lad.json](primaries2lad.json) - how Primary sub-stations split between Local Authority Districts. The split was calculated using the proportion of customers attached to a Primary were within different Local Authority Districts.
+* [gridsupplypoints2countries.json](gridsupplypoints2countries.json) - how Grid Supply Points split between Countries (England, Scotland and Wales). Can include partial splits but must sum to 1.
 
 ## Sub-directories
 
 ### [graphs/](graphs/)
+
+TODO: This section has not yet been looked at and is therefore still based on the Northern Powergrid code.
 
 The graphs directory contains CSV files used to generate the graphs for `graph.html`. The [index.json](graphs/index.json) file defines each of the graphs that will be made by running `perl graph.pl`. Each one is of the form:
 
@@ -32,14 +36,16 @@ where `csv` is the CSV file in the [graphs/](graphs/) directory to use, `svg` is
 
 ### [lib/](lib/)
 
+TODO: As this relates to the Graphs visualisation, I have not yet looked at it (it is based on Northern Powergrid code).
+
 This directory contains Perl modules for use by the `graphs.pl` code.
 
 ### [maps/](maps/)
 
 The maps directory contains GeoJSON files that are needed for the visualisation. These include:
 
-  * [LAD2019-npg.geojson](maps/LAD2019-npg.geojson) - the Local Authority boundaries (2019)
-  * [primaries-unique-all.geojson](maps/primaries-unique-all.geojson) - the geography of the Primary sub-stations (based on 2019)
+  * [Countries2019-BUCmhw.geojson](maps/Countries2019-BUCmhw.geojson) - the Country boundaries (2019)
+  * [gridsupplypoints-unique-all.geojson](maps/gridsupplypoints-unique-all.geojson) - the geography of the Primary sub-stations (based on 2019)
 
 ### [scenarios/](scenarios/)
 

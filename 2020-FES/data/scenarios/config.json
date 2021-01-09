@@ -1,4 +1,5 @@
 {
+	"demandpeakall": { "title": "Demand peak - total (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Winter peak demand (sum total of all categories)" },
 	"ev": { "title": "Electric Vehicles (number)", "combine": "sum", "units":"", "dp": 0, "description": "Number of registered plug in electric vehicles (pure and hybrid)" },
 	"heatpumps": { "title": "Heat Pumps (number)", "combine": "sum", "units":"", "dp": 0, "description": "Number of heat pumps per residential household and commercial properties including hybrids" },
 	"domestic-pv": { "title": "Domestic photovoltaic installed capacity (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Capacity of solar PV panels on domestic roofs for installations less than 4kW" },

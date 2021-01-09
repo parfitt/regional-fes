@@ -18,11 +18,11 @@ S(document).ready(function(){
 		},
 		"layers": {
 			"LADlayer":{
-				"geojson": "data/maps/LAD2019-npg.geojson",
-				"key": "lad19cd",
+				"geojson": "data/maps/Countries2019-BUCmhw.geojson",
+				"key": "ctry19cd",
 				"data": {
 					"mapping": {
-						"src": "data/primaries2lad.json"	// JSON that maps from primaries -> LADs
+						"src": "data/gridsupplypoints2countries.json"	// JSON that maps from gridsupplypoints -> Countries
 					},
 					"src": "primary"
 				}
@@ -31,7 +31,7 @@ S(document).ready(function(){
 				"data": {
 					"src": "primary"	// This is the key used in data/scenarios/index.json
 				},
-				"geojson":"data/maps/primaries-unique-all.geojson",
+				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",
 				"key": "Primary"
 			}
 		},
@@ -49,7 +49,7 @@ S(document).ready(function(){
 					"text": function(attr){
 						var popup,title,dp,value;
 						popup = '<h3>%TITLE%</h3><p>%VALUE%</p><div id="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Primary substations (ordered)</p><p style="font-size:0.8em;margin-top:0.5em;">Columns show totals for each Primary substation associated with %TITLE%. The coloured portions show the fraction considered to be in %TITLE%. Hover over each to see details.</p>';
-						title = (attr.properties.lad19nm||'?');
+						title = (attr.properties.ctry19nm||'?');
 						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
 						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '');
 						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
@@ -64,10 +64,10 @@ S(document).ready(function(){
 							var balloons = [];
 							
 							// Work out the Local Authority name
-							var lad19nm = attr.id;
+							var ctry19nm = attr.id;
 							if(this.layers.LADlayer){
 								for(var c = 0; c < this.layers.LADlayer.geojson.features.length; c++){
-									if(this.layers.LADlayer.geojson.features[c].properties.lad19cd==attr.id) lad19nm = this.layers.LADlayer.geojson.features[c].properties.lad19nm;
+									if(this.layers.LADlayer.geojson.features[c].properties.ctry19cd==attr.id) ctry19nm = this.layers.LADlayer.geojson.features[c].properties.ctry19nm;
 								}
 							}
 
@@ -77,7 +77,7 @@ S(document).ready(function(){
 									if(this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p]) v = this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p][this.options.key];
 									fracLA = this.layers.LADlayer.data.mapping.data[p][attr.id]*v;
 									fracOther = v - fracLA;
-									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.layers.LADlayer.data.mapping.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+lad19nm,fracLA,fracOther]]);
+									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.layers.LADlayer.data.mapping.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+ctry19nm,fracLA,fracOther]]);
 								}
 							}
 
@@ -130,9 +130,9 @@ S(document).ready(function(){
 					}
 				}
 			},
-			"primaries":{
+			"gridsupplypoints":{
 				"title":"Primary Substations",
-				"file":"data/maps/primaries-unique-all.geojson",
+				"file":"data/maps/gridsupplypoints-unique-all.geojson",
 				"source": "primary",
 				"layers":[{
 					"id": "PRIMARYlayer",
@@ -149,7 +149,7 @@ S(document).ready(function(){
 					}
 				}
 			},
-			"primariesLAD":{
+			"gridsupplypointsLAD":{
 				"title":"Primary Substations (with Local Authorities)",
 				"source": "primary",
 				"layers":[{
@@ -257,7 +257,7 @@ S(document).ready(function(){
 						for(j = 0; j < this.views[this.options.view].layers.length; j++){
 							l = this.views[this.options.view].layers[j].id;
 							key = "";
-							if(l=="LADlayer") key = "lad19nm";
+							if(l=="LADlayer") key = "ctry19nm";
 							else if(l=="PRIMARYlayer") key = "Primary";
 							if(this.layers[l].geojson && this.layers[l].geojson.features && this.layers[l].key && key){
 								// If we haven't already processed this layer we do so now

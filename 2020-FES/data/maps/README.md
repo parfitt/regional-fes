@@ -13,7 +13,7 @@ We have to convert from Output Area (2011) to Local Authority District (2019) us
 
 ## Adding supply points
 
-To add supply points we took the decision to treat them as **pseudo-Primaries** with one per Local Authority area. These pseudo-Primaries will be added as extra rows to the CSV files and we will add their link to Local Authorities to the [mapping file](../primaries2lad.json). By using this method, the Local Authority view will then include the total value within that Local Authority (not just from Primaries) and the pop-up graphs will show the total non-Primary amount in that authority as one extra bar. 
+To add supply points we took the decision to treat them as **pseudo-Primaries** with one per Local Authority area. These pseudo-Primaries will be added as extra rows to the CSV files and we will add their link to Local Authorities to the [mapping file](../gridsupplypoints2countries.json). By using this method, the Local Authority view will then include the total value within that Local Authority (not just from Primaries) and the pop-up graphs will show the total non-Primary amount in that authority as one extra bar. 
 
 We wanted to also show the pseudo-Primaries on the map as small "cut-outs" at the location of each one. Northern Powergrid supplied an XLS file with the OSGB X/Y coordinates for each supply point along with the __pseudo-Primary__ name (these are based on Local Authority name e.g. `Wakefield Direct to Supply Points`). The following method was used to update the Primaries GeoJSON:
 
