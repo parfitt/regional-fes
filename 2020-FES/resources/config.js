@@ -5,15 +5,15 @@ S(document).ready(function(){
 
 	dfes = new FES({
 		"options": {
-			"scenario": "Net Zero Early",
+			"scenario": "Leading the way",
 			"view": "LAD",
 			"key": (new Date()).getFullYear()+'',
-			"parameter": "ev",
+			"parameter": "demandpeakall",
 			"scale": "relative",
 			"source": null,
 			"years": {"min":2020, "max":2050},
 			"map": {
-				"bounds": [[52.6497,-5.5151],[56.01680,2.35107]]
+				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]]
 			}
 		},
 		"layers": {
@@ -37,7 +37,7 @@ S(document).ready(function(){
 		},
 		"views":{
 			"LAD":{
-				"title":"Local Authorities",
+				"title":"Countries",
 				"file":"data/maps/LAD-npg.geojson",
 				"source": "primary",
 				"layers":[{
@@ -131,7 +131,7 @@ S(document).ready(function(){
 				}
 			},
 			"gridsupplypoints":{
-				"title":"Primary Substations",
+				"title":"Grid Supply Points",
 				"file":"data/maps/gridsupplypoints-unique-all.geojson",
 				"source": "primary",
 				"layers":[{
@@ -150,7 +150,7 @@ S(document).ready(function(){
 				}
 			},
 			"gridsupplypointsLAD":{
-				"title":"Primary Substations (with Local Authorities)",
+				"title":"Grid Supply Points (with Countries)",
 				"source": "primary",
 				"layers":[{
 					"id":"LADlayer",
