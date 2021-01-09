@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>National Grid ESO Future Energy Scenarios 2020</title>
+	<link rel="StyleSheet" href="resources/nouislider.min.css" type="text/css" />
+	<link rel="StyleSheet" href="resources/leaflet.css" type="text/css" />
+	<link rel="stylesheet" href="resources/stuquery.barchart.css" type="text/css" />
+	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
+	<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<script type="text/javascript" src="resources/stuquery.js"></script>
+	<script type="text/javascript" src="resources/stuquery.barchart.min.js"></script>
+	<script type="text/javascript" src="resources/nouislider.min.js"></script>
+	<script type="text/javascript" src="resources/typeahead.js"></script>
+	<script type="text/javascript" src="resources/dfes.js"></script>
+	<script type="text/javascript" src="resources/config.js"></script>
+	<script type="text/javascript" src="resources/leaflet.js"></script>
+</head>
+<body>
+	<header class="b1-bg">
+		<div class="b1-bg glory">
+			<div class="glory-opacity">
+				<div class="holder">
+					<a href="https://www.nationalgrideso.com/" class="ODIlogo"><img alt="National Grid ESO" src="https://www.nationalgrideso.com/themes/custom/national_grid_eso/logo.svg" title="ODI Leeds"></a>
+				</div>
+			</div>
+		</div>
+		<div class="scenario title">
+			<div class="holder">
+				<h1>Electricity Demands - FES 2020</h1>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="b6-bg" id="scenario">
+		<div class="holder columns">
+			<div class="left">
+				<p>Explore the geographical differences in electricity demand within National Grid ESO's Future Energy Scenarios 2020.</p>
+				<h2><label for="scenarios">Choose a scenario</label>:</h2>
+				<div id="scenario-holder"></div>
+				<h2><label for="parameters">Choose a parameter</label>:</h2>
+				<div id="parameter-holder"></div>
+				<h2><label for="views">View by</label>:</h2>
+				<div id="view-holder"></div>
+				<h2>Select year (<span class="year"></span>):</h2>
+				<div id="slider"></div>
+				<div><button id="play" class="scenario" title="Play">&#9658;</button> <button id="pause" class="scenario" title="Pause" disabled>&#10074;&#10074;</button></div>
+				<h2><label for="scale-mode">Colour scale</label>:</h2>
+				<div id="scale-holder" class="toggleinput toggler">
+					<span class="toggle-label1" title="To compare the values of different areas for the current year">In year</span>
+					<div class="toggle-bg">
+						<input type="checkbox" id="scale-mode" name="scale-mode" title="Select for an absolute scale" />
+						<span class="switch"></span>
+					</div>
+					<label class="toggle-label2" for="scale-mode" title="To compare the values of different areas across the the full range of years">By 2050</label>
+				</div>
+			</div>
+			<div class="right">
+				<div id="map">
+					<div class="spinner">
+						<img src="/2020-FES/resources/spinner.gif" alt="Loading..." />
+					</div>
+				</div>
+				<div id="scale"></div>
+				<div id="issues"><a href="graphs.html">Graphs to accompany this tool</a> | <a href="https://github.com/odileeds/northern-powergrid/tree/master/2020-DFES/data/scenarios/primaries">Get the data</a> | <a href="https://github.com/odileeds/northern-powergrid/issues/">Report any issues you find</a> with our tool</div>
+			</div>
+		</div>
+	</div>
+	<div class="scenario thickline">&nbsp;</div>
+	<div class="b5-bg" id="about">
+		<div class="holder padded">
+			<h2>About this visualisation</h2>
+			<!--
+			-->
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor, neque vel lacinia porta, sem ligula eleifend ligula, nec efficitur diam lacus et sapien. Cras arcu odio, maximus et vestibulum eu, ornare ac eros. Proin lacinia convallis aliquet. In eu iaculis ante. Sed vitae rhoncus turpis. In rutrum, odio et commodo malesuada, massa ipsum vehicula ligula, sed luctus elit risus lacinia lorem. Sed quis nisi maximus, porta tellus ut, interdum quam. Donec mollis elit ultrices sem porta placerat. Nullam semper at eros id aliquam. Donec feugiat, tortor eget fermentum malesuada, lorem nibh pretium libero, at interdum lectus arcu at libero. Sed varius turpis augue, sed mollis neque dignissim vel. Maecenas interdum elit magna, a ultrices enim suscipit at. Fusce aliquam velit id dolor consequat, vel aliquet neque pulvinar. Pellentesque tincidunt ac massa et auctor. Cras tincidunt scelerisque tincidunt.</p>
+			<p>If you have any comments, questions or feedback on our scenarios, please send them to <a href="mailto:FES@nationalgrideso.com?subject=FES electricity demand maps">FES@nationalgrideso.com</a>.</p>
+</body>
+</html>
