@@ -18,11 +18,11 @@ S(document).ready(function(){
 		},
 		"layers": {
 			"LADlayer":{
-				"geojson": "data/maps/Countries2019-BUCmhw.geojson",
-				"key": "ctry19cd",
+				"geojson": "data/maps/nuts1_BUC_4326.geojson",
+				"key": "nuts118nm",
 				"data": {
 					"mapping": {
-						"src": "data/gridsupplypoints2countries.json"	// JSON that maps from gridsupplypoints -> Countries
+						"src": "data/gridsupplypoints2nuts1.json"	// JSON that maps from gridsupplypoints -> NUTS 1
 					},
 					"src": "primary"
 				}
@@ -37,8 +37,8 @@ S(document).ready(function(){
 		},
 		"views":{
 			"LAD":{
-				"title":"Countries",
-				"file":"data/maps/LAD-npg.geojson",
+				"title":"NUTS1 Regions",
+				//"file":"data/maps/LAD-npg.geojson",
 				"source": "primary",
 				"layers":[{
 					"id": "LADlayer",
