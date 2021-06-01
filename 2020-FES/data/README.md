@@ -10,7 +10,7 @@ TODO: The first two bullet points relate to the Graphs visualisation. I have not
 
 * [colours.csv](colours.csv) - this is used to define the colours used for lines on the graphs.
 * [graphs.pl](graphs.pl) - Perl code that generates the graphs and tables. It will need to be re-run if the graph data are updated.
-* [gridsupplypoints2countries.json](gridsupplypoints2countries.json) - how Grid Supply Points split between Countries (England, Scotland and Wales). Can include partial splits but must sum to 1.
+* [gridsupplypoints2nuts1.json](gridsupplypoints2nuts1.json) - how Grid Supply Points split between NUTS1 regions. Can include partial splits but must sum to 1.
 
 ## Sub-directories
 
@@ -44,7 +44,7 @@ This directory contains Perl modules for use by the `graphs.pl` code.
 
 The maps directory contains GeoJSON files that are needed for the visualisation. These include:
 
-  * [Countries2019-BUCmhw.geojson](maps/Countries2019-BUCmhw.geojson) - the Country boundaries (2019)
+  * [nuts1_BUC_4326.geojson](maps/nuts1_BUC_4326.geojson) - the NUTS1 region boundaries (2019)
   * [gridsupplypoints-unique-all.geojson](maps/gridsupplypoints-unique-all.geojson) - the geography of the Primary sub-stations (based on 2019)
 
 ### [scenarios/](scenarios/)
