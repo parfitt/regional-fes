@@ -161,7 +161,7 @@ em { font-style: italic; }
 button, a.button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; }
 button:hover, a.button:hover { background-color: #333333!important; color: #efefef; }
 a:hover { text-decoration: underline; }
-h2 a, h3 a,p a, #left a { text-decoration: underline; color: #178cff; }
+h2 a, h3 a,p a, #left a { text-decoration: underline; color: white!important; }
 h2 a:visited, h3 a:visited, p a:visited, #left a:visited { color: #722ea5; }
 header a { text-decoration: none; }
 footer {
@@ -425,13 +425,19 @@ table td.n { text-align: center; }
 	background: linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(5,5,62,1) 0%, rgba(22,77,88,1) 100%); /*CHANGE BACK TO WHITE IF REQUIRED*/
 	/*background: rgb(21,11,205);
 	background: linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(1,1,17,1) 0%, rgba(22,77,88,1) 100%);*/
-
-
+	/*ESO PRIMARY PALETTE
 	background: rgb(21,11,205);
 	background: -moz-linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(242,101,34,1) 0%, rgba(223,182,14,1) 71%, rgba(255,191,34,1) 100%);
 	background: -webkit-linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(242,101,34,1) 0%, rgba(223,182,14,1) 71%, rgba(255,191,34,1) 100%);
 	background: linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(242,101,34,1) 0%, rgba(223,182,14,1) 71%, rgba(255,191,34,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#150bcd",endColorstr="#ffbf22",GradientType=1);
+	*/
+
+	background: rgb(100,15,21);
+	background: -moz-linear-gradient(90deg, rgba(100,15,21,1) 0%, rgba(255,191,34,1) 93%, rgba(255,230,0,1) 100%);
+	background: -webkit-linear-gradient(90deg, rgba(100,15,21,1) 0%, rgba(255,191,34,1) 93%, rgba(255,230,0,1) 100%);
+	background: linear-gradient(90deg, rgba(100,15,21,1) 0%, rgba(255,191,34,1) 93%, rgba(255,230,0,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#640f15",endColorstr="#ffe600",GradientType=1);
 	color: white !important;
 }
 a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
