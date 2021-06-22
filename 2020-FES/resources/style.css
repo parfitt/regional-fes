@@ -55,8 +55,11 @@ table {
 /* Main site styling */
 .steady-progression { background-color: #DEDEDE!important; color: black!important; }
 /*.steady-progression-text { color: #827B7A!important; }*/
-.system-transformation { background-color: #5BCBF5!important; color: black!important; }
+
+.system-transformation { background-color: #8ae30e!important; color: black!important; }
+/*PREV #5BCBF5*/
 /*.system-transformation-text { color: #5BCBF5!important; }*/
+
 .consumer-transformation { background-color: #FFBF22!important; color: black!important; }
 /*.consumer-transformation-text { color: #FFBF22!important; }*/
 .leading-the-way { background-color: #C2CD23!important; color: black!important; }
@@ -404,8 +407,15 @@ table td.n { text-align: center; }
 .bk-bg { background-color: #6D6D6D; }
 .b3-bg, .github:hover { background-color: #999999; color: black!important; }
 .b4-bg { background-color: #bbbbbb; color: black!important; }
-.b5-bg { background-color: #333333; color: white!important; }
-.b6-bg { background-color: #ffffff; color: black!important; }
+.b5-bg { background-color: #010111; color: white!important; }
+.b6-bg {
+	/*background: rgb(21,11,205);
+	background: linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(5,5,62,1) 0%, rgba(22,77,88,1) 100%); /*CHANGE BACK TO WHITE IF REQUIRED*/
+
+	background: rgb(21,11,205);
+	background: linear-gradient(90deg, rgba(21,11,205,1) 0%, rgba(1,1,17,1) 0%, rgba(22,77,88,1) 100%);
+	color: white !important;
+}
 a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
 .s1-bg a, .s1-bg a:visited, .s2-bg a, .s2-bg a:visited, .s3-bg a, .s3-bg a:visited { color: inherit; }
 .c1-bg .button, .c2-bg .button, .c3-bg .button, .c4-bg .button, .c5-bg .button, .c6-bg .button, .c7-bg .button, .c8-bg .button, .c9-bg .button, .c10-bg .button, .c11-bg .button, .c12-bg .button, .c13-bg .button, .c14-bg .button { background-color: #efefef; color: black!important; }

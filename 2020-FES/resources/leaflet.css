@@ -278,7 +278,7 @@
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	color: black;
+	color: black!important;
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
