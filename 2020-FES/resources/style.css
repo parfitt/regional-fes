@@ -49,16 +49,16 @@ table {
 
 
 /* Main site styling */
-.steady-progression { background-color: #827B7A!important; color: white!important; }
-.steady-progression-text { color: #827B7A!important; }
+.steady-progression { background-color: #DEDEDE!important; color: black!important; }
+/*.steady-progression-text { color: #827B7A!important; }*/
 .system-transformation { background-color: #5BCBF5!important; color: black!important; }
-.system-transformation-text { color: #5BCBF5!important; }
+/*.system-transformation-text { color: #5BCBF5!important; }*/
 .consumer-transformation { background-color: #FFBF22!important; color: black!important; }
-.consumer-transformation-text { color: #FFBF22!important; }
+/*.consumer-transformation-text { color: #FFBF22!important; }*/
 .leading-the-way { background-color: #C2CD23!important; color: black!important; }
-.leading-the-way-text { color: #C2CD23!important; }
+/*.leading-the-way-text { color: #C2CD23!important; }*/
 .early-net-zero { background-color: #00AB84!important; color: white!important; }
-.early-net-zero-text { color: #00AB84!important; }
+/*.early-net-zero-text { color: #00AB84!important; }*/
 
 
 
@@ -395,12 +395,12 @@ table td.n { text-align: center; }
 .s1-bg, .s1-bg-hover:hover { background-color: #2f529f; color: white; }
 .s2-bg, .s2-bg-hover:hover { background-color: #00ace8; color: black; }
 .s3-bg, .s3-bg-hover:hover { background-color: #7dc5ea; color: black; }
-.b1-bg { background-color: #ffffff; color: white!important; }
-.b2-bg { background-color: #333333; color: white!important; }
-.bk-bg { background-color: #6D6D6D; color: white!important; }
+.b1-bg { background-color: #ffffff; }
+.b2-bg { background-color: #333333; }
+.bk-bg { background-color: #6D6D6D; }
 .b3-bg, .github:hover { background-color: #999999; color: black!important; }
 .b4-bg { background-color: #bbbbbb; color: black!important; }
-.b5-bg { background-color: #dfdfdf; color: black!important; }
+.b5-bg { background-color: #333333; color: white!important; }
 .b6-bg { background-color: #ffffff; color: black!important; }
 a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
 .s1-bg a, .s1-bg a:visited, .s2-bg a, .s2-bg a:visited, .s3-bg a, .s3-bg a:visited { color: inherit; }
@@ -513,7 +513,7 @@ a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-
 /* DFES styles */
 h1 { line-height: 1em; font-size: 1.5em; padding: 0.5em 0; }
 #map { 
-	height: 550px;
+	height: 70vh;
 	display: block;
 	width: 100%;
 }
@@ -530,7 +530,7 @@ p { margin-bottom: 1em; }
 .spinner { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%,-50%,0); z-index: 1000; }
 .spinner img { width: 5em; margin: auto; }
 footer a:visited { color: inherit; }
-#scenario .about { padding: 0.25em 0.5em; background-color: #efefef; }
+#scenario .about { padding: 0.25em 0.5em; }
 #scenario ul, footer ul { list-style: disc; margin-left: 1em; }
 input, select { font: inherit; line-height: 2em; width: 100%; height: 2em; }
 select option:hover, select option:checked { filter: hue-rotate(90deg); }
@@ -549,7 +549,7 @@ footer ul { margin-left: 2em; }
 #scale .max { padding-right: 0.25em; padding-left: 0; border-right-width: 1px; border-right-style: solid; transform: translate3d(-100%, 0, 0); border-left: 0; }
 #about h2 + p, #about h3 + p { margin-top: 0.5em; }
 #about h3 { margin-top: 1em; }
-.thickline { height: 10px; }
+.thickline { height: 1.5vh; }
 
 /* Bar chart */
 #barchart { height: 100px; width: 300px; margin-bottom: 0.5em!important; }
