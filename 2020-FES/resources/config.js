@@ -49,7 +49,7 @@ S(document).ready(function(){
 					"text": function(attr){
 						var popup,title,dp,value;
 						popup = '<h3>%TITLE%</h3><p>%VALUE%</p><div id="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Primary substations (ordered)</p><p style="font-size:0.8em;margin-top:0.5em;">Columns show totals for each Primary substation associated with %TITLE%. The coloured portions show the fraction considered to be in %TITLE%. Hover over each to see details.</p>';
-						title = (attr.properties.ctry19nm||'?');
+						title = (attr.properties.nuts118nm||'?');
 						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
 						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '');
 						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
@@ -63,11 +63,11 @@ S(document).ready(function(){
 							var data = [];
 							var balloons = [];
 							
-							// Work out the Local Authority name
-							var ctry19nm = attr.id;
+							// Work out the NUTS1 region name
+							var nuts118nm = attr.id;
 							if(this.layers.LADlayer){
 								for(var c = 0; c < this.layers.LADlayer.geojson.features.length; c++){
-									if(this.layers.LADlayer.geojson.features[c].properties.ctry19cd==attr.id) ctry19nm = this.layers.LADlayer.geojson.features[c].properties.ctry19nm;
+									if(this.layers.LADlayer.geojson.features[c].properties.ctry19cd==attr.id) nuts118nm = this.layers.LADlayer.geojson.features[c].properties.nuts118nm;
 								}
 							}
 
@@ -77,7 +77,7 @@ S(document).ready(function(){
 									if(this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p]) v = this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p][this.options.key];
 									fracLA = this.layers.LADlayer.data.mapping.data[p][attr.id]*v;
 									fracOther = v - fracLA;
-									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.layers.LADlayer.data.mapping.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+ctry19nm,fracLA,fracOther]]);
+									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.layers.LADlayer.data.mapping.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,fracLA,fracOther]]);
 								}
 							}
 
@@ -257,7 +257,7 @@ S(document).ready(function(){
 						for(j = 0; j < this.views[this.options.view].layers.length; j++){
 							l = this.views[this.options.view].layers[j].id;
 							key = "";
-							if(l=="LADlayer") key = "ctry19nm";
+							if(l=="LADlayer") key = "nuts118nm";
 							else if(l=="PRIMARYlayer") key = "Primary";
 							if(this.layers[l].geojson && this.layers[l].geojson.features && this.layers[l].key && key){
 								// If we haven't already processed this layer we do so now
