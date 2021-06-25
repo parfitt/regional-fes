@@ -1,125 +1,125 @@
 {
-	"Steady progression": {
+	"Steady Progression": {
 		"description": "<ul><li>Does not achieve 80% decarbonisation by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
 		"color": "#827B7A",
 		"css": "steady-progression",
 		"data": {
-			"ev": {
-				"primary": { "file": "gridsupplypoints/EV-SP.csv", "key": "Primary" }
+			"demandpk-all":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-All.csv", "key": "Primary" }
 			},
-			"peakdemand":{
-				"primary": { "file": "gridsupplypoints/PeakDemand-SP.csv", "key": "Primary" }
+			"demandpk-c":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-C.csv", "key": "Primary" }
 			},
-			"peakdemandcf":{
-				"primary": { "file": "gridsupplypoints/PeakDemandWithCF-SP.csv", "key": "Primary" }
+			"demandpk-d":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-D.csv", "key": "Primary" }
 			},
-			"peakutilisation":{
-				"primary": { "file": "gridsupplypoints/PeakUtilisation-SP.csv", "key": "Primary" }
+			"demandpk-e":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-E.csv", "key": "Primary" }
 			},
-			"peakutilisationcf":{
-				"primary": { "file": "gridsupplypoints/PeakUtilisationWithCF-SP.csv", "key": "Primary" }
+			"demandpk-h":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-H.csv", "key": "Primary" }
 			},
-			"totalconsumptioncf":{
-				"primary": { "file": "gridsupplypoints/TotalConsumptionWithLCTs_mWh-SP.csv", "key": "Primary" }
+			"demandpk-i":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-I.csv", "key": "Primary" }
 			},
-			"windcapacity":{
-				"primary": { "file": "gridsupplypoints/WindCapacity-SP.csv", "key": "Primary" }
+			"demandpk-r":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-R.csv", "key": "Primary" }
 			},
-			"heatpumps":{
-				"primary": { "file": "gridsupplypoints/HP-SP.csv", "key": "Primary" }
-			},
-			"domestic-consumption":{
-				"primary": { "file": "gridsupplypoints/DOMESTIC_consumption_mWh-SP.csv", "key": "Primary" }
-			},
-			"domestic-pv":{
-				"primary": { "file": "gridsupplypoints/DOMPV_MW-SP.csv", "key": "Primary" }
-			},
-			"industrial-consumption":{
-				"primary": { "file": "gridsupplypoints/IC_consumption_mWh-SP.csv", "key": "Primary" }
-			},
-			"industrial-pv":{
-				"primary": { "file": "gridsupplypoints/Large(IC)PV_MW-SP.csv", "key": "Primary" }
-			},
-			"renewablegen":{
-				"primary": { "file": "gridsupplypoints/RenewableGeneration_MW-SP.csv", "key": "Primary" }
-			},
-			"storage":{
-				"primary": { "file": "gridsupplypoints/Storage_MW-SP.csv", "key": "Primary" }
-			},
-			"nonrenewablegen":{
-				"primary": { "file": "gridsupplypoints/Non-renewableGeneration_MW-SP.csv", "key": "Primary" }
+			"demandpk-z":{
+				"primary": { "file": "gridsupplypoints/SP-DemandPk-Z.csv", "key": "Primary" }
 			}
 		}
 	},
-	"System transformation": {
+	"System Transformation": {
 		"description": "<ul><li>Achieves 100% decarbonisation by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility</li></ul>",
 		"color": "#5BCBF5",
 		"css": "system-transformation",
 		"data": {
-			"ev": {
-				"primary": { "file": "gridsupplypoints/EV-ST.csv", "key": "Primary" }
+			"demandpk-all":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-All.csv", "key": "Primary" }
 			},
-			"peakdemand":{
-				"primary": { "file": "gridsupplypoints/PeakDemand-ST.csv", "key": "Primary" }
+			"demandpk-c":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-C.csv", "key": "Primary" }
 			},
-			"peakdemandcf":{
-				"primary": { "file": "gridsupplypoints/PeakDemandWithCF-ST.csv", "key": "Primary" }
+			"demandpk-d":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-D.csv", "key": "Primary" }
 			},
-			"peakutilisation":{
-				"primary": { "file": "gridsupplypoints/PeakUtilisation-ST.csv", "key": "Primary" }
+			"demandpk-e":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-E.csv", "key": "Primary" }
 			},
-			"peakutilisationcf":{
-				"primary": { "file": "gridsupplypoints/PeakUtilisationWithCF-ST.csv", "key": "Primary" }
+			"demandpk-h":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-H.csv", "key": "Primary" }
 			},
-			"totalconsumptioncf":{
-				"primary": { "file": "gridsupplypoints/TotalConsumptionWithLCTs_mWh-ST.csv", "key": "Primary" }
+			"demandpk-i":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-I.csv", "key": "Primary" }
 			},
-			"windcapacity":{
-				"primary": { "file": "gridsupplypoints/WindCapacity-ST.csv", "key": "Primary" }
+			"demandpk-r":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-R.csv", "key": "Primary" }
 			},
-			"heatpumps":{
-				"primary": { "file": "gridsupplypoints/HP-ST.csv", "key": "Primary" }
-			},
-			"domestic-consumption":{
-				"primary": { "file": "gridsupplypoints/DOMESTIC_consumption_mWh-ST.csv", "key": "Primary" }
-			},
-			"domestic-pv":{
-				"primary": { "file": "gridsupplypoints/DOMPV_MW-ST.csv", "key": "Primary" }
-			},
-			"industrial-consumption":{
-				"primary": { "file": "gridsupplypoints/IC_consumption_mWh-ST.csv", "key": "Primary" }
-			},
-			"industrial-pv":{
-				"primary": { "file": "gridsupplypoints/Large(IC)PV_MW-ST.csv", "key": "Primary" }
-			},
-			"renewablegen":{
-				"primary": { "file": "gridsupplypoints/RenewableGeneration_MW-ST.csv", "key": "Primary" }
-			},
-			"storage":{
-				"primary": { "file": "gridsupplypoints/Storage_MW-ST.csv", "key": "Primary" }
-			},
-			"nonrenewablegen":{
-				"primary": { "file": "gridsupplypoints/Non-renewableGeneration_MW-ST.csv", "key": "Primary" }
+			"demandpk-z":{
+				"primary": { "file": "gridsupplypoints/ST-DemandPk-Z.csv", "key": "Primary" }
 			}
 		}
 	},
-	"Consumer transformation": {
+	"Consumer Transformation": {
 		"description": "<ul><li>Achieves 100% decarbonisation by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High Demand side flexibility.</li></ul>",
 		"color": "#FFBF22",
 		"css": "consumer-transformation",
 		"data": {
-			"demandpeakall":{
-				"primary": { "file": "gridsupplypoints/demandPk_All_mw-CT.csv", "key": "Primary" }
+			"demandpk-all":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-All.csv", "key": "Primary" }
+			},
+			"demandpk-c":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-C.csv", "key": "Primary" }
+			},
+			"demandpk-d":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-D.csv", "key": "Primary" }
+			},
+			"demandpk-e":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-E.csv", "key": "Primary" }
+			},
+			"demandpk-h":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-H.csv", "key": "Primary" }
+			},
+			"demandpk-i":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-I.csv", "key": "Primary" }
+			},
+			"demandpk-r":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-R.csv", "key": "Primary" }
+			},
+			"demandpk-z":{
+				"primary": { "file": "gridsupplypoints/CT-DemandPk-Z.csv", "key": "Primary" }
 			}
 		}
 	},
-	"Leading the way": {
+	"Leading the Way": {
 		"description": "<ul><li>Achieves 100% decarbonisation by 2048.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
 		"color": "#C2CD23",
 		"css": "leading-the-way",
 		"data": {
-			"demandpeakall":{
-				"primary": { "file": "gridsupplypoints/demandPk_All_mw-LW.csv", "key": "Primary" }
+			"demandpk-all":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-All.csv", "key": "Primary" }
+			},
+			"demandpk-c":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-C.csv", "key": "Primary" }
+			},
+			"demandpk-d":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-D.csv", "key": "Primary" }
+			},
+			"demandpk-e":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-E.csv", "key": "Primary" }
+			},
+			"demandpk-h":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-H.csv", "key": "Primary" }
+			},
+			"demandpk-i":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-I.csv", "key": "Primary" }
+			},
+			"demandpk-r":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-R.csv", "key": "Primary" }
+			},
+			"demandpk-z":{
+				"primary": { "file": "gridsupplypoints/LW-DemandPk-Z.csv", "key": "Primary" }
 			}
 		}
 	}
