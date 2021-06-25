@@ -8,7 +8,7 @@ S(document).ready(function(){
 			"scenario": "Leading the way",
 			"view": "LAD",
 			"key": (new Date()).getFullYear()+'',
-			"parameter": "demandpeakall",
+			"parameter": "demandpk-all",
 			"scale": "relative",
 			"source": null,
 			"years": {"min":2020, "max":2050},
@@ -150,7 +150,7 @@ S(document).ready(function(){
 				}
 			},
 			"gridsupplypointsLAD":{
-				"title":"Grid Supply Points (with Countries)",
+				"title":"Grid Supply Points (with NUTS1)",
 				"source": "primary",
 				"layers":[{
 					"id":"LADlayer",
