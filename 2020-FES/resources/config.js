@@ -5,7 +5,7 @@ S(document).ready(function(){
 
 	dfes = new FES({
 		"options": {
-			"scenario": "Leading the way",
+			"scenario": "Leading the Way",
 			"view": "LAD",
 			"key": (new Date()).getFullYear()+'',
 			"parameter": "demandpk-all",
