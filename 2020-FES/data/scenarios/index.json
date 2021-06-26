@@ -27,6 +27,36 @@
 			},
 			"demandpk-z":{
 				"primary": { "file": "gridsupplypoints/SP-DemandPk-Z.csv", "key": "Primary" }
+			},
+			"dxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"dxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"dxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"dxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"dxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Other.csv", "key": "Primary" }
+			},
+			"mxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/SP-MxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"mxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/SP-MxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"mxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/SP-MxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"mxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/SP-MxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"mxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/SP-MxCapacity-Other.csv", "key": "Primary" }
 			}
 		}
 	},
@@ -58,6 +88,36 @@
 			},
 			"demandpk-z":{
 				"primary": { "file": "gridsupplypoints/ST-DemandPk-Z.csv", "key": "Primary" }
+			},
+			"dxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"dxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"dxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"dxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"dxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Other.csv", "key": "Primary" }
+			},
+			"mxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/ST-MxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"mxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/ST-MxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"mxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/ST-MxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"mxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/ST-MxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"mxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/ST-MxCapacity-Other.csv", "key": "Primary" }
 			}
 		}
 	},
@@ -89,6 +149,36 @@
 			},
 			"demandpk-z":{
 				"primary": { "file": "gridsupplypoints/CT-DemandPk-Z.csv", "key": "Primary" }
+			},
+			"dxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"dxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"dxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"dxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"dxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Other.csv", "key": "Primary" }
+			},
+			"mxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/CT-MxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"mxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/CT-MxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"mxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/CT-MxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"mxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/CT-MxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"mxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/CT-MxCapacity-Other.csv", "key": "Primary" }
 			}
 		}
 	},
@@ -120,6 +210,36 @@
 			},
 			"demandpk-z":{
 				"primary": { "file": "gridsupplypoints/LW-DemandPk-Z.csv", "key": "Primary" }
+			},
+			"dxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"dxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"dxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"dxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"dxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Other.csv", "key": "Primary" }
+			},
+			"mxcapacity-wind":{
+				"primary": { "file": "gridsupplypoints/LW-MxCapacity-Wind.csv", "key": "Primary" }
+			},
+			"mxcapacity-solar":{
+				"primary": { "file": "gridsupplypoints/LW-MxCapacity-Solar.csv", "key": "Primary" }
+			},
+			"mxcapacity-hydro":{
+				"primary": { "file": "gridsupplypoints/LW-MxCapacity-Hydro.csv", "key": "Primary" }
+			},
+			"mxcapacity-storage":{
+				"primary": { "file": "gridsupplypoints/LW-MxCapacity-Storage.csv", "key": "Primary" }
+			},
+			"mxcapacity-other":{
+				"primary": { "file": "gridsupplypoints/LW-MxCapacity-Other.csv", "key": "Primary" }
 			}
 		}
 	}
