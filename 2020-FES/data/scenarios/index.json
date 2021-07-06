@@ -25,9 +25,6 @@
 			"demandpk-r":{
 				"primary": { "file": "gridsupplypoints/SP-DemandPk-R.csv", "key": "Primary" }
 			},
-			"demandpk-z":{
-				"primary": { "file": "gridsupplypoints/SP-DemandPk-Z.csv", "key": "Primary" }
-			},
 			"dxcapacity-wind":{
 				"primary": { "file": "gridsupplypoints/SP-DxCapacity-Wind.csv", "key": "Primary" }
 			},
@@ -85,9 +82,6 @@
 			},
 			"demandpk-r":{
 				"primary": { "file": "gridsupplypoints/ST-DemandPk-R.csv", "key": "Primary" }
-			},
-			"demandpk-z":{
-				"primary": { "file": "gridsupplypoints/ST-DemandPk-Z.csv", "key": "Primary" }
 			},
 			"dxcapacity-wind":{
 				"primary": { "file": "gridsupplypoints/ST-DxCapacity-Wind.csv", "key": "Primary" }
@@ -147,9 +141,6 @@
 			"demandpk-r":{
 				"primary": { "file": "gridsupplypoints/CT-DemandPk-R.csv", "key": "Primary" }
 			},
-			"demandpk-z":{
-				"primary": { "file": "gridsupplypoints/CT-DemandPk-Z.csv", "key": "Primary" }
-			},
 			"dxcapacity-wind":{
 				"primary": { "file": "gridsupplypoints/CT-DxCapacity-Wind.csv", "key": "Primary" }
 			},
@@ -207,9 +198,6 @@
 			},
 			"demandpk-r":{
 				"primary": { "file": "gridsupplypoints/LW-DemandPk-R.csv", "key": "Primary" }
-			},
-			"demandpk-z":{
-				"primary": { "file": "gridsupplypoints/LW-DemandPk-Z.csv", "key": "Primary" }
 			},
 			"dxcapacity-wind":{
 				"primary": { "file": "gridsupplypoints/LW-DxCapacity-Wind.csv", "key": "Primary" }
