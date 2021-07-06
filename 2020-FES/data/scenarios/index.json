@@ -61,7 +61,7 @@
 		}
 	},
 	"System Transformation": {
-		"description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility</li></ul>",
+		"description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility.</li></ul>",
 		"color": "#5BCBF5",
 		"css": "system-transformation",
 		"data": {
@@ -122,7 +122,7 @@
 		}
 	},
 	"Consumer Transformation": {
-		"description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High Demand side flexibility.</li></ul>",
+		"description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High demand side flexibility.</li></ul>",
 		"color": "#FFBF22",
 		"css": "consumer-transformation",
 		"data": {
