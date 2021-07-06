@@ -92,12 +92,17 @@
 			});
 		}
 
+		var switchClass = document.getElementsByClassName("switch");
+		switchClass[0].click();
+		document.getElementById("scale-holder").click();
+
 		// Add events to toggle switch		
 		S('#scale-holder input').on('change',{me:this},function(e){
 			e.preventDefault();
 			e.data.me.setScale(e.currentTarget.checked);
 		})
-		S('#scale-holder .switch').on('click',{me:this},function(e){
+
+		S('#scale-holder .switch').on('click', { me: this }, function (e) {
 			var el = S('#scale-holder input');
 			el[0].checked = !el[0].checked;
 			e.data.me.setScale(el[0].checked);

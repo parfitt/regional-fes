@@ -3,8 +3,9 @@
     "",
     "\\2020-FES",
     "\\2020-FES\\data",
+    "\\2020-FES\\data\\maps",
+    "\\2020-FES\\data\\scenarios",
     "\\2020-FES\\resources"
   ],
-  "SelectedNode": "\\2020-FES\\index.html",
   "PreviewInSolutionExplorer": false
 }
