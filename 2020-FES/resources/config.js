@@ -150,7 +150,8 @@ S(document).ready(function(){
 				}
 			},
 			"gridsupplypointsLAD":{
-				"title":"Grid Supply Points (with NUTS1)",
+				"title": "Grid Supply Points (with NUTS1)",
+				"file": "data/maps/nuts1_BUC_4326.geojson",
 				"source": "primary",
 				"layers":[{
 					"id":"LADlayer",
