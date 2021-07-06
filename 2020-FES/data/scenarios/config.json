@@ -2,7 +2,7 @@
 	"demandpk-all": { "title": "Demand at peak: Total (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical total demand at time of national peak demand. This is the sum of all categories shown." },
 	"demandpk-c": { "title": "Demand at peak: Commercial (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical commercial demand at time of national peak demand." },
 	"demandpk-d": { "title": "Demand at peak: District heat (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical district heat demand at time of national peak demand." },
-	"demandpk-e": { "title": "Demand at peak: Electric vehilces (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical electric vehilce demand at time of national peak demand." },
+	"demandpk-e": { "title": "Demand at peak: Electric vehicles (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical electric vehicle demand at time of national peak demand." },
 	"demandpk-h": { "title": "Demand at peak: Heat pumps (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical heat pump at time of national peak demand." },
 	"demandpk-i": { "title": "Demand at peak: Industrial (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical industrial demand at time of national peak demand." },
 	"demandpk-r": { "title": "Demand at peak: Residential (MW)", "combine": "sum", "units":"MW", "dp": 3, "description": "Typical residential demand at time of national peak demand." },
