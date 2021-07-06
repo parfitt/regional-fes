@@ -92,9 +92,12 @@
 			});
 		}
 
-		var switchClass = document.getElementsByClassName("switch");
-		switchClass[0].click();
-		document.getElementById("scale-holder").click();
+		window.addEventListener("load", function () {
+			var switches = document.getElementsByClassName("switch");
+			switches[0].click();
+			document.getElementById("scale-holder").click();
+		});
+		
 
 		// Add events to toggle switch		
 		S('#scale-holder input').on('change',{me:this},function(e){
