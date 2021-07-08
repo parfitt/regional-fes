@@ -7,13 +7,10 @@
 		"North East (England)": 1.0
 	},
 	"BLYTH132":{
-		"North East (England)": 0.9993,
-		"Scotland": 0.0007
+		"North East (England)": 1.0
 	},
 	"CHAP":{
-		"North East (England)": 0.0003,
-		"North West (England)": 0.0004,
-		"Scotland": 0.9992
+		"Scotland": 1.0
 	},
 	"ECCL":{
 		"North East (England)": 0.1073,
@@ -23,17 +20,14 @@
 		"North East (England)": 1.0
 	},
 	"HARK_1;HUTT_1;RRIG":{
-		"North East (England)": 0.0038,
-		"North West (England)": 0.9712,
-		"Yorkshire and The Humber": 0.0241,
-		"Scotland": 0.0008
+		"North West (England)": 0.975,
+		"Yorkshire and The Humber": 0.025
 	},
 	"HARM_6":{
 		"North East (England)": 1.0
 	},
 	"HAWI":{
-		"North East (England)": 0.0004,
-		"Scotland": 0.9996
+		"Scotland": 1.0
 	},
 	"HAWP_6":{
 		"North East (England)": 1.0
@@ -43,26 +37,22 @@
 		"Yorkshire and The Humber": 0.3881
 	},
 	"NORT_1":{
-		"North East (England)": 0.1324,
-		"North West (England)": 0.0029,
-		"Yorkshire and The Humber": 0.8646
+		"North East (England)": 0.135,
+		"Yorkshire and The Humber": 0.865
 	},
 	"OFFE_3":{
 		"North East (England)": 1.0
 	},
 	"OSBA_1":{
-		"North East (England)": 0.2717,
-		"North West (England)": 0.0015,
-		"Yorkshire and The Humber": 0.7267,
-		"Scotland": 0.0001
+		"North East (England)": 0.272,
+		"Yorkshire and The Humber": 0.728
 	},
 	"SALH_1":{
 		"North East (England)": 1.0
 	},
 	"SPEN_1":{
-		"North East (England)": 0.926,
-		"North West (England)": 0.0011,
-		"Yorkshire and The Humber": 0.0728
+		"North East (England)": 0.927,
+		"Yorkshire and The Humber": 0.073
 	},
 	"SSHI_3":{
 		"North East (England)": 1.0
@@ -71,8 +61,7 @@
 		"North East (England)": 1.0
 	},
 	"STES_1":{
-		"North East (England)": 0.9993,
-		"Scotland": 0.0007
+		"North East (England)": 1.0
 	},
 	"TYNE_1;TYNE_2":{
 		"North East (England)": 1.0
@@ -85,9 +74,8 @@
 		"Wales": 0.1505
 	},
 	"BRAW_1":{
-		"North West (England)": 0.0366,
-		"Yorkshire and The Humber": 0.9627,
-		"East Midlands (England)": 0.0007
+		"North West (England)": 0.034,
+		"Yorkshire and The Humber": 0.966
 	},
 	"BRED_1":{
 		"North West (England)": 0.9833,
@@ -101,26 +89,22 @@
 		"North West (England)": 1.0
 	},
 	"CELL_1":{
-		"North West (England)": 0.0153,
-		"East Midlands (England)": 0.0004,
-		"West Midlands (England)": 0.9842
+		"North West (England)": 0.016,
+		"West Midlands (England)": 0.984
 	},
 	"CONQA1;SASA":{
 		"North West (England)": 0.0319,
 		"Wales": 0.9681
 	},
 	"ELLA_1":{
-		"North West (England)": 0.0019,
-		"Yorkshire and The Humber": 0.9948,
-		"East Midlands (England)": 0.0033
+		"Yorkshire and The Humber": 1.0
 	},
 	"FIDF_1":{
 		"North West (England)": 1.0
 	},
 	"FROD_1":{
 		"North West (England)": 0.9165,
-		"West Midlands (England)": 0.0835,
-		"Wales": 0.0001
+		"West Midlands (England)": 0.0835
 	},
 	"HEYS_1;HEYS1;ORMO":{
 		"North West (England)": 1.0
@@ -140,9 +124,7 @@
 		"North West (England)": 1.0
 	},
 	"MACC_3":{
-		"North West (England)": 0.992,
-		"East Midlands (England)": 0.0047,
-		"West Midlands (England)": 0.0034
+		"North West (England)": 1.0
 	},
 	"PADIB1":{
 		"North West (England)": 0.6776,
@@ -158,47 +140,40 @@
 		"North West (England)": 1.0
 	},
 	"ROCH_1":{
-		"North West (England)": 0.9927,
-		"Yorkshire and The Humber": 0.0073
+		"North West (England)": 1.0
 	},
 	"SMAN_1":{
 		"North West (England)": 1.0
 	},
 	"STAL_1":{
-		"North West (England)": 0.3656,
-		"Yorkshire and The Humber": 0.0129,
-		"East Midlands (England)": 0.6208,
-		"West Midlands (England)": 0.0008
+		"North West (England)": 0.366,
+		"Yorkshire and The Humber": 0.013,
+		"East Midlands (England)": 0.621
 	},
 	"WASF_1;KIBY_G":{
 		"North West (England)": 1.0
 	},
 	"WHGA_1":{
-		"North West (England)": 0.9968,
-		"Yorkshire and The Humber": 0.0032
+		"North West (England)": 1.0
 	},
 	"WILL_1":{
-		"North West (England)": 0.0,
 		"East Midlands (England)": 0.898,
-		"West Midlands (England)": 0.1019
+		"West Midlands (England)": 0.102
 	},
 	"CAMB_01":{
 		"Yorkshire and The Humber": 1.0
 	},
 	"CHTE_1":{
-		"Yorkshire and The Humber": 0.0067,
-		"East Midlands (England)": 0.9933
+		"East Midlands (England)": 1.0
 	},
 	"CREB_1":{
 		"Yorkshire and The Humber": 1.0
 	},
 	"DRAX_1":{
-		"Yorkshire and The Humber": 0.9987,
-		"East Midlands (England)": 0.0013
+		"Yorkshire and The Humber": 1.0
 	},
 	"FERRA2":{
-		"Yorkshire and The Humber": 0.9974,
-		"East Midlands (England)": 0.0026
+		"Yorkshire and The Humber": 1.0
 	},
 	"FERRB1;FERRB_M":{
 		"Yorkshire and The Humber": 1.0
@@ -239,22 +214,19 @@
 		"Yorkshire and The Humber": 1.0
 	},
 	"SHEC_3":{
-		"Yorkshire and The Humber": 0.997,
-		"East Midlands (England)": 0.003
+		"Yorkshire and The Humber": 1.0
 	},
 	"SKLGB1":{
 		"Yorkshire and The Humber": 1.0
 	},
 	"STAY_1":{
-		"Yorkshire and The Humber": 0.0063,
-		"East Midlands (England)": 0.9937
+		"East Midlands (England)": 1.0
 	},
 	"TEMP_3":{
 		"Yorkshire and The Humber": 1.0
 	},
 	"THOM_6":{
-		"Yorkshire and The Humber": 0.999,
-		"East Midlands (England)": 0.001
+		"Yorkshire and The Humber": 1.0
 	},
 	"THUR_6":{
 		"Yorkshire and The Humber": 0.8188,
@@ -272,21 +244,16 @@
 		"East Midlands (England)": 0.2427
 	},
 	"BESW_1":{
-		"East Midlands (England)": 0.0004,
-		"West Midlands (England)": 0.9995,
-		"South East (England)": 0.0001
+		"West Midlands (England)": 1.0
 	},
 	"BICF_1":{
 		"East Midlands (England)": 1.0
 	},
 	"COVE_1":{
 		"East Midlands (England)": 0.595,
-		"West Midlands (England)": 0.4049,
-		"South East (England)": 0.0
+		"West Midlands (England)": 0.405
 	},
 	"COWL_1;ECLA_H":{
-		"East Midlands (England)": 0.001,
-		"West Midlands (England)": 0.0,
 		"South East (England)": 0.9606,
 		"South West (England)": 0.0384
 	},
@@ -295,8 +262,7 @@
 		"West Midlands (England)": 0.28
 	},
 	"EASO_1":{
-		"East Midlands (England)": 0.0003,
-		"East of England": 0.9997
+		"East of England": 1.0
 	},
 	"ECLA_1":{
 		"East Midlands (England)": 0.3702,
@@ -307,9 +273,8 @@
 		"East Midlands (England)": 1.0
 	},
 	"FECK_6":{
-		"East Midlands (England)": 0.0002,
 		"West Midlands (England)": 0.6876,
-		"South East (England)": 0.1138,
+		"South East (England)": 0.1140,
 		"South West (England)": 0.1984
 	},
 	"GREN_1":{
@@ -328,8 +293,7 @@
 		"East Midlands (England)": 1.0
 	},
 	"WALP_1":{
-		"East Midlands (England)": 0.0007,
-		"East of England": 0.9993
+		"East of England": 1.0
 	},
 	"WALP_B":{
 		"East Midlands (England)": 0.9351,
@@ -366,7 +330,6 @@
 	},
 	"RASS_1":{
 		"West Midlands (England)": 0.0062,
-		"South West (England)": 0.0,
 		"Wales": 0.9938
 	},
 	"RUGEB1":{
@@ -377,21 +340,18 @@
 		"Wales": 0.0626
 	},
 	"USKM_1;ALST_3":{
-		"West Midlands (England)": 0.0001,
 		"South West (England)": 0.032,
-		"Wales": 0.9679
+		"Wales": 0.968
 	},
 	"WALH_1":{
-		"West Midlands (England)": 0.1216,
-		"South West (England)": 0.878,
-		"Wales": 0.0004
+		"West Midlands (England)": 0.122,
+		"South West (England)": 0.878
 	},
 	"WIEN_1":{
 		"West Midlands (England)": 1.0
 	},
 	"AMEM_1":{
-		"East of England": 0.0036,
-		"South East (England)": 0.9964
+		"South East (England)": 1.0
 	},
 	"BARKC1;BARKW3":{
 		"East of England": 0.0805,
@@ -415,13 +375,11 @@
 		"London": 0.1675
 	},
 	"IVER_1;IVER_6":{
-		"East of England": 0.003,
-		"London": 0.1972,
-		"South East (England)": 0.7998
+		"London": 0.20,
+		"South East (England)": 0.80
 	},
 	"MILH_1":{
-		"East of England": 0.0007,
-		"London": 0.9993
+		"London": 1.0
 	},
 	"NORM_1;SALL1":{
 		"East of England": 1.0
@@ -433,8 +391,7 @@
 		"East of England": 1.0
 	},
 	"RYEH_1":{
-		"East of England": 0.9996,
-		"London": 0.0004
+		"East of England": 1.0
 	},
 	"SUND_1":{
 		"East of England": 0.7076,
@@ -524,15 +481,13 @@
 		"London": 1.0
 	},
 	"WIMBS1;WIMBN1":{
-		"London": 0.9999,
-		"South East (England)": 0.0001
+		"London": 1.0
 	},
 	"WISD_6;WISD_1;ACTL_C":{
 		"London": 1.0
 	},
 	"WWEY_1":{
-		"London": 0.0009,
-		"South East (England)": 0.9991
+		"South East (England)": 1.0
 	},
 	"BOLN_1":{
 		"South East (England)": 1.0
