@@ -9,7 +9,7 @@ The following files are in this directory:
 TODO: The first two bullet points relate to the Graphs visualisation. I have not looked at these yet so they are still based on Northern Powergrid code.
 
 * [colours.csv](colours.csv) - this is used to define the colours used for lines on the graphs.
-* [graphs.pl](graphs.pl) - Perl code that generates the graphs and tables. It will need to be re-run if the graph data are updated.
+* [graphs.pl](graphs.pl) - Perl code that generates the graphs and tables (runs in a Github action if `graphs/index.json` or any CSV files in `graphs/` are updated 
 * [gridsupplypoints2nuts1.json](gridsupplypoints2nuts1.json) - how Grid Supply Points split between NUTS1 regions. Can include partial splits but must sum to 1.
 
 ## Sub-directories
