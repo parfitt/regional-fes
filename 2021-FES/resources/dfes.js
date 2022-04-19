@@ -1,5 +1,5 @@
 /*!
- * ODI Leeds Future Energy Scenario viewer
+ * Open Innovations Future Energy Scenario viewer
  */
 (function(root){
 	
@@ -13,14 +13,34 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.2.4";
+		this.version = "1.4.5";
+		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
 		this.parameters = {};
 		this.data = { };
-		this.logging = true;		
+		this.logging = (location.search.indexOf('debug=true') >= 0);	
+		this.log = function(){
+			var a,extra;
+			// Version 1.1.1
+			if(this.logging || arguments[0]=="ERROR" || arguments[0]=="WARNING"){
+				a = Array.prototype.slice.call(arguments, 0);
+				// Build basic result
+				ext = ['%c'+this.title+' '+this.version+'%c: '+a[1],'font-weight:bold;',''];
+				// If there are extra parameters passed we add them
+				if(a.length > 2) ext = ext.concat(a.splice(2));
+				if(console && typeof console.log==="function"){
+					if(arguments[0] == "ERROR") console.error.apply(null,ext);
+					else if(arguments[0] == "WARNING") console.warn.apply(null,ext);
+					else if(arguments[0] == "INFO") console.info.apply(null,ext);
+					else console.log.apply(null,ext);
+				}
+			}
+			return this;
+		};	
 		this.layers = (config.layers||{});
 		this.views = (config.views||{});
+		this.mapping = (config.mapping||{});
 		this.events = {};
 		if(config.on) this.events = config.on;
 
@@ -35,7 +55,7 @@
 					'cache':false,
 					'dataType':'json',
 					'success': function(d,attr){
-						console.info('Got '+attr.url);
+						this.log('INFO','Got '+attr.url);
 						this.data.scenarios = d;
 						this.init();
 					},
@@ -53,15 +73,15 @@
 	}
 
 	FES.prototype.init = function(){
-
+		var html,s,l,p,css,g,gorder,groups;
 		if(this.options.scale=="absolute"){
 			S('#scale-holder input').attr('checked','checked');
 			S('#scale-holder').addClass('checked');
 		}
 
 		if(this.data.scenarios && S('#scenarios').length==0){
-			var html = "";
-			for(var s in this.data.scenarios) html += "<option"+(this.options.scenario == s ? " selected=\"selected\"":"")+" class=\"b1-bg\" value=\""+s+"\">"+s+"</option>";	//  class=\""+this.options.scenarios[s].css+"\"
+			html = "";
+			for(s in this.data.scenarios) html += "<option"+(this.options.scenario == s ? " selected=\"selected\"":"")+" class=\"b1-bg\" value=\""+s+"\">"+s+"</option>";	//  class=\""+this.options.scenarios[s].css+"\"
 			S('#scenario-holder').html('<select id="scenarios">'+html+'</select>');
 			S('#scenarios').on('change',{'me':this},function(e){
 				e.preventDefault();
@@ -69,8 +89,8 @@
 			});
 		}
 		if(this.views && S('#view').length==0){
-			var html = "";
-			for(var l in this.views){
+			html = "";
+			for(l in this.views){
 				if(!this.views[l].inactive) html += "<option"+(this.options.view == l ? " selected=\"selected\"":"")+" value=\""+l+"\">"+this.views[l].title+"</option>";
 			}
 			S('#view-holder').html('<select id="views">'+html+'</select>');
@@ -80,47 +100,56 @@
 			});
 		}
 		if(this.parameters && S('#parameters').length==0){
-			var html = "";
+			html = "";
 			if(!this.data.scenarios[this.options.scenario]) this.message('Scenario <em>"'+this.options.scenario+'"</em> is not defined in index.json.',{'id':'scenario','type':'ERROR'});
-			var css = this.data.scenarios[this.options.scenario].css;
-			for(var p in this.parameters) html += "<option"+(this.options.parameter == p ? " selected=\"selected\"":"")+" value=\""+p+"\">"+this.parameters[p].title+"</option>";
+			css = this.data.scenarios[this.options.scenario].css;
+			gorder = [];
+			groups = {};
+			for(p in this.parameters){
+				g = this.parameters[p].optgroup||"all";
+				if(!groups[g]){
+					groups[g] = [];
+					gorder.push(g);
+				}
+				groups[g].push(p);
+			}
+			for(i = 0; i < gorder.length; i++){
+				g = gorder[i];
+				if(g != "all") html += '<optgroup label="'+g+'">';
+				for(j = 0; j < groups[g].length; j++){
+					p = groups[g][j];
+					html += "<option"+(this.options.parameter == p ? " selected=\"selected\"":"")+" value=\""+p+"\">"+this.parameters[p].title+"</option>";
+				}
+				if(g != "all") html += '</optgroup>';
+			}
 			S('#parameter-holder').html('<select id="parameters">'+html+'</select><div class="about"></div>');
-			S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+"-text");
+			S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+'');
 			S('#parameters').on('change',{'me':this},function(e){
 				e.preventDefault();
 				e.data.me.setParameter(e.currentTarget.value);
 			});
 		}
 
-		window.addEventListener("load", function () {
-			var switches = document.getElementsByClassName("switch");
-			switches[0].click();
-			document.getElementById("scale-holder").click();
-		});
-		
-
 		// Add events to toggle switch		
 		S('#scale-holder input').on('change',{me:this},function(e){
 			e.preventDefault();
 			e.data.me.setScale(e.currentTarget.checked);
-		})
-
-		S('#scale-holder .switch').on('click', { me: this }, function (e) {
+		});
+		S('#scale-holder .switch').on('click',{me:this},function(e){
 			var el = S('#scale-holder input');
 			el[0].checked = !el[0].checked;
 			e.data.me.setScale(el[0].checked);
-		})
+		});
 
 		// Create the slider
 		this.slider = document.getElementById('slider');
+		console.log(parseInt(this.options.key));
 		noUiSlider.create(this.slider, {
 			start: [parseInt(this.options.key)],
 			step: 1,
+			snap: true,
 			connect: true,
-			range: {
-				'min': this.options.years.min,
-				'max': this.options.years.max
-			},
+			range: this.options.years,
 			pips: {
 				mode: 'values',
 				stepped: true,
@@ -130,27 +159,29 @@
 		});
 		var _obj = this;
 		// Bind the changing function to the update event.
-		this.slider.noUiSlider.on('update', function () {
-			_obj.setYear(''+parseInt(slider.noUiSlider.get()));
-		});
+		this.slider.noUiSlider.on('update',function(){ console.log('setYear',this.get()	); _obj.setYear(''+parseInt(this.get())); });
 		
 		this.setScenario(this.options.scenario);
 		
+		// Trigger the setParameter callback (because we aren't explicity calling it)
+		if(typeof this.events.setParameter==="function") this.events.setParameter.call(this);
+
+		this.updateSlider();
 
 		S('#play').on('click',{me:this},function(e){
 			e.preventDefault();
 			e.stopPropagation();
 			e.data.me.startAnimate();
-		})
+		});
 
 		S('#pause').on('click',{me:this},function(e){
 			e.preventDefault();
 			e.stopPropagation();
 			e.data.me.stopAnimate();
-		})
+		});
 		
 		return this;
-	}
+	};
 	
 	FES.prototype.startAnimate = function(){
 		//this.slider.noUiSlider.set(this.options.years.min);
@@ -165,7 +196,7 @@
 			else _obj.stopAnimate();
 		},500);
 		return this;
-	}
+	};
 	
 	FES.prototype.stopAnimate = function(){
 		clearInterval(this.options.years.interval);
@@ -173,11 +204,11 @@
 		S('#pause')[0].disabled = true;
 
 		return this;
-	}
+	};
 	
-	FES.prototype.loadScenarioData = function(callback){
+	FES.prototype.loadData = function(callback){
 
-		S().ajax(path+"data/scenarios/"+this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].file,{
+		S().ajax(path+"data/scenarios/"+this.data.scenarios[this.options.scenario].data[this.options.parameter].file,{
 			'this':this,
 			'cache':false,
 			'dataType':'text',
@@ -185,21 +216,20 @@
 			'parameter': this.options.parameter,
 			'callback': callback,
 			'success': function(d,attr){
-				console.info('Got '+attr.url);
+				this.log('INFO','Got '+attr.url);
 				this.loadedData(d,attr.scenario,attr.parameter,attr.callback);
 			},
 			'error': function(e,attr){
 				this.message('Unable to load '+attr.url.replace(/\?.*/,""),{'id':'error','type':'ERROR'});
 			}
 		});
-	
-	}
+	};
 	
 	FES.prototype.setScenarioColours = function(scenario){
 		var css = this.data.scenarios[scenario].css;
 		if(S('#scenario-holder .about').length==0) S('#scenario-holder').append('<div class="about"></div>');
-		S('#scenario-holder .about').html(this.data.scenarios[scenario].description||'').attr('class','about '+css+'-text');
-		S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+'-text');
+		S('#scenario-holder .about').html(this.data.scenarios[scenario].description||'').attr('class','about '+css+'');
+		S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+'');
 
 		for(var s in this.data.scenarios){
 			S('#scenarios').removeClass(this.data.scenarios[s].css);
@@ -207,12 +237,12 @@
 		}
 		S('#scenarios').addClass(css);
 		S('.scenario').addClass(css);
-		//S('header .ODIlogo img').attr('src','https://odileeds.org/resources/images/odileeds-'+(css.replace(/[cs]([0-9]+)-bg/,function(m,p1){ return p1; }))+'.svg');
 		S('.noUi-connect').attr('class','noUi-connect '+css);
 		return this;
-	}
+	};
 
 	FES.prototype.setScenario = function(scenario){
+		this.log('INFO','setScenario');
 
 		// Set the scenario
 		this.options.scenario = scenario;
@@ -220,31 +250,36 @@
 		// Clear messages
 		this.message('',{'id':'warn','type':'WARNING'});
 		this.message('',{'id':'error','type':'ERROR'});
-				
-				
+
 		// Update the CSS class
 		this.setScenarioColours(scenario);
 
-		this.options.source = this.views[this.options.view].source;
 		if(!this.data.scenarios[scenario].data[this.options.parameter]){
 			this.message('We have no data for '+this.parameters[this.options.parameter].title+' under '+this.options.scenario,{'id':'error','type':'ERROR'});
 		}else{
 			this.message('',{'id':'error','type':'ERROR'});
-			if(!this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].raw){
-				this.loadScenarioData(function(){
-					this.buildMap();
+			if(!this.data.scenarios[this.options.scenario].data[this.options.parameter].raw){
+				this.loadData(function(){
+					// Map the data
+					this.mapData();
+					this.updateSlider();
 				});
 			}else{
 				this.message('',{'id':'error'});
-				// Re-draw the map
-				this.buildMap();
+				// Map the data
+				this.mapData();
+				this.updateSlider();
 			}
 		}
+		
+		// Trigger any event callback
+		if(typeof this.events.setScenario==="function") this.events.setScenario.call(this);
 
 		return this;
-	}
+	};
 
 	FES.prototype.setView = function(v){
+		this.log('INFO','setView');
 
 		// Clear messages
 		this.message('',{'id':'warn','type':'WARNING'});
@@ -252,20 +287,20 @@
 
 		if(this.views[v]){
 			this.options.view = v;
-			this.options.source = this.views[this.options.view].source;
-			this.buildMap();
+			this.mapData();
 		}else{
 			this.message('The view '+v+' does not exist!',{'id':'error','type':'ERROR'});
 		}
 		return this;
-	}
+	};
 
 	FES.prototype.setParameter = function(v){
+		this.log('INFO','setParameter',v);
 
 		// Clear messages
 		this.message('',{'id':'warn','type':'WARNING'});
 		this.message('',{'id':'error','type':'ERROR'});
-
+		
 		if(this.parameters[v]){
 			this.options.parameter = v;
 			this.message('',{'id':'error','type':'ERROR'});
@@ -278,51 +313,275 @@
 				if(!this.data.scenarios[this.options.scenario].data[this.options.parameter]){
 					this.message('We have no data for '+this.parameters[v].title+' under '+this.options.scenario,{'id':'error','type':'ERROR'});
 				}else{
-					if(!this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].raw){
+					// We don't have the raw data for this scenario/parameter
+					if(!this.data.scenarios[this.options.scenario].data[this.options.parameter].raw){
 						// Load the scenario data
-						this.loadScenarioData(function(){ this.buildMap(); });
+						this.loadData(function(){
+							// Map the data
+							this.mapData();
+							this.updateSlider();
+						});
 					}else{
-						this.buildMap();
+						// Map the data
+						this.mapData();
+						this.updateSlider();
 					}
 				}
 			}
 		}
+
+		// Trigger any event callback
+		if(typeof this.events.setParameter==="function") this.events.setParameter.call(this);
+
 		return this;
-	}
+	};
+	
+	FES.prototype.updateSlider = function(){
+		this.log('INFO','updateSlider');
+
+		var min,max,y,k,range,years;
+		range = clone(this.options.years);
+
+		// Find possible years
+		if(this.data.scenarios[this.options.scenario].data[this.options.parameter].raw){
+			years = clone(this.data.scenarios[this.options.scenario].data[this.options.parameter].raw.fields.name);
+
+			// Remove first column
+			years.shift();
+			min = this.options.years.min;
+			max = this.options.years.max;
+			for(y = 0; y < years.length; y++){
+				k = 100*(years[y]-min)/(max-min);
+				if(k >= 0){
+					range[Math.round(k)+'%'] = years[y];
+				}
+			}
+		}
+		// Update the slider range and position
+		this.slider.noUiSlider.updateOptions({range:range});
+		this.slider.noUiSlider.updateOptions({start:this.options.key});
+		return this;
+	};
 	
 	FES.prototype.setScale = function(checked){
+		this.log('INFO','setScale',checked);
 		this.options.scale = (checked ? "absolute":"relative");
 		if(checked) S('#scale-holder').addClass('checked');
 		else S('#scale-holder').removeClass('checked');
-		this.buildMap();
-	}
+		this.mapData();
+		return this;
+	};
 
 	FES.prototype.setYear = function(y){
+		this.log('INFO','setYear',y);
 		if(this.map){
 			this.options.key = y;
-			this.buildMap();
+			this.mapData();
 		}
 		S('.year').html(y);
 		return this;
-	}
+	};
 
-	FES.prototype.loadedData = function(d,scenario,parameter,callback){
-	
-		var r,c,v,p,a,l,key,min,max,source;
-		var data = this.data.scenarios[scenario].data[parameter][this.options.source];
+	FES.prototype.mapData = function(){
+		this.log('INFO','mapData');
 
-		if(!data.key){
-			this.log('ERROR','No key provided for '+scenario+' '+parameter+' '+this.options.source);
+		var s,p,v,data,l,id,a,key,val,pkey,min,max,d,r,c;
+		s = this.options.scenario;
+		p = this.options.parameter;
+		v = this.options.view;
+		data = this.data.scenarios[s].data[p];
+
+		// Check we have the raw data
+		if(!data.raw){
+			this.log('ERROR','No raw data available for '+s+'/'+p+'');
+			return this;
+		}
+		
+		// Check we have columns
+		if(typeof data.col==="undefined"){
+			this.log('ERROR','No columns in the data',data);
 			return this;
 		}
 
+		// Have we defined the layers object?
+		if(!data.layers) data.layers = {};
+
+		id = "";
+		// We need to loop over the view's layers
+		for(l = 0; l < this.views[v].layers.length; l++){
+			// If this is a heatmap layer we need mapping
+			if(this.views[v].layers[l].heatmap) id = this.views[v].layers[l].id;
+		}
+		
+		if(!id){
+			this.log('ERROR','No heatmap defined for '+v);
+			return this;
+		}
+		
+		
+		if(!data.layers[v]){
+			// Have we loaded the code mapping for this view's 
+			if(!this.mapping[data.dataBy][id].data && typeof this.mapping[data.dataBy][id].file==="string"){
+				// Load from JSON file
+				S().ajax(path+this.mapping[data.dataBy][id].file,{
+					'this':this,
+					'cache':false,
+					'dataType':'json',
+					'id':id,
+					'dataBy':data.dataBy,
+					'scenario':s,
+					'parameter':p,
+					'complete': function(d,attr){
+						this.log('INFO','Got '+attr.url);
+						this.mapping[attr.dataBy][attr.id].raw = d;
+						if(typeof this.mapping[attr.dataBy][attr.id].process==="function") d = this.mapping[attr.dataBy][attr.id].process.call(this,d);
+						this.mapping[attr.dataBy][attr.id].data = d;
+						this.mapData();
+					},
+					'error': function(e,attr){
+						this.message('Unable to load '+attr.url.replace(/\?.*/,""),{'id':'error','type':'ERROR'});
+					}
+				});
+				return this;
+			}else{
+				
+				// v = the view type
+				if(!data.layers[v]){
+					// Default with no mapping needed
+					data.layers[v] = {'values':{},'fullrange':{},'processing':{}};
+
+					min = 1e100;
+					max = -1e100;
+					
+					// Get the data source (which may be different to the one we loaded)
+					d = this.data.scenarios[s].data[p];
+
+					// Loop over data rows
+					for(r = 0; r < d.raw.rows.length; r++){
+
+						// The primary key e.g. an LSOA11CD
+						pkey = d.raw.rows[r][data.col];
+
+						if(this.mapping[data.dataBy][id].data){
+							if(this.mapping[data.dataBy][id].data[pkey]){
+								for(a in this.mapping[data.dataBy][id].data[pkey]){
+									if(!data.layers[v].values[a]) data.layers[v].values[a] = {};
+									if(!data.layers[v].processing[a]) data.layers[v].processing[a] = {};
+									for(c = 0; c < d.raw.fields.name.length; c++){
+										// Set values to zero
+										key = d.raw.fields.name[c];
+										// The column seems to be a year
+										if(c != data.col && parseInt(key)==key && !data.layers[v].values[a][key]){
+											data.layers[v].values[a][key] = 0;
+											data.layers[v].processing[a][key] = [];
+										}
+									}
+								}
+							}else{
+								this.log('WARNING','No mapping',id,pkey);
+							}
+						}else{
+							if(!data.layers[v].values[pkey]) data.layers[v].values[pkey] = {};
+						}
+					}
+					for(r = 0; r < d.raw.rows.length; r++){
+
+						// The primary key e.g. an LSOA11CD
+						pkey = d.raw.rows[r][data.col];
+
+						// Loop over columns in the raw data
+						for(c = 0; c < d.raw.fields.name.length; c++){
+							// Check if the column seems to be a year (the int version should match the label)
+							if(c != data.col && parseInt(d.raw.fields.name[c])==d.raw.fields.name[c]){
+
+								if(d.raw.rows[r][c]=="") d.raw.rows[r][c] = 0;
+
+								val = d.raw.rows[r][c];
+								key = d.raw.fields.name[c]+"";
+
+								if(this.mapping[data.dataBy][id].data){
+									if(this.mapping[data.dataBy][id].data[pkey]){
+										// We need to add a processing step to include everything that makes up this area
+										for(a in this.mapping[data.dataBy][id].data[pkey]){
+											data.layers[v].processing[a][key].push({'v':val,'src':pkey,'f':this.mapping[data.dataBy][id].data[pkey][a]});
+										}
+									}
+								}else{
+									// If this layer uses the current source as "data" we can skip the processing step
+									data.layers[v].values[pkey][key] = (typeof val==="number") ? val : d.raw.rows[r][c];
+								}
+							}
+						}
+
+					}
+					// If we need to do processing
+					for(a in data.layers[v].processing){
+						for(key in data.layers[v].processing[a]){
+							val = 0;
+							for(i = 0; i < data.layers[v].processing[a][key].length; i++){
+								if(this.parameters[p].combine=="sum" || this.parameters[p].combine=="average"){
+									// Find the fractional contribution
+									val += data.layers[v].processing[a][key][i].v*data.layers[v].processing[a][key][i].f;
+								}else if(this.parameters[p].combine=="max"){
+									// Find the maximum of any contribution
+									val = Math.max(val,data.layers[v].processing[a][key][i].v);
+								}
+							}
+							if(this.parameters[p].combine=="average"){
+								val /= data.layers[v].processing[a][key].length;
+							}
+							data.layers[v].values[a][key] = val;
+						}
+					}
+				}else{
+					this.log('INFO','Already processed '+v+' '+id);
+				}
+
+				// Find minimum and maximum values
+				for(pkey in data.layers[v].values){
+					for(key in data.layers[v].values[pkey]){
+						if(!isNaN(data.layers[v].values[pkey][key])){
+							min = Math.min(min,data.layers[v].values[pkey][key]);
+							max = Math.max(max,data.layers[v].values[pkey][key]);
+						}else{
+							// Ignore fields that aren't years
+						}
+					}
+				}
+
+				data.layers[v].fullrange = {'min':min,'max':max};
+			}
+		}
+
+
+		// Save the result
+		this.data.scenarios[s].data[p] = data;
+
+		// Update the map
+		this.buildMap();
+		return this;
+	};
+
+	FES.prototype.loadedData = function(d,scenario,parameter,callback){
+
+		var r,c,data,i,col,n;
+		data = this.data.scenarios[scenario].data[parameter];
+
+		if(!data.dataBy){
+			this.log('ERROR','No dataBy property set for '+scenario+' '+parameter);
+			return this;
+		}
+		if(!data.key){
+			this.log('ERROR','No key provided for '+scenario+' '+parameter+' '+data.dataBy);
+			return this;
+		}
 		if(!data.layers) data.layers = {};
 		if(!data.raw){
 			data.raw = CSV2JSON(d,1);
 
 			// Find the column number for the column containing the name
 			// And convert year headings to integers
-			var col = -1;
+			col = -1;
 			for(i = 0; i < data.raw.fields.name.length; i++){
 				n = data.raw.fields.name[i];
 				if(parseFloat(n) == n) data.raw.fields.name[i] = parseInt(n);
@@ -340,179 +599,35 @@
 			if(col >= 0) data.col = col;
 		}
 
-		if(data.col >= 0){
-			
-			// Loop over the layers
-			for(l in this.layers){
-
-				// If this layer hasn't already been defined we try to make it
-				if(!data.layers[l]){
-
-					if(this.layers[l].data){
-
-						if(this.layers[l].data.mapping && !this.layers[l].data.mapping.data && typeof this.layers[l].data.mapping.src==="string"){
-							// Process data layers that need a mapping
-
-							// Load from JSON file
-							S().ajax(path+this.layers[l].data.mapping.src,{
-								'this':this,
-								'cache':false,
-								'dataType':'json',
-								'layer':l,
-								'scenario':scenario,
-								'parameter':parameter,
-								'source':this.options.source,
-								'callback':callback,
-								'complete': function(d,attr){
-									console.info('Got '+attr.url);
-									this.layers[attr.layer].data.mapping.raw = d;
-									if(typeof this.layers[attr.layer].data.mapping.process==="function"){
-										d = this.layers[attr.layer].data.mapping.process.call(this,d);
-									}
-									this.layers[attr.layer].data.mapping.data = d;
-									this.loadedData('',attr.scenario,attr.parameter,attr.callback);
-								},
-								'error': function(e,attr){
-									this.message('Unable to load '+attr.url.replace(/\?.*/,""),{'id':'error','type':'ERROR'});
-								}
-							});
-							return this;
-
-						}else{
-							
-							source = this.layers[l].data.src;
-							if(source && this.data.scenarios[scenario].data[parameter][source]){
-
-								// No mapping needed
-								data.layers[l] = {'values':{},'fullrange':{}};
-
-								min = 1e100;
-								max = -1e100;
-								
-								// Get the data source (which may be different to the one we loaded)
-								d = this.data.scenarios[scenario].data[parameter][source];
-
-								// Loop over data rows
-								for(r = 0; r < d.raw.rows.length; r++){
-
-									// The primary key
-									pkey = d.raw.rows[r][data.col];
-									if(this.layers[l].data.mapping && this.layers[l].data.mapping.data){
-										if(this.layers[l].data.mapping.data[pkey]){
-											for(a in this.layers[l].data.mapping.data[pkey]){
-												if(!data.layers[l].values[a]) data.layers[l].values[a] = {};
-												for(c = 0; c < d.raw.fields.name.length; c++){
-													// Set values to zero
-													key = d.raw.fields.name[c];
-													if(c != col && parseInt(key)==key && !data.layers[l].values[a][key]){
-														data.layers[l].values[a][key] = 0;
-													}
-												}
-											}
-										}
-									}else{
-										if(!data.layers[l].values[pkey]) data.layers[l].values[pkey] = {};
-									}
-
-									// Loop over columns in the raw data
-									for(c = 0; c < d.raw.fields.name.length; c++){
-										if(c != col && parseInt(d.raw.fields.name[c])==d.raw.fields.name[c]){
-
-											if(d.raw.rows[r][c]=="") d.raw.rows[r][c] = 0;
-
-											v = d.raw.rows[r][c];
-
-											if(this.layers[l].data.mapping && this.layers[l].data.mapping.data){
-												if(this.layers[l].data.mapping.data[pkey]){
-
-													key = d.raw.fields.name[c]+"";
-
-													for(a in this.layers[l].data.mapping.data[pkey]){
-
-														if(this.parameters[parameter].combine=="sum"){
-
-															// Sum the fractional amount for this mapped area
-															data.layers[l].values[a][key] += (v*this.layers[l].data.mapping.data[pkey][a]);
-
-														}else if(this.parameters[parameter].combine=="max"){
-
-															// Find the maximum value for mapped areas
-															data.layers[l].values[a][key] = Math.max(v,data.layers[l].values[a][key]);
-
-														}
-													}
-												}
-
-											}else{
-												// If this layer uses the current source as "data" we can set it
-												data.layers[l].values[pkey][d.raw.fields.name[c]] = (typeof v==="number") ? v : d.raw.rows[r][c];
-											}
-										}
-									}
-								}
-
-								// Find minimum and maximum values
-								for(pkey in data.layers[l].values){
-									for(key in data.layers[l].values[pkey]){
-										if(!isNaN(data.layers[l].values[pkey][key])){
-											min = Math.min(min,data.layers[l].values[pkey][key]);
-											max = Math.max(max,data.layers[l].values[pkey][key]);
-										}else{
-											// Ignore fields that aren't years
-										}
-									}
-								}
-
-								data.layers[l].fullrange = {'min':min,'max':max};
-							}else{
-								this.log('ERROR','No source data loaded for '+source);
-								return this;
-							}
-						}
-					}else{
-						this.log('ERROR','No data attribute provided for layer '+l);
-						return this;
-					}
-				}
-
-			}	// End loop over layers
-
-		}
-
-		this.data.scenarios[scenario].data[parameter][this.options.source] = data;
+		// Set the data
+		this.data.scenarios[scenario].data[parameter] = data;
 
 		if(typeof callback==="function") callback.call(this);
 
 		return this;
-	}
+	};
 
 	FES.prototype.buildMap = function(){
+		this.log('INFO','buildMap');
 
-		var bounds = L.latLngBounds(L.latLng(56.01680,2.35107),L.latLng(52.6497,-5.5151));
+		var _obj,i,mapel,mapid,info,color,ncolor,min,max,v,l,_id,_l,lid,view,bounds;
+		bounds = L.latLngBounds(L.latLng(56.01680,2.35107),L.latLng(52.6497,-5.5151));
 		if(this.options.map && this.options.map.bounds) bounds = L.latLngBounds(L.latLng(this.options.map.bounds[0][0],this.options.map.bounds[0][1]),L.latLng(this.options.map.bounds[1][0],this.options.map.bounds[1][1]));
-		
-		function makeMarker(colour){
-			return L.divIcon({
-				'className': '',
-				'html':	'<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="7.0556mm" height="11.571mm" viewBox="0 0 25 41.001" id="svg2" version="1.1"><g id="layer1" transform="translate(1195.4,216.71)"><path style="fill:%COLOUR%;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" d="M 12.5 0.5 A 12 12 0 0 0 0.5 12.5 A 12 12 0 0 0 1.8047 17.939 L 1.8008 17.939 L 12.5 40.998 L 23.199 17.939 L 23.182 17.939 A 12 12 0 0 0 24.5 12.5 A 12 12 0 0 0 12.5 0.5 z " transform="matrix(1,0,0,1,-1195.4,-216.71)" id="path4147" /><ellipse style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.428;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" id="path4173" cx="-1182.9" cy="-204.47" rx="5.3848" ry="5.0002" /></g></svg>'.replace(/%COLOUR%/,colour||"#000000"),
-				iconSize:	 [25, 41], // size of the icon
-				shadowSize:	 [41, 41], // size of the shadow
-				iconAnchor:	 [12.5, 41], // point of the icon which will correspond to marker's location
-				shadowAnchor: [12.5, 41],	// the same for the shadow
-				popupAnchor:	[0, -41] // point from which the popup should open relative to the iconAnchor
-			});
-		}
 
-		var _obj = this;
+		_obj = this;
 		if(!this.map){
-			var mapel = S('#map');
-			var mapid = mapel.attr('id');
+			mapel = S('#map');
+			mapid = mapel.attr('id');
 			this.map = L.map(mapid,{'scrollWheelZoom':true}).fitBounds(bounds);
-			
 			this.map.on('popupopen',function(e){
 				// Call any attached functions
-				if(_obj.views[_obj.options.view].popup && _obj.views[_obj.options.view].popup['open']){
-					_obj.views[_obj.options.view].popup['open'].call(_obj,{'el':e.popup._contentNode,'id':e.popup._source.feature.properties[_obj.layers[_obj.views[_obj.options.view].layers[0].id].key]});
+				if(_obj.views[_obj.options.view].popup && _obj.views[_obj.options.view].popup.open){
+					var l,i;
+					l = -1;
+					for(i = 0; i < _obj.views[_obj.options.view].layers.length; i++){
+						if(_obj.views[_obj.options.view].layers[i].heatmap) l = i;
+					}
+					if(l>=0) _obj.views[_obj.options.view].popup.open.call(_obj,{'el':e.popup._contentNode,'id':e.popup._source.feature.properties[_obj.layers[_obj.views[_obj.options.view].layers[l].id].key]});
 				}
 			});
 			this.map.attributionControl._attributions = {};
@@ -535,32 +650,32 @@
 				maxZoom: 19
 			}).addTo(this.map);
 			
-			var info = L.control({'position':'topright'});
+			info = L.control({'position':'topright'});
 			info.onAdd = function(map){
 				this._div = L.DomUtil.create('div','scenario');
 				this._div.innerHTML = '<div class="year padded">'+_obj.options.key+'</div>';
 				return this._div;
-			}
+			};
 			info.addTo(this.map);
 			this.setScenarioColours(this.options.scenario);
 			
 		}
 
-		var color = (this.data.scenarios[this.options.scenario].color||"#000000");
+		color = (this.data.scenarios[this.options.scenario].color||"#000000");
+		ncolor = (this.data.scenarios[this.options.scenario].negativecolor||"#404040");
 
-		if(!this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].raw){
+		if(!this.data.scenarios[this.options.scenario].data[this.options.parameter].raw){
 			this.log('ERROR','Scenario '+this.options.scenario+' not loaded',this.data.scenarios[this.options.scenario].data[this.options.parameter]);
 			return this;
 		}
 
-		var min = 0;
-		var max = 1;
-		var _obj = this;
-		var _scenario = this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].layers;
+		min = 0;
+		max = 1;
+		var _scenario = this.data.scenarios[this.options.scenario].data[this.options.parameter].layers;
 
 		if(_scenario[this.options.view]){
-			var min = 1e100;
-			var max = -1e100;
+			min = 1e100;
+			max = -1e100;
 			for(i in _scenario[this.options.view].values){
 				v = _scenario[this.options.view].values[i][this.options.key];
 				if(typeof v==="number"){
@@ -570,11 +685,15 @@
 			}
 		}
 
+		this.log('INFO','buildMap2');
+
+		var layer,_geojson,gotlayers,visible,id;
+
 		if(this.map){
 
-			var gotlayers = true;
+			gotlayers = true;
 
-			for(var l = 0 ; l < this.views[this.options.view].layers.length; l++){
+			for(l = 0 ; l < this.views[this.options.view].layers.length; l++){
 
 				layer = this.views[this.options.view].layers[l];
 
@@ -589,7 +708,7 @@
 						'view': this.options.view,
 						'id': layer.id,
 						'complete': function(d,attr){
-							console.info('Got '+attr.url);
+							this.log('INFO','Got '+attr.url);
 							this.layers[attr.id].geojson = d;
 							this.buildMap();
 						},
@@ -603,14 +722,27 @@
 
 			}
 
-			if(!gotlayers){
-				return this;
-			}else{
+			if(!gotlayers) return this;
+			else{
 			
 				this.message('',{'id':'warn','type':'WARNING'});
 
 				_geojson = [];
-
+				
+				var highlightFeature = function(e){
+					var layer = e.target;
+					layer.setStyle({
+						weight: 2,
+						color: color,
+						opacity: 1,
+						stroke: true
+					});
+					if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) layer.bringToFront();
+				};
+				var resetHighlight = function(e){
+					// Reset all the layer styles
+					for(var l = 0; l < _geojson.length; l++) _geojson[l].resetStyle(e.target);
+				};
 
 				// Remove existing layers
 				for(var l in this.layers){
@@ -620,28 +752,8 @@
 					}
 				}
 
-				// Make copies of variables we'll use inside functions
-				//_scenario = this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].layers;
-
-
 				// Re-build the layers for this view
-				for(var l = 0; l < this.views[this.options.view].layers.length; l++){
-					
-					var highlightFeature = function(e){
-						var layer = e.target;
-						layer.setStyle({
-							weight: 2,
-							color: color,
-							opacity: 1,
-							stroke: true
-						});
-						if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) layer.bringToFront();
-					}
-
-					var resetHighlight = function(e){
-						for(var l = 0; l < _geojson.length; l++) _geojson[l].resetStyle(e.target);
-					}
-					
+				for(l = 0; l < this.views[this.options.view].layers.length; l++){
 					this.views[this.options.view].layers[l].geoattr = {
 						"style": {
 							"color": (this.views[this.options.view].layers[l].boundary ? this.views[this.options.view].layers[l].boundary.color||color : color),
@@ -652,56 +764,68 @@
 						}
 					};
 
-
-					var _id = this.views[this.options.view].layers[l].id;
+					_id = this.views[this.options.view].layers[l].id;
 
 					if(this.views[this.options.view].layers[l].heatmap){
 
-						var _l = l;
+						_l = l;
 						this.views[this.options.view].layers[l].range = {'min':0,'max':1};
-						view = this.views[this.options.view].layers[l].id;
+						lid = this.views[this.options.view].layers[l].id;
+						view = this.options.view;
 						if(_scenario[view]){
-							this.views[this.options.view].layers[l].range = {'min':1e100,'max':-1e100};
+							this.views[view].layers[l].range = {'min':1e100,'max':-1e100};
 							for(i in _scenario[view].values){
 								if(this.options.scale == "absolute"){
 									// We have pre-calculated the range
 
-									this.views[this.options.view].layers[l].range = this.data.scenarios[this.options.scenario].data[this.options.parameter][this.options.source].layers[view].fullrange;
+									this.views[view].layers[l].range = this.data.scenarios[this.options.scenario].data[this.options.parameter].layers[view].fullrange;
 								}else{
 									v = _scenario[view].values[i][this.options.key];
 									if(typeof v==="number"){
-										this.views[this.options.view].layers[l].range.min = Math.min(v,this.views[this.options.view].layers[l].range.min);
-										this.views[this.options.view].layers[l].range.max = Math.max(v,this.views[this.options.view].layers[l].range.max);
+										this.views[view].layers[l].range.min = Math.min(v,this.views[view].layers[l].range.min);
+										this.views[view].layers[l].range.max = Math.max(v,this.views[view].layers[l].range.max);
 									}
 								}
 							}
 						}
-						
+
 						// Get a nicer range
 						this.views[this.options.view].layers[l].range = niceRange(this.views[this.options.view].layers[l].range.min,this.views[this.options.view].layers[l].range.max);
 						if(!this.views[this.options.view].layers[l].colour){
 							this.views[this.options.view].layers[l].colour = new Colours();
 						}
+
 						// Add/update a continuous colour scale
 						this.views[this.options.view].layers[l].colourscale = 'DFES-continuous';
 						this.views[this.options.view].layers[l].colour.addScale(this.views[this.options.view].layers[l].colourscale,getRGBAstr(color,0.0)+' 0%, '+getRGBAstr(color,0.8)+' 100%');
+
+						// If the colourscale for this parameter is diverging we change the scale
+						if(this.parameters[this.options.parameter].diverging){
+							// Set a text label (not used anywhere yet)
+							this.views[this.options.view].layers[l].colourscale = 'DFES-diverging';
+							// Set the colour stops from ncolour (opacity 1) to white (opacity 0) to colour (opacity 1)
+							this.views[this.options.view].layers[l].colour.addScale(this.views[this.options.view].layers[l].colourscale,getRGBAstr(ncolor,1)+' 0%, rgba(255,255,255,0) 50%, '+getRGBAstr(color,0.8)+' 100%');
+							// Update the range to be the same amount either side of zero
+							this.views[this.options.view].layers[l].range.max = Math.max(Math.abs(this.views[this.options.view].layers[l].range.min),Math.abs(this.views[this.options.view].layers[l].range.max));
+							this.views[this.options.view].layers[l].range.min = -this.views[this.options.view].layers[l].range.max;
+						}
+
+						// If the map scale needs to be quantised we now quantise the colour scale
 						if(typeof this.options.map.quantised==="number"){
-							// Add/update a quantised colour scale
 							this.views[this.options.view].layers[l].colour.quantiseScale(this.views[this.options.view].layers[l].colourscale,this.options.map.quantised,'DFES-quantised');
 							this.views[this.options.view].layers[l].colourscale = 'DFES-quantised';
 						}
 							
 						// Update the scale bar
-						S('#scale').html(makeScaleBar(this.views[this.options.view].layers[l].colour.getGradient( this.views[this.options.view].layers[l].colourscale ),{
+						S('#scale').html(this.makeScaleBar(this.views[this.options.view].layers[l].colour.getGradient( this.views[this.options.view].layers[l].colourscale ),{
 							'min': this.views[this.options.view].layers[l].range.min,
 							'max': this.views[this.options.view].layers[l].range.max,
 							'color': color,
-							'units': this.parameters[this.options.parameter].units,
 							'scale': this.views[this.options.view].layers[l].colour,
 							'scaleid': this.views[this.options.view].layers[l].colourscale,
 							'levels': (typeof this.options.map.quantised==="number" ? this.options.map.quantised : undefined)
 						}));
-						
+
 						// Define the GeoJSON attributes for this layer
 						this.views[this.options.view].layers[l].geoattr.style = function(feature){
 							var layer = _obj.views[_obj.options.view].layers[_l];
@@ -713,13 +837,12 @@
 							};
 							if(layer.boundary && typeof layer.boundary.stroke==="boolean") props.stroke = layer.boundary.stroke;
 							if(feature.geometry.type == "Polygon" || feature.geometry.type == "MultiPolygon"){
-								var c = {'r':0,'g':0,'b':0,'alpha':0};
-								var data = _scenario[layer.id];
-								var key = _obj.layers[layer.id].key;
-								if(feature.properties[key] && data.values[feature.properties[key]]){
-									c = layer.colour.getColourFromScale( layer.colourscale, data.values[feature.properties[key]][_obj.options.key],layer.range.min,layer.range.max,true);
-								}else{
-									console.warn('Unable to find '+key,feature.properties)
+								var c,key,data;
+								c = {'r':0,'g':0,'b':0,'alpha':0};
+								data = _scenario[_obj.options.view];
+								key = _obj.layers[layer.id].key;
+								if(feature.properties[key] && data.values[feature.properties[key]] && !isNaN(layer.range.min) && !isNaN(layer.range.max)){
+									c = layer.colour.getColourFromScale(layer.colourscale, data.values[feature.properties[key]][_obj.options.key],layer.range.min,layer.range.max,true);
 								}
 								props.fillColor = 'rgb('+c.r+','+c.g+','+c.b+')';
 								props.weight = (layer.boundary ? layer.boundary.strokeWidth||1 : 1);
@@ -729,101 +852,89 @@
 							return props;
 						};
 
-						this.views[this.options.view].layers[l].geoattr.onEachFeature = function(feature, layer){
+						this.views[this.options.view].layers[l].geoattr.onEachFeature = function(feature,l){
 							var popup = popuptext(feature,{'this':_obj,'layer':_l,'maxWidth': 'auto'});
-							attr = {
+							var attr = {
 								'mouseover':highlightFeature,
 								'mouseout': resetHighlight
-							}
-							if(popup) layer.bindPopup('<div class="dfes-popup-content"><div class="dfes-popup-inner">'+popup+'</div></div>');
-							layer.on(attr);
-						}
+							};
+							if(popup) l.bindPopup('<div class="dfes-popup-content"><div class="dfes-popup-inner">'+popup+'</div></div>');
+							l.on(attr);
+						};
 					}
 
 				}
 
+				for(l = 0; l < this.views[this.options.view].layers.length; l++){
 
-				for(var l = 0; l < this.views[this.options.view].layers.length; l++){
-
-					id = this.views[this.options.view].layers[l].id
-					this.layers[id].layer = L.geoJSON(this.layers[id].geojson,this.views[this.options.view].layers[l].geoattr);
-					_geojson.push(this.layers[id].layer);
-
-					if(this.layers[id].layer){
-						this.layers[id].layer.addTo(this.map);
-						S('#map .spinner').css({'display':'none'});
+					id = this.views[this.options.view].layers[l].id;
+					if(!this.layers[id].layer){
+						this.layers[id].layer = L.geoJSON(this.layers[id].geojson,this.views[this.options.view].layers[l].geoattr);
 					}
+					_geojson.push(this.layers[id].layer);
+					if(this.layers[id].layer) this.layers[id].layer.addTo(this.map);
 					this.layers[id].layer.setStyle(this.views[this.options.view].layers[l].geoattr.style);
 				}
+				S('#map .spinner').css({'display':'none'});
 			}
 		}
 		
 
-		function popuptext(feature,attr){
-			// does this feature have a property named popupContent?
-			var popup,me,view,key,v;
-			popup = '';
-			me = attr['this'];
-			
-			view = me.views[me.options.view].layers[attr.layer].id;
-			if(!me.layers[view].key || !feature.properties[me.layers[view].key]){
-				me.log('ERROR','No property '+me.layers[view].key+' in ',feature.properties);
-				return "";
-			}
-			key = feature.properties[me.layers[view].key];
-			v = null;
-			if(me.data.scenarios[me.options.scenario].data[me.options.parameter][me.options.source].layers[view].values && me.data.scenarios[me.options.scenario].data[me.options.parameter][me.options.source].layers[view].values[key]){
-				v = me.data.scenarios[me.options.scenario].data[me.options.parameter][me.options.source].layers[view].values[key][me.options.key];
-			}
-			if(typeof v!=="number"){
-				console.warn('No value for '+key+' '+me.options.scenario+' '+me.options.parameter);
-			}
-
-			if(me.views[me.options.view].popup){
-				if(typeof me.views[me.options.view].popup['text']==="string"){
-					popup = me.views[me.options.view].popup['text'];
-				}else if(typeof me.views[me.options.view].popup['text']==="function"){
-					popup = me.views[me.options.view].popup['text'].call(me,{
-						'view':view,
-						'id':key,
-						'key': (me.layers[view].key||""),
-						'value': v,
-						'properties':feature.properties,
-						'scenario': me.data.scenarios[me.options.scenario],
-						'parameter': me.parameters[me.options.parameter]
-					});
-				}
-			}
-			return popup;
-		}
+		this.log('INFO','buildMap3');
 		
 		// Trigger any event callback
 		if(typeof this.events.buildMap==="function") this.events.buildMap.call(this);
 
-		return this;
-
-	}
-	
-	FES.prototype.log = function(){
-		if(this.logging || arguments[0]=="ERROR"){
-			var args = Array.prototype.slice.call(arguments, 0);
-			if(console && typeof console.log==="function"){
-				if(arguments[0] == "ERROR") console.error('%cFES%c: '+args[1],'font-weight:bold;','',(args.splice(2).length > 0 ? args.splice(2):""));
-				else if(arguments[0] == "WARNING") console.warn('%cFES%c: '+args[1],'font-weight:bold;','',(args.splice(2).length > 0 ? args.splice(2):""));
-				else console.log('%cFES%c: '+args[1],'font-weight:bold;','',(args.splice(2).length > 0 ? args.splice(2):""));
-			}
-		}
+		this.log('INFO','buildMap4');
 		return this;
 	};
 
+	function popuptext(feature,attr){
+		// does this feature have a property named popupContent?
+		var popup,me,view,key,v,lid;
+		popup = '';
+		me = attr['this'];
+		
+		lid = me.views[me.options.view].layers[attr.layer].id;
+		if(!me.layers[lid].key || !feature.properties[me.layers[lid].key]){
+			me.log('ERROR','No property '+me.layers[lid].key+' in ',feature.properties);
+			return "";
+		}
+		key = feature.properties[me.layers[lid].key];
+		v = null;
+		view = me.options.view;
+		if(me.data.scenarios[me.options.scenario].data[me.options.parameter].layers[view].values && me.data.scenarios[me.options.scenario].data[me.options.parameter].layers[view].values[key]){
+			v = me.data.scenarios[me.options.scenario].data[me.options.parameter].layers[view].values[key][me.options.key];
+		}
+		if(typeof v!=="number"){
+			//console.warn('No value for '+key+' '+me.options.scenario+' '+me.options.parameter);
+		}
+		if(me.views[me.options.view].popup && typeof v!=="undefined"){
+			if(typeof me.views[me.options.view].popup.text==="string"){
+				popup = me.views[me.options.view].popup.text;
+			}else if(typeof me.views[me.options.view].popup.text==="function"){
+				popup = me.views[me.options.view].popup.text.call(me,{
+					'view':view,
+					'id':key,
+					'key': (me.layers[lid].key||""),
+					'value': v,
+					'properties':feature.properties,
+					'scenario': me.data.scenarios[me.options.scenario],
+					'parameter': me.parameters[me.options.parameter]
+				});
+			}
+		}
+		return popup;
+	}
+	
 	FES.prototype.message = function(msg,attr){
 		if(!attr) attr = {};
 		if(!attr.id) attr.id = 'default';
-		if(!attr['type']) attr['type'] = 'message';
-		if(msg) this.log(attr['type'],msg);
+		if(!attr.type) attr.type = 'message';
+		if(msg) this.log(attr.type,msg);
 		var css = "b5-bg";
-		if(attr['type']=="ERROR") css = "c12-bg";
-		if(attr['type']=="WARNING") css = "c14-bg";
+		if(attr.type=="ERROR") css = "c12-bg";
+		if(attr.type=="WARNING") css = "c14-bg";
 
 		var msgel = S('.message');
 		if(msgel.length == 0){
@@ -835,11 +946,8 @@
 			if(msgel.length > 0){
 				// Remove the specific message container
 				if(msgel.find('#'+attr.id).length > 0) msgel.find('#'+attr.id).remove();
-				//msgel.find('#'+attr.id).parent().removeClass('padded');
 			}
 		}else if(msg){
-			// Pad the container
-			//msgel.parent().addClass('padded');
 			// We make a specific message container
 			if(msgel.find('#'+attr.id).length==0) msgel.append('<div id="'+attr.id+'"><div class="holder padded"></div></div>');
 			msgel = msgel.find('#'+attr.id);
@@ -848,16 +956,46 @@
 
 		return this;
 	};
+	
+	FES.prototype.formatValue = function(v,param){
+		if(!param) param = this.options.parameter;
+		var units = this.parameters[param].units;
+		var format;
+		// Do we need to round it?
+		if(typeof this.parameters[param].dp==="number") v = parseFloat(v.toFixed(this.parameters[param].dp));
+		if(this.parameters[param].format){
+			try {
+				format = eval('('+this.parameters[param].format+')');
+			}catch(e){ }
+			return format.call(this,v,units);
+		}else{
+			return v.toLocaleString()+(units ? '&thinsp;'+units : '');
+		}
+	};
 
+	FES.prototype.makeScaleBar = function(grad,attr){
+		var gap,i,v,c,str;
+		if(!attr) attr = {};
+		if(!attr.min) attr.min = 0;
+		if(!attr.max) attr.max = 0;
+		str = '<div class="bar" style="'+grad+';"><div class="bar-inner" style="border-color: '+attr.color+'"></div></div><div class="range" style="border-color: '+attr.color+'">';
+		if(attr.levels){
+			gap = (attr.max-attr.min)/attr.levels;
+			for(i = 0; i <= attr.levels; i++){
+				v = attr.min + i*gap;
+				c = attr.scale.getColourFromScale(attr.scaleid, v, attr.min, attr.max);
+				this.formatValue(v);
+				str += '<span class="lvl'+(i==0 ? ' min' : (i==attr.levels ? ' max':''))+'" style="border-color: '+(i==0 ? attr.color : c)+';left:'+(100*i/attr.levels)+'%;">'+this.formatValue(v)+'</span>';
+			}
+		}else{
+			str += '<span class="lvl min" style="border-color: '+attr.color+';left:0%;">'+this.formatValue(attr.min)+'</span>';
+			str += '<span class="lvl max" style="border-color: '+attr.color+';left:100%;">'+this.formatValue(attr.max)+'</span>';
+		}
+		str += '</div>';
+		return str;
+	};
 
 	// Useful functions
-	function niceSize(b){
-		if(b > 1e12) return (b/1e12).toFixed(2)+" TB";
-		if(b > 1e9) return (b/1e9).toFixed(2)+" GB";
-		if(b > 1e6) return (b/1e6).toFixed(2)+" MB";
-		if(b > 1e3) return (b/1e3).toFixed(2)+" kB";
-		return (b)+" bytes";
-	}
 
 	/**
 	 * CSVToArray parses any String of Data including '\r' '\n' characters,
@@ -883,7 +1021,7 @@
 		// array to hold our individual pattern matching groups:
 		var matches = false; // false if we don't find any matches
 		// Loop until we no longer find a regular expression match
-		while (matches = pattern.exec( CSV_string )) {
+		while (matches = pattern.exec(CSV_string)){
 			var matched_delimiter = matches[1]; // Get the matched delimiter
 			// Check if the delimiter has a length (and is not the start of string)
 			// and if it matches field delimiter. If not, it is a row delimiter.
@@ -925,12 +1063,12 @@
 		}
 
 
-		var line,datum,header,types;
-		var newdata = new Array();
-		var formats = new Array();
-		var req = new Array();
+		var line,datum,header,types,i,j,req,rows;
+		var newdata = [];
+		var formats = [];
+		req = [];
 
-		for(var i = 0, rows = 0 ; i < end; i++){
+		for(i = 0, rows = 0 ; i < end; i++){
 
 			// If there is no content on this line we skip it
 			if(data[i] == "") continue;
@@ -941,7 +1079,7 @@
 			types = new Array(line.length);
 
 			// Loop over each column in the line
-			for(var j=0; j < line.length; j++){
+			for(j=0; j < line.length; j++){
 
 				// Remove any quotes around the column value
 				datum[j] = (line[j][0]=='"' && line[j][line[j].length-1]=='"') ? line[j].substring(1,line[j].length-1) : line[j];
@@ -982,19 +1120,20 @@
 		
 		// Now, for each column, we sum the different formats we've found
 		var format = new Array(header.length);
-		for(var j = 0; j < header.length; j++){
-			var count = {};
-			var empty = 0;
-			for(var i = 0; i < newdata.length; i++){
+		var count,empty,mx,best,k;
+		for(j = 0; j < header.length; j++){
+			count = {};
+			empty = 0;
+			for(i = 0; i < newdata.length; i++){
 				if(!newdata[i][j]) empty++;
 			}
-			for(var i = 0 ; i < formats.length; i++){
+			for(i = 0 ; i < formats.length; i++){
 				if(!count[formats[i][j]]) count[formats[i][j]] = 0;
 				count[formats[i][j]]++;
 			}
-			var mx = 0;
-			var best = "";
-			for(var k in count){
+			mx = 0;
+			best = "";
+			for(k in count){
 				if(count[k] > mx){
 					mx = count[k];
 					best = k;
@@ -1007,7 +1146,7 @@
 			if(mx > 0.8*newdata.length) format[j] = best;
 
 			// If we have a few floats in with our integers, we change the format to float
-			if(format[j] == "integer" && count['float'] > 0.1*newdata.length) format[j] = "float";
+			if(format[j] == "integer" && count.float > 0.1*newdata.length) format[j] = "float";
 
 			req.push(header[j] ? true : false);
 
@@ -1027,11 +1166,8 @@
 
 	String.prototype.regexLastIndexOf = function(regex, startpos) {
 		regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
-		if(typeof (startpos) == "undefined") {
-			startpos = this.length;
-		} else if(startpos < 0) {
-			startpos = 0;
-		}
+		if(typeof (startpos) == "undefined") startpos = this.length;
+		else if(startpos < 0)  startpos = 0;
 		var stringToWorkWith = this.substring(0, startpos + 1);
 		var lastIndexOf = -1;
 		var nextStop = 0;
@@ -1040,30 +1176,7 @@
 			regex.lastIndex = ++nextStop;
 		}
 		return lastIndexOf;
-	}
-
-	function makeScaleBar(grad,attr){
-		if(!attr) attr = {};
-		if(!attr.min) attr.min = 0;
-		if(!attr.max) attr.max = 0;
-		if(!attr.units) attr.units = "";
-		if(attr.units) attr.units = "&thinsp;"+attr.units;
-		var str = '<div class="bar" style="'+grad+';"><div class="bar-inner" style="border-color: '+attr.color+'"></div></div><div class="range" style="border-color: '+attr.color+'">';
-		if(attr.levels){
-			var gap,i,v;
-			gap = (attr.max-attr.min)/attr.levels;
-			for(i = 0; i <= attr.levels; i++){
-				v = attr.min + i*gap;
-				c = attr.scale.getColourFromScale(attr.scaleid, v, attr.min, attr.max);
-				str += '<span class="lvl'+(i==0 ? ' min' : (i==attr.levels ? ' max':''))+'" style="border-color: '+(i==0 ? attr.color : c)+';left:'+(100*i/attr.levels)+'%;">'+v.toLocaleString()+attr.units+'</span>'
-			}
-		}else{
-				str += '<span class="lvl min" style="border-color: '+attr.color+';left:0%;">'+attr.min.toLocaleString()+attr.units+'</span>';
-				str += '<span class="lvl max" style="border-color: '+attr.color+';left:100%;">'+attr.max.toLocaleString()+attr.units+'</span>';
-		}
-		str += '</div>';
-		return str;
-	}
+	};
 
 	function getRGBAstr(c,a){
         a = (typeof a==="number" ? a : 1.0);
@@ -1075,7 +1188,7 @@
 
 	function niceRange(mn,mx){
 
-		var dv,log10_dv,base,frac,options,distance,imin,tmin,i;
+		var dv,log10_dv,base,frac,options,distance,imin,tmin,i,n;
 		n = 20;
 
 		// Start off by finding the exact spacing
@@ -1171,8 +1284,8 @@
 			if(this.rgb[r] > 200) sat++;
 		}
 		this.toString = function(){
-			return 'rgb'+(this.alpha < 1 ? 'a':'')+'('+this.rgb[0]+','+this.rgb[1]+','+this.rgb[2]+(this.alpha < 1 ? ','+this.alpha:'')+')'
-		}
+			return 'rgb'+(this.alpha < 1 ? 'a':'')+'('+this.rgb[0]+','+this.rgb[1]+','+this.rgb[2]+(this.alpha < 1 ? ','+this.alpha:'')+')';
+		};
 		this.text = (this.rgb[0]*0.299 + this.rgb[1]*0.587 + this.rgb[2]*0.114 > 186 ? "black":"white");
 		return this;
 	}
@@ -1208,7 +1321,7 @@
 			scales[id] = str;
 			processScale(id,str);
 			return this;
-		}
+		};
 		this.quantiseScale = function(id,n,id2){
 			var cs,m,pc,step,i;
 			cs = [];
@@ -1224,7 +1337,7 @@
 			cs.push(this.getColourFromScale(id,1,0,1)+' 100%');
 			this.addScale(id2,cs.join(", "));
 			return this;
-		}
+		};
 		function processScale(id,str){
 			if(scales[id] && scales[id].str){
 				console.warn('Colour scale '+id+' already exists. Bailing out.');
@@ -1270,17 +1383,16 @@
 		// Return the colour string for this scale, value and min/max
 		this.getColourFromScale = function(s,v,min,max,inParts){
 			var cs,v2,pc,c,cfinal;
-			var colour = "";
 			if(typeof inParts!=="boolean") inParts = false;
 			if(!scales[s]){
 				console.warn('No colour scale '+s+' exists');
 				return '';
 			}
+			if(typeof v!=="number") v = 0;
 			if(typeof min!=="number") min = 0;
 			if(typeof max!=="number") max = 1;
 			cs = scales[s].stops;
 			v2 = 100*(v-min)/(max-min);
-			var match = -1;
 			cfinal = {};
 			if(v==max){
 				cfinal = {'r':cs[cs.length-1].c.rgb[0],'g':cs[cs.length-1].c.rgb[1],'b':cs[cs.length-1].c.rgb[2],'alpha':cs[cs.length-1].c.alpha};
