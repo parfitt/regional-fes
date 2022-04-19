@@ -152,7 +152,7 @@ S(document).ready(function(){
 				"file":"data/maps/gridsupplypoints-unique-all.geojson",
 				"source": "gsp",
 				"layers":[{
-					"id": "PRIMARYlayer",
+					"id": "GSPlayer",
 					"heatmap": true,
 				}],
 				"popup": {
