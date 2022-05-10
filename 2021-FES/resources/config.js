@@ -13,7 +13,8 @@ S(document).ready(function(){
 			"scale": "relative",
 			"years": {"min":2020, "max":2050},
 			"map": {
-				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]]
+				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
+				"attribution": "Vis: National Grid ESO"
 			}
 		},
 		// How we map from our source data's IDs to a particular geography
