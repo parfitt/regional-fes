@@ -368,6 +368,20 @@ button:disabled { opacity: 0.8; filter: grayscale(100%); cursor: not-allowed; }
 #issues { margin-top: 0.5em; text-align: right; }
 
 
+
+/* Leaflet styles */
+.leaflet-container { font-size: 1em; font-weight: 300; }
+.leaflet-popup-content { margin: 1em; }
+.leaflet-popup-content ul { margin: 0px!important; margin-bottom: 0px!important; list-style: none; padding: 0px; }
+.leaflet-popup-content ul li { margin: 0px; list-style: none; padding: 0px; }
+.leaflet-popup-content-wrapper { border-radius: 0px; font-size: 1em; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4); }
+.leaflet-left .leaflet-control { margin-left: 1em; }
+.leaflet-top .leaflet-control { margin-top: 1em; }
+.leaflet-right .leaflet-control { margin-right: 1em; }
+.leaflet-right .leaflet-control-attribution { margin-right: 0em; }
+
+
 @media only screen and (max-width: 1000px) {
 	body{ overflow-x: hidden; }
 	.columns { display: block; }
