@@ -8,8 +8,6 @@
     <link rel="StyleSheet" href="resources/leaflet.css" type="text/css" />
     <link rel="stylesheet" href="resources/stuquery.barchart.css" type="text/css" />
     <link rel="StyleSheet" href="resources/style.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script type="text/javascript" src="resources/stuquery.js"></script>
     <script type="text/javascript" src="resources/stuquery.barchart.min.js"></script>
     <script type="text/javascript" src="resources/nouislider.min.js"></script>
@@ -17,7 +15,6 @@
     <script type="text/javascript" src="resources/dfes.js"></script>
     <script type="text/javascript" src="resources/config.js"></script>
     <script type="text/javascript" src="resources/leaflet.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="shortcut icon" href="resources/favicon.ico" type="image/vnd.microsoft.icon" />
 </head>
 <body>
@@ -37,7 +34,7 @@
     </header>
     <div class="b6-bg" id="scenario">
         <div class="holder columns">
-            <div class="left animated fadeInLeft">
+            <div class="left" data-scroll="is-outside fadeInLeft">
                 <p>Explore the geographical differences in electricity demand within National Grid ESO's Future Energy Scenarios 2021.</p>
                 <h2><label for="scenarios">Choose a scenario</label>:</h2>
                 <div id="scenario-holder"></div>
@@ -58,7 +55,7 @@
                     <label class="toggle-label2" for="scale-mode" title="To compare the values of different areas across the the full range of years">By 2050</label>
                 </div>
             </div>
-            <div class="right animated fadeInRight">
+            <div class="right" data-scroll="is-outside fadeInRight">
                 <div id="map">
                     <div class="spinner">
                         <img src="resources/spinner.gif" alt="Loading..." />
@@ -68,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div data-aos="fade-down" duration="1000" delay="2000">
+    <div data-scroll="is-outside fadeUp" data-scroll-repeat="false">
         <div class="scenario thickline">&nbsp;</div>
         <div class="b5-bg" id="about">
             <div class="holder padded">
@@ -88,6 +85,23 @@
             </div>
         </div>
     </div>
-    <script>AOS.init({ disable: 'mobile', once: true, duration: 500, anchorPlacement: 'center', offset: 400 });</script>
+    <script>
+	/*! onscroll-effect v1.3.1 | (c) 2020 Matthieu Bué <https://twikito.com> | MIT license | https://twikito.github.io/onscroll-effect/ */
+	(()=>{const e=new Event("insideViewport"),t=new Event("outsideViewport"),n=document.documentElement.getAttribute("data-onscroll-effect-custom-prefix")||"scroll";let i=!1;const s=e=>"onscrollEffect_"+e,o=e=>void 0===e,a=()=>{const a=[...document.querySelectorAll(`[data-${n}]`)];if(!i&&0===a.length)return i=!0,console.warn(`onScroll Effect is not used: there's no element with 'data-${n}' attribute.`);i=!1,a.filter(e=>o(e[s("isRepeating")])||e[s("isRepeating")]).forEach(i=>{const a={className:i.dataset[n].split(" ").filter(Boolean),repeat:i.dataset[n+"Repeat"],offset:Number(i.dataset[n+"Offset"]),count:Number(i.dataset[n+"Count"]),reverse:i.dataset[n+"Reverse"]},r=i.getBoundingClientRect(),c="true"===a.reverse,d=a.className.length?a.className:[c?"is-inside":"is-outside"],l="true"===a.repeat,p=isNaN(a.offset)?0:a.offset,u=isNaN(Number(a.repeat))?1:Number(a.repeat),g=!d.filter(e=>!i.classList.contains(e)).length;return i[s("repeatingCount")]=o(i[s("repeatingCount")])?0:i[s("repeatingCount")],i[s("isRepeating")]=!!o(i[s("isRepeating")])||i[s("isRepeating")],(!c&&g||c&&!g)&&r.top+p<=window.innerHeight&&r.bottom-p>=0?(i.classList[c?"add":"remove"](...d),i[s("repeatingCount")]+=1,i[s("isInsideViewport")]=!0,i.dispatchEvent(e),!l&&i[s("repeatingCount")]>=u&&(i[s("isRepeating")]=!1),!0):(!c&&!g||c&&g)&&(0===i[s("repeatingCount")]||(l||i[s("repeatingCount")]<u)&&(r.top>window.innerHeight||r.bottom<0))?(i.classList[c?"remove":"add"](...d),i[s("isInsideViewport")]=!1,i.dispatchEvent(t),!1):void 0})},r=()=>{a(),"complete"===document.readyState&&document.removeEventListener("readystatechange",r)};document.addEventListener("readystatechange",r),window.addEventListener("scroll",((e,t,n)=>{let i;return function(){const s=arguments,o=this;clearTimeout(i),i=setTimeout(()=>{i=null,n||Reflect.apply(e,o,s)},t),n&&!i&&Reflect.apply(e,o,s)}})(a,10),!0),window.onScrollEffect=Object.assign(()=>{a(),a()},{isRepeating:e=>e[s("isRepeating")],repeatingCount:e=>e[s("repeatingCount")],isInsideViewport:e=>e[s("isInsideViewport")]})})();
+	</script>
+	<style>
+	#scenario { overflow-x: hidden; }
+	[data-scroll] { transition: 0.5s ease-out; }
+	[data-scroll].is-outside {
+		transition: none;
+		animation: none;
+		opacity: 0;
+		transition: none;
+	}
+	.fadeUp { transform: translateY(5em); }
+	.fadeDown { transform: translateY(-5em); }
+	.fadeInRight { transform: translateX(100%); }
+	.fadeInLeft { transform: translateX(-100%); }
+	</style>
 </body>
 </html>
