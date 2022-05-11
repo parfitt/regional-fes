@@ -13,7 +13,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.4.5";
+		this.version = "1.4.6";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -21,7 +21,7 @@
 		this.data = { };
 		this.logging = (location.search.indexOf('debug=true') >= 0);	
 		this.log = function(){
-			var a,extra;
+			var a,ext;
 			// Version 1.1.1
 			if(this.logging || arguments[0]=="ERROR" || arguments[0]=="WARNING"){
 				a = Array.prototype.slice.call(arguments, 0);
@@ -37,7 +37,7 @@
 				}
 			}
 			return this;
-		};	
+		};
 		this.layers = (config.layers||{});
 		this.views = (config.views||{});
 		this.mapping = (config.mapping||{});
@@ -73,7 +73,7 @@
 	}
 
 	FES.prototype.init = function(){
-		var html,s,l,p,css,g,gorder,groups;
+		var html,s,i,j,l,p,css,g,gorder,groups;
 		if(this.options.scale=="absolute"){
 			S('#scale-holder input').attr('checked','checked');
 			S('#scale-holder').addClass('checked');
@@ -143,7 +143,6 @@
 
 		// Create the slider
 		this.slider = document.getElementById('slider');
-		console.log(parseInt(this.options.key));
 		noUiSlider.create(this.slider, {
 			start: [parseInt(this.options.key)],
 			step: 1,
@@ -159,14 +158,12 @@
 		});
 		var _obj = this;
 		// Bind the changing function to the update event.
-		this.slider.noUiSlider.on('update',function(){ console.log('setYear',this.get()	); _obj.setYear(''+parseInt(this.get())); });
+		this.slider.noUiSlider.on('update',function(){ _obj.setYear(''+parseInt(this.get())); });
 		
 		this.setScenario(this.options.scenario);
 		
 		// Trigger the setParameter callback (because we aren't explicity calling it)
 		if(typeof this.events.setParameter==="function") this.events.setParameter.call(this);
-
-		this.updateSlider();
 
 		S('#play').on('click',{me:this},function(e){
 			e.preventDefault();
@@ -179,10 +176,10 @@
 			e.stopPropagation();
 			e.data.me.stopAnimate();
 		});
-		
+
 		return this;
 	};
-	
+
 	FES.prototype.startAnimate = function(){
 		//this.slider.noUiSlider.set(this.options.years.min);
 		S('#play')[0].disabled = true;
@@ -197,7 +194,7 @@
 		},500);
 		return this;
 	};
-	
+
 	FES.prototype.stopAnimate = function(){
 		clearInterval(this.options.years.interval);
 		S('#play')[0].disabled = false;
@@ -205,7 +202,7 @@
 
 		return this;
 	};
-	
+
 	FES.prototype.loadData = function(callback){
 
 		S().ajax(path+"data/scenarios/"+this.data.scenarios[this.options.scenario].data[this.options.parameter].file,{
@@ -358,8 +355,7 @@
 			}
 		}
 		// Update the slider range and position
-		this.slider.noUiSlider.updateOptions({range:range});
-		this.slider.noUiSlider.updateOptions({start:this.options.key});
+		this.slider.noUiSlider.updateOptions({range:range,start:this.options.key});
 		return this;
 	};
 	
@@ -685,9 +681,7 @@
 			}
 		}
 
-		this.log('INFO','buildMap2');
-
-		var layer,_geojson,gotlayers,visible,id;
+		var layer,_geojson,gotlayers,id;
 
 		if(this.map){
 
@@ -745,7 +739,7 @@
 				};
 
 				// Remove existing layers
-				for(var l in this.layers){
+				for(l in this.layers){
 					if(this.layers[l].layer){
 						this.layers[l].layer.remove();
 						delete this.layers[l].layer;
@@ -879,13 +873,9 @@
 			}
 		}
 		
-
-		this.log('INFO','buildMap3');
-		
 		// Trigger any event callback
 		if(typeof this.events.buildMap==="function") this.events.buildMap.call(this);
 
-		this.log('INFO','buildMap4');
 		return this;
 	};
 
@@ -1171,6 +1161,7 @@
 		var stringToWorkWith = this.substring(0, startpos + 1);
 		var lastIndexOf = -1;
 		var nextStop = 0;
+		var result;
 		while((result = regex.exec(stringToWorkWith)) != null) {
 			lastIndexOf = result.index;
 			regex.lastIndex = ++nextStop;
@@ -1385,7 +1376,7 @@
 			var cs,v2,pc,c,cfinal;
 			if(typeof inParts!=="boolean") inParts = false;
 			if(!scales[s]){
-				console.warn('No colour scale '+s+' exists');
+				this.log('WARNING','No colour scale '+s+' exists');
 				return '';
 			}
 			if(typeof v!=="number") v = 0;
