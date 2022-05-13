@@ -1,47 +1,51 @@
 // Define a new instance of the FES
-var dfes
+var fes
 
 S(document).ready(function(){
 
-	dfes = new FES({
+	fes = new FES({
+		// Some basic default options
 		"options": {
 			"scenario": "Leading the Way",
-			"view": "LAD",
+			"view": "NUTS",
 			"key": (new Date()).getFullYear()+'',
 			"parameter": "demandpk-all",
 			"scale": "relative",
-			"source": null,
 			"years": {"min":2020, "max":2050},
 			"map": {
-				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]]
+				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
+				"attribution": "Vis: National Grid ESO"
 			}
 		},
-		"layers": {
-			"LADlayer":{
-				"geojson": "data/maps/nuts1_BUC_4326.geojson",
-				"key": "nuts118nm",
-				"data": {
-					"mapping": {
-						"src": "data/gridsupplypoints2nuts1.json"	// JSON that maps from gridsupplypoints -> NUTS 1
-					},
-					"src": "primary"
-				}
-			},
-			"PRIMARYlayer":{
-				"data": {
-					"src": "primary"	// This is the key used in data/scenarios/index.json
+		// How we map from our source data's IDs to a particular geography
+		"mapping": {
+			"gsp": {
+				// Mapping from GSPs for the NUTS 1 layer
+				"NUTSlayer": { 
+					"file": "data/gridsupplypoints2nuts1.json"
 				},
-				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",
-				"key": "Primary"
+				// No mapping needed for GSPs
+				"GSPlayer": { }
 			}
 		},
+		// Define our layers so that they can be used in the views
+		"layers": {
+			"NUTSlayer":{
+				"geojson": "data/maps/nuts1_BUC_4326.geojson",	// The GeoJSON file with the NUTS 1 features
+				"key": "nuts118nm"	// The key used in the properties of the GeoJSON feature
+			},
+			"GSPlayer":{
+				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",	// The GeoJSON file with the non-overlapping GSP features
+				"key": "GSP"	// The key used in the properties of the GeoJSON feature
+			}
+		},
+		// Define our map views
 		"views":{
-			"LAD":{
+			"NUTS":{
 				"title":"NUTS1 Regions",
-				//"file":"data/maps/LAD-npg.geojson",
-				"source": "primary",
+				"source": "gsp",
 				"layers":[{
-					"id": "LADlayer",
+					"id": "NUTSlayer",
 					"heatmap": true,
 					"boundary":{"strokeWidth":2}
 				}],
@@ -57,27 +61,41 @@ S(document).ready(function(){
 					"open": function(attr){
 
 						if(!attr) attr = {};
+						
+						l = this.views[this.options.view].layers[0].id;
+						key = this.layers[l].key;
 
 						if(attr.id){
 
 							var data = [];
 							var balloons = [];
+							var raw = this.data.scenarios[this.options.scenario].data[this.options.parameter].raw;
 							
 							// Work out the NUTS1 region name
 							var nuts118nm = attr.id;
-							if(this.layers.LADlayer){
-								for(var c = 0; c < this.layers.LADlayer.geojson.features.length; c++){
-									if(this.layers.LADlayer.geojson.features[c].properties.ctry19cd==attr.id) nuts118nm = this.layers.LADlayer.geojson.features[c].properties.nuts118nm;
+							if(this.layers.NUTSlayer){
+								for(var c = 0; c < this.layers.NUTSlayer.geojson.features.length; c++){
+									if(this.layers.NUTSlayer.geojson.features[c].properties.ctry19cd==attr.id) nuts118nm = this.layers.NUTSlayer.geojson.features[c].properties.nuts118nm;
 								}
 							}
 
-							for(var p in this.layers.LADlayer.data.mapping.data){
-								if(this.layers.LADlayer.data.mapping.data[p][attr.id]){
+							// Find the column for the year
+							var yy = -1;
+							for(var i = 0; i < raw.fields.title.length; i++){
+								if(raw.fields.title[i]==this.options.key) yy = i;
+							}
+							if(yy < 0) return;
+							
+							for(var p in this.mapping.gsp.NUTSlayer.data){
+								if(this.mapping.gsp.NUTSlayer.data[p][attr.id]){
 									v = 0;
-									if(this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p]) v = this.data.scenarios[this.options.scenario].data[this.options.parameter].primary.layers.PRIMARYlayer.values[p][this.options.key];
-									fracLA = this.layers.LADlayer.data.mapping.data[p][attr.id]*v;
-									fracOther = v - fracLA;
-									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.layers.LADlayer.data.mapping.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,fracLA,fracOther]]);
+									for(var i = 0; i < raw.rows.length; i++){
+										if(raw.rows[i][0]==p) v = raw.rows[i][yy];
+									}
+
+									frac = this.mapping.gsp.NUTSlayer.data[p][attr.id]*v;
+									fracOther = v - frac;
+									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.mapping.gsp.NUTSlayer.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,frac,fracOther]]);
 								}
 							}
 
@@ -133,46 +151,22 @@ S(document).ready(function(){
 			"gridsupplypoints":{
 				"title":"Grid Supply Points",
 				"file":"data/maps/gridsupplypoints-unique-all.geojson",
-				"source": "primary",
+				"source": "gsp",
 				"layers":[{
-					"id": "PRIMARYlayer",
+					"id": "GSPlayer",
 					"heatmap": true,
 				}],
 				"popup": {
 					"text": function(attr){
 						var popup,title,dp,value;
 						popup = '<h3>%TITLE%</h3><p>%VALUE%</p>';
-						title = (attr.properties.Primary||'?');
+						title = (attr.properties.GSP||'?');
 						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
 						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '?');
 						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
 					}
 				}
-			},
-			/*
-			"gridsupplypointsLAD":{
-				"title": "Grid Supply Points (with NUTS1)",
-				"file": "data/maps/nuts1_BUC_4326.geojson",
-				"source": "primary",
-				"layers":[{
-					"id":"LADlayer",
-					"heatmap": false,
-					"boundary":{"color":"#444444","strokeWidth":1,"opacity":0.5,"fillOpacity":0}
-				},{
-					"id":"PRIMARYlayer",
-					"heatmap": true,
-				}],
-				"popup": {
-					"text": function(attr){
-						var popup,title,dp,value;
-						popup = '<h3>%TITLE%</h3><p>%VALUE%</p>';
-						title = (attr.properties.Primary||'?');
-						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
-						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '');
-						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
-					}
-				}
-			}*/
+			}
 		},
 		"on": {
 			"buildMap": function(){
@@ -259,8 +253,8 @@ S(document).ready(function(){
 						for(j = 0; j < this.views[this.options.view].layers.length; j++){
 							l = this.views[this.options.view].layers[j].id;
 							key = "";
-							if(l=="LADlayer") key = "nuts118nm";
-							else if(l=="PRIMARYlayer") key = "Primary";
+							if(l=="NUTSlayer") key = "nuts118nm";
+							else if(l=="GSPlayer") key = "GSP";
 							if(this.layers[l].geojson && this.layers[l].geojson.features && this.layers[l].key && key){
 								// If we haven't already processed this layer we do so now
 								if(!this.search._added[l]){
