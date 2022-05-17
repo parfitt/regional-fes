@@ -32,7 +32,8 @@ S(document).ready(function(){
 		"layers": {
 			"NUTSlayer":{
 				"geojson": "data/maps/nuts1_BUC_4326.geojson",	// The GeoJSON file with the NUTS 1 features
-				"key": "nuts118cd"	// The key used in the properties of the GeoJSON feature
+				"key": "nuts118cd",	// The key used in the properties of the GeoJSON feature
+				"name": "nuts118nm"
 			},
 			"GSPlayer":{
 				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",	// The GeoJSON file with the non-overlapping GSP features
@@ -289,7 +290,7 @@ S(document).ready(function(){
 				if(e.data.me.views[v].layers[l].heatmap) layerid = l;
 			}
 			rs = Object.keys(values).sort();
-			csv = e.data.me.views[v].title+',Code';
+			csv = e.data.me.views[v].title+',Name';
 			for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y++) csv += ','+y+(e.data.me.parameters[e.data.me.options.parameter] ? ' ('+e.data.me.parameters[e.data.me.options.parameter].units+')' : '');
 			csv += '\n';
 			for(i = 0; i < rs.length; i++){
@@ -319,9 +320,9 @@ S(document).ready(function(){
 			return "";
 		}
 		if(fes.layers[l] && fes.layers[l].geojson){
-			var code = (fes.layers[l].code||fes.layers[l].key);
+			key = (fes.layers[l].name||fes.layers[l].key);
 			for(var i = 0; i < fes.layers[l].geojson.features.length; i++){
-				if(fes.layers[l].geojson.features[i].properties[fes.layers[l].key] == value) return fes.layers[l].geojson.features[i].properties[code];
+				if(fes.layers[l].geojson.features[i].properties[fes.layers[l].key] == value) return fes.layers[l].geojson.features[i].properties[key];
 			}
 			return "";
 		}else return "";
