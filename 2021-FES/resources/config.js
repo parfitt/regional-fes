@@ -32,7 +32,7 @@ S(document).ready(function(){
 		"layers": {
 			"NUTSlayer":{
 				"geojson": "data/maps/nuts1_BUC_4326.geojson",	// The GeoJSON file with the NUTS 1 features
-				"key": "nuts118nm"	// The key used in the properties of the GeoJSON feature
+				"key": "nuts118cd"	// The key used in the properties of the GeoJSON feature
 			},
 			"GSPlayer":{
 				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",	// The GeoJSON file with the non-overlapping GSP features
@@ -155,6 +155,7 @@ S(document).ready(function(){
 				"layers":[{
 					"id": "GSPlayer",
 					"heatmap": true,
+					"boundary":{"strokeWidth":0.5}
 				}],
 				"popup": {
 					"text": function(attr){
@@ -270,4 +271,84 @@ S(document).ready(function(){
 			}
 		}
 	});
+
+	// Add download button
+	if(S('#download-csv')){
+		S('#download-csv').on('click',{me:fes},function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var csv = "";
+			var opt = e.data.me.options;
+			var filename = ("FES-2021--{{scenario}}--{{parameter}}--{{view}}.csv").replace(/\{\{([^\}]+)\}\}/g,function(m,p1){ return (opt[p1]||"").replace(/[ ]/g,"_") });
+			var values,r,rs,y,v,l,layerid;
+			values = e.data.me.data.scenarios[e.data.me.options.scenario].data[e.data.me.options.parameter].layers[e.data.me.options.view].values;
+			v = e.data.me.options.view;
+			layerid = '';
+			// We need to loop over the view's layers
+			for(l = 0; l < e.data.me.views[v].layers.length; l++){
+				if(e.data.me.views[v].layers[l].heatmap) layerid = l;
+			}
+			rs = Object.keys(values).sort();
+			csv = e.data.me.views[v].title+',Code';
+			for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y++) csv += ','+y+(e.data.me.parameters[e.data.me.options.parameter] ? ' ('+e.data.me.parameters[e.data.me.options.parameter].units+')' : '');
+			csv += '\n';
+			for(i = 0; i < rs.length; i++){
+				r = rs[i];
+				csv += r;
+				csv += ','+getGeoJSONPropertyValue(e.data.me.views[v].layers[layerid].id,r);
+				for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y++) csv += ','+(typeof e.data.me.parameters[e.data.me.options.parameter].dp==="number" ? values[r][y].toFixed(e.data.me.parameters[e.data.me.options.parameter].dp) : values[r][y]);
+				csv += '\n'
+			}
+			saveToFile(csv,filename,'text/plain');
+		});
+	}
+	/*
+	if(S('#download-svg')){
+		S('#download-svg').on('click',{me:fes},function(e){
+			var opt = e.data.me.options;
+			var svg = document.querySelector('.leaflet-overlay-pane svg');
+			svg.setAttribute('xmlns',"http://www.w3.org/2000/svg");
+			svg.setAttribute('xmlns:xlink',"http://www.w3.org/1999/xlink");
+			var filename = ("FES-2021--{{scenario}}--{{parameter}}--{{view}}.svg").replace(/\{\{([^\}]+)\}\}/g,function(m,p1){ return (opt[p1]||"").replace(/[ ]/g,"_") });
+			saveToFile('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'+svg.outerHTML,filename,'text/svg');
+		});
+	}*/
+	function getGeoJSONPropertyValue(l,value){
+		if(!fes.layers[l].key){
+			fes.log('WARNING','No key set for layer '+l);
+			return "";
+		}
+		if(fes.layers[l] && fes.layers[l].geojson){
+			var code = (fes.layers[l].code||fes.layers[l].key);
+			for(var i = 0; i < fes.layers[l].geojson.features.length; i++){
+				if(fes.layers[l].geojson.features[i].properties[fes.layers[l].key] == value) return fes.layers[l].geojson.features[i].properties[code];
+			}
+			return "";
+		}else return "";
+	};
+	function saveToFile(txt,fileNameToSaveAs,mime){
+		// Bail out if there is no Blob function
+		if(typeof Blob!=="function") return this;
+
+		var textFileAsBlob = new Blob([txt], {type:(mime||'text/plain')});
+
+		function destroyClickedElement(event){ document.body.removeChild(event.target); }
+
+		var dl = document.createElement("a");
+		dl.download = fileNameToSaveAs;
+		dl.innerHTML = "Download File";
+
+		if(window.webkitURL != null){
+			// Chrome allows the link to be clicked without actually adding it to the DOM.
+			dl.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		}else{
+			// Firefox requires the link to be added to the DOM before it can be clicked.
+			dl.href = window.URL.createObjectURL(textFileAsBlob);
+			dl.onclick = destroyClickedElement;
+			dl.style.display = "none";
+			document.body.appendChild(dl);
+		}
+		dl.click();
+	}
+
 });

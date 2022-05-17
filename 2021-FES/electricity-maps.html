@@ -19,23 +19,25 @@
 </head>
 <body>
     <header class="b1-bg">
-        <div class="b1-bg glory">
-            <div class="glory-opacity">
-                <div class="holder">
-                    <a href="https://www.nationalgrideso.com/" class="ODIlogo"><img alt="National Grid ESO" src="https://www.nationalgrideso.com/themes/custom/national_grid_eso/logo.svg" title="ODI Leeds"></a>
-                </div>
-            </div>
+        <div class="b1-bg phb-topnav">
+			<div class="holder">
+				<a href="https://www.nationalgrideso.com/" class="ODIlogo"><img alt="National Grid ESO" src="https://www.nationalgrideso.com/themes/custom/national_grid_eso/logo.svg" title="ODI Leeds"></a>
+			</div>
         </div>
-        <div class="scenario title">
-            <div class="holder">
-                <h1 class="white-title">Regional Breakdown of FES 2021 Data (Electricity)</h1>
-            </div>
+        <div class="page-header__branding title">
+			<div class="page-hero">
+				<div class="holder">
+					<div class="page-hero__content">
+							<h1 class="white-title">Regional Breakdown of FES 2021 Data (Electricity)</h1>
+							<p>Explore the geographical differences in electricity demand within National Grid ESO's Future Energy Scenarios 2021.</p>
+					</div>
+				</div>
+			</div>
         </div>
     </header>
     <div class="b6-bg" id="scenario">
-        <div class="holder columns">
+        <div class="columns">
             <div class="left" data-scroll="is-outside fadeInLeft">
-                <p>Explore the geographical differences in electricity demand within National Grid ESO's Future Energy Scenarios 2021.</p>
                 <h2><label for="scenarios">Choose a scenario</label>:</h2>
                 <div id="scenario-holder"></div>
                 <h2><label for="parameters">Choose a parameter</label>:</h2>
@@ -44,7 +46,11 @@
                 <div id="view-holder"></div>
                 <h2>Select year (<span class="year"></span>):</h2>
                 <div id="slider"></div>
-                <div><button id="play" class="scenario" title="Play">&#9658;</button> <button id="pause" class="scenario" title="Pause" disabled>&#10074;&#10074;</button></div>
+                <div><button id="play" class="page-header__branding" title="Play">&#9658;</button> <button id="pause" title="Pause" disabled>&#10074;&#10074;</button></div>
+				<div id="download">
+					<button class="page-header__branding" id="download-csv"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download CSV for this view</button>
+					<!--<button class="page-header__branding" id="download-svg"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download SVG for this view</button>-->
+				</div>
             </div>
             <div class="right" data-scroll="is-outside fadeInRight">
                 <div id="map">
@@ -67,9 +73,9 @@
         </div>
     </div>
     <div data-scroll="is-outside fadeUp" data-scroll-repeat="false">
-        <div class="scenario thickline">&nbsp;</div>
-        <div class="b5-bg" id="about">
-            <div class="holder padded">
+        <div class="page-header__branding thickline">&nbsp;</div>
+        <div class="b2-bg" id="about">
+            <div class="holder tallpadded">
                 <h2 class="footer-heading">About this visualisation</h2>
                 <p>These maps show electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a>. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
                 <p>The demands shown are the typical demands that could be expected in each region at time of national system peak demand. Individually each region may experience higher demands as factors such as local weather conditions and local engagement with distributed energy resources impact demands at a local level throughout the year.</p>
@@ -78,11 +84,11 @@
                 <h3 class="footer-heading">Acknowledgements</h3>
                 <p>This visualisation would not be possible without the prior work of others. We are grateful to the following organisations for sharing data and code under an open licence that allowed for re-use.</p>
                 <ul>
-                    <li>Interactive visualisation: The underlying code and website layout. &copy; Open Innovations/ODI Leeds (Stuart Lowe &amp; Patrick Lake) 2020. Released under an MIT licence.</li>
+                    <li>Interactive visualisation: The underlying code and website layout. &copy; Open Innovations (Stuart Lowe &amp; Patrick Lake) 2020. Released under an MIT licence.</li>
                     <li>Underlying map: This uses data from <a href="http://www.openstreetmap.org/copyright">OpenStreetMap Contributors</a> and &copy; <a href="https://carto.com/attribution/">CartoDB</a>. The Leaflet library is used to show the map.</li>
                     <li>Overlaid boundaries: NUTS1 boundaries are from the ONS geo service. They are released under the OGL (Contains National Statistics data &copy; Crown copyright and database right 2019, Contains OS data &copy; Crown copyright and database right 2019)</li>
                 </ul>
-                <p>We are sharing our own data under an open licence on the ESO Data Portal.</p>
+                <p>We are sharing our own data under an open licence on the <a href="https://data.nationalgrideso.com/">ESO Data Portal</a>.</p>
             </div>
         </div>
     </div>
