@@ -1,1019 +1,1019 @@
 {
 	"BERW":{
-		"North East (England)": 0.4922,
-		"Scotland": 0.5078
+		"UKC": 0.4922,
+		"UKM": 0.5078
 	},
 	"BLYTB1":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"BLYTH132":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"CHAP":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ECCL":{
-		"North East (England)": 0.1073,
-		"Scotland": 0.8927
+		"UKC": 0.1073,
+		"UKM": 0.8927
 	},
 	"FOUR_1":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"HARK_1;HUTT_1;RRIG":{
-		"North West (England)": 0.975,
-		"Yorkshire and The Humber": 0.025
+		"UKD": 0.975,
+		"UKE": 0.025
 	},
 	"HARM_6":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"HAWI":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"HAWP_6":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"LACK_6":{
-		"North East (England)": 0.6119,
-		"Yorkshire and The Humber": 0.3881
+		"UKC": 0.6119,
+		"UKE": 0.3881
 	},
 	"NORT_1":{
-		"North East (England)": 0.135,
-		"Yorkshire and The Humber": 0.865
+		"UKC": 0.135,
+		"UKE": 0.865
 	},
 	"OFFE_3":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"OSBA_1":{
-		"North East (England)": 0.272,
-		"Yorkshire and The Humber": 0.728
+		"UKC": 0.272,
+		"UKE": 0.728
 	},
 	"SALH_1":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"SPEN_1":{
-		"North East (England)": 0.927,
-		"Yorkshire and The Humber": 0.073
+		"UKC": 0.927,
+		"UKE": 0.073
 	},
 	"SSHI_3":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"STEN_1":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"STES_1":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"TYNE_1;TYNE_2":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"WBOL_6":{
-		"North East (England)": 1.0
+		"UKC": 1.0
 	},
 	"BIRK_1":{
-		"North West (England)": 0.8495,
-		"Wales": 0.1505
+		"UKD": 0.8495,
+		"UKL": 0.1505
 	},
 	"BRAW_1":{
-		"North West (England)": 0.034,
-		"Yorkshire and The Humber": 0.966
+		"UKD": 0.034,
+		"UKE": 0.966
 	},
 	"BRED_1":{
-		"North West (England)": 0.9833,
-		"East Midlands (England)": 0.0167
+		"UKD": 0.9833,
+		"UKF": 0.0167
 	},
 	"CAPEA1":{
-		"North West (England)": 0.896,
-		"Wales": 0.104
+		"UKD": 0.896,
+		"UKL": 0.104
 	},
 	"CARR_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"CELL_1":{
-		"North West (England)": 0.016,
-		"West Midlands (England)": 0.984
+		"UKD": 0.016,
+		"UKG": 0.984
 	},
 	"CONQA1;SASA":{
-		"North West (England)": 0.0319,
-		"Wales": 0.9681
+		"UKD": 0.0319,
+		"UKL": 0.9681
 	},
 	"ELLA_1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"FIDF_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"FROD_1":{
-		"North West (England)": 0.9165,
-		"West Midlands (England)": 0.0835
+		"UKD": 0.9165,
+		"UKG": 0.0835
 	},
 	"HEYS_1;HEYS1;ORMO":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"KEAR_1;KEAR_3":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"KIBY_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"LEGA_1":{
-		"North West (England)": 0.0191,
-		"West Midlands (England)": 0.2193,
-		"Wales": 0.7616
+		"UKD": 0.0191,
+		"UKG": 0.2193,
+		"UKL": 0.7616
 	},
 	"LISD_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"MACC_3":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"PADIB1":{
-		"North West (England)": 0.6776,
-		"Yorkshire and The Humber": 0.3224
+		"UKD": 0.6776,
+		"UKE": 0.3224
 	},
 	"PENE_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"PENW_1;STAH_1;WABO":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"RAIN_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"ROCH_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"SMAN_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"STAL_1":{
-		"North West (England)": 0.366,
-		"Yorkshire and The Humber": 0.013,
-		"East Midlands (England)": 0.621
+		"UKD": 0.366,
+		"UKE": 0.013,
+		"UKF": 0.621
 	},
 	"WASF_1;KIBY_G":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"WHGA_1":{
-		"North West (England)": 1.0
+		"UKD": 1.0
 	},
 	"WILL_1":{
-		"East Midlands (England)": 0.898,
-		"West Midlands (England)": 0.102
+		"UKF": 0.898,
+		"UKG": 0.102
 	},
 	"CAMB_01":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"CHTE_1":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"CREB_1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"DRAX_1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"FERRA2":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"FERRB1;FERRB_M":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"GRIW_1":{
-		"Yorkshire and The Humber": 0.8265,
-		"East Midlands (England)": 0.1735
+		"UKE": 0.8265,
+		"UKF": 0.1735
 	},
 	"JORD_3":{
-		"Yorkshire and The Humber": 0.6248,
-		"East Midlands (England)": 0.3752
+		"UKE": 0.6248,
+		"UKF": 0.3752
 	},
 	"KEAD_1":{
-		"Yorkshire and The Humber": 0.3135,
-		"East Midlands (England)": 0.6865
+		"UKE": 0.3135,
+		"UKF": 0.6865
 	},
 	"KIRKB1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"KNAR":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"NEEP_3":{
-		"Yorkshire and The Humber": 0.9712,
-		"East Midlands (England)": 0.0288
+		"UKE": 0.9712,
+		"UKF": 0.0288
 	},
 	"NORL_3":{
-		"Yorkshire and The Humber": 0.9869,
-		"East Midlands (England)": 0.0131
+		"UKE": 0.9869,
+		"UKF": 0.0131
 	},
 	"PITS_3":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"POPP_3":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"SALT_1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"SHEC_3":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"SKLGB1":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"STAY_1":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"TEMP_3":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"THOM_6":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"THUR_6":{
-		"Yorkshire and The Humber": 0.8188,
-		"East Midlands (England)": 0.1812
+		"UKE": 0.8188,
+		"UKF": 0.1812
 	},
 	"WBUR_1":{
-		"Yorkshire and The Humber": 0.0,
-		"East Midlands (England)": 1.0
+		"UKE": 0.0,
+		"UKF": 1.0
 	},
 	"WIBA_3":{
-		"Yorkshire and The Humber": 1.0
+		"UKE": 1.0
 	},
 	"WMEL_1":{
-		"Yorkshire and The Humber": 0.7573,
-		"East Midlands (England)": 0.2427
+		"UKE": 0.7573,
+		"UKF": 0.2427
 	},
 	"BESW_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"BICF_1":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"COVE_1":{
-		"East Midlands (England)": 0.595,
-		"West Midlands (England)": 0.405
+		"UKF": 0.595,
+		"UKG": 0.405
 	},
 	"COWL_1;ECLA_H":{
-		"South East (England)": 0.9606,
-		"South West (England)": 0.0384
+		"UKJ": 0.9606,
+		"UKK": 0.0384
 	},
 	"DRAK_1":{
-		"East Midlands (England)": 0.72,
-		"West Midlands (England)": 0.28
+		"UKF": 0.72,
+		"UKG": 0.28
 	},
 	"EASO_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"ECLA_1":{
-		"East Midlands (England)": 0.3702,
-		"East of England": 0.0018,
-		"South East (England)": 0.628
+		"UKF": 0.3702,
+		"UKH": 0.0018,
+		"UKJ": 0.628
 	},
 	"ENDE_1":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"FECK_6":{
-		"West Midlands (England)": 0.6876,
-		"South East (England)": 0.1140,
-		"South West (England)": 0.1984
+		"UKG": 0.6876,
+		"UKJ": 0.1140,
+		"UKK": 0.1984
 	},
 	"GREN_1":{
-		"East Midlands (England)": 0.9266,
-		"East of England": 0.0421,
-		"South East (England)": 0.0313
+		"UKF": 0.9266,
+		"UKH": 0.0421,
+		"UKJ": 0.0313
 	},
 	"HAMHC1":{
-		"East Midlands (England)": 0.0706,
-		"West Midlands (England)": 0.9294
+		"UKF": 0.0706,
+		"UKG": 0.9294
 	},
 	"RATS_1":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"SBAR":{
-		"East Midlands (England)": 1.0
+		"UKF": 1.0
 	},
 	"WALP_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"WALP_B":{
-		"East Midlands (England)": 0.9351,
-		"East of England": 0.0649
+		"UKF": 0.9351,
+		"UKH": 0.0649
 	},
 	"BISW_1":{
-		"West Midlands (England)": 0.9247,
-		"South West (England)": 0.0404,
-		"Wales": 0.0349
+		"UKG": 0.9247,
+		"UKK": 0.0404,
+		"UKL": 0.0349
 	},
 	"BUSH_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"BUST_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"IRONB1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"KITW_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"NECE_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"OCKH_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"OLDB_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"PENN_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"RASS_1":{
-		"West Midlands (England)": 0.0062,
-		"Wales": 0.9938
+		"UKG": 0.0062,
+		"UKL": 0.9938
 	},
 	"RUGEB1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"SHRW_1":{
-		"West Midlands (England)": 0.9374,
-		"Wales": 0.0626
+		"UKG": 0.9374,
+		"UKL": 0.0626
 	},
 	"USKM_1;ALST_3":{
-		"South West (England)": 0.032,
-		"Wales": 0.968
+		"UKK": 0.032,
+		"UKL": 0.968
 	},
 	"WALH_1":{
-		"West Midlands (England)": 0.122,
-		"South West (England)": 0.878
+		"UKG": 0.122,
+		"UKK": 0.878
 	},
 	"WIEN_1":{
-		"West Midlands (England)": 1.0
+		"UKG": 1.0
 	},
 	"AMEM_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"BARKC1;BARKW3":{
-		"East of England": 0.0805,
-		"London": 0.9195
+		"UKH": 0.0805,
+		"UKI": 0.9195
 	},
 	"BRAI_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"BRFO_1;CLT03":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"BRIM_1":{
-		"East of England": 0.642,
-		"London": 0.358
+		"UKH": 0.642,
+		"UKI": 0.358
 	},
 	"BURM_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"ELST_1":{
-		"East of England": 0.8325,
-		"London": 0.1675
+		"UKH": 0.8325,
+		"UKI": 0.1675
 	},
 	"IVER_1;IVER_6":{
-		"London": 0.20,
-		"South East (England)": 0.80
+		"UKI": 0.20,
+		"UKJ": 0.80
 	},
 	"MILH_1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"NORM_1;SALL1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"PELH_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"RAYL_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"RYEH_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"SUND_1":{
-		"East of England": 0.7076,
-		"South East (England)": 0.2924
+		"UKH": 0.7076,
+		"UKJ": 0.2924
 	},
 	"TILBB_1":{
-		"East of England": 0.9305,
-		"London": 0.0695
+		"UKH": 0.9305,
+		"UKI": 0.0695
 	},
 	"TOTT_1":{
-		"East of England": 0.0371,
-		"London": 0.9629
+		"UKH": 0.0371,
+		"UKI": 0.9629
 	},
 	"WARL_1":{
-		"East of England": 0.7085,
-		"London": 0.2915
+		"UKH": 0.7085,
+		"UKI": 0.2915
 	},
 	"WATFS_1":{
-		"East of England": 0.482,
-		"London": 0.088,
-		"South East (England)": 0.4299
+		"UKH": 0.482,
+		"UKI": 0.088,
+		"UKJ": 0.4299
 	},
 	"WTHU31":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"WYMOM_1":{
-		"East of England": 1.0
+		"UKH": 1.0
 	},
 	"ACTL_2;CBNK_H;GREE_H;PERI_H":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"BEDDT1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"BEDD_1":{
-		"London": 0.6254,
-		"South East (England)": 0.3746
+		"UKI": 0.6254,
+		"UKJ": 0.3746
 	},
 	"CHSI_1":{
-		"London": 0.4212,
-		"South East (England)": 0.5788
+		"UKI": 0.4212,
+		"UKJ": 0.5788
 	},
 	"CITR_1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"EALI_6":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"HACK_1;HACK_6":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"HURS_1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"LALE1SG003":{
-		"London": 0.2476,
-		"South East (England)": 0.7524
+		"UKI": 0.2476,
+		"UKJ": 0.7524
 	},
 	"LITT_C":{
-		"London": 0.6712,
-		"South East (England)": 0.3288
+		"UKI": 0.6712,
+		"UKJ": 0.3288
 	},
 	"LITT_J":{
-		"London": 0.4454,
-		"South East (England)": 0.5546
+		"UKI": 0.4454,
+		"UKJ": 0.5546
 	},
 	"LODR_6":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"NEWX_6":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"NFLE":{
-		"London": 0.0499,
-		"South East (England)": 0.9501
+		"UKI": 0.0499,
+		"UKJ": 0.9501
 	},
 	"NHYD_6":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"REBR_3":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"SJOW_1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"WHAM_1;ISLI_1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"WIMBS1;WIMBN1":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"WISD_6;WISD_1;ACTL_C":{
-		"London": 1.0
+		"UKI": 1.0
 	},
 	"WWEY_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"BOLN_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"BOTW_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"CANTN1;RICH1;RICH_J":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"FAWL_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"FLEE_1;BRLE_1":{
-		"South East (England)": 0.9764,
-		"South West (England)": 0.0236
+		"UKJ": 0.9764,
+		"UKK": 0.0236
 	},
 	"KEMS_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"KINO_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"LOUD_H":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"LOVE_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"MANN_1":{
-		"South East (England)": 0.1722,
-		"South West (England)": 0.8278
+		"UKJ": 0.1722,
+		"UKK": 0.8278
 	},
 	"MELK_1":{
-		"South East (England)": 0.0345,
-		"South West (England)": 0.9655
+		"UKJ": 0.0345,
+		"UKK": 0.9655
 	},
 	"MITY_1":{
-		"South East (England)": 0.2182,
-		"South West (England)": 0.7818
+		"UKJ": 0.2182,
+		"UKK": 0.7818
 	},
 	"NINF_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"NURS_1":{
-		"South East (England)": 0.9656,
-		"South West (England)": 0.0344
+		"UKJ": 0.9656,
+		"UKK": 0.0344
 	},
 	"SELL_1":{
-		"South East (England)": 1.0
+		"UKJ": 1.0
 	},
 	"ABHA1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"ALVE1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"AXMI1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"BRWA1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"CHIC_1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"EXET1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"INDQ1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"IROA1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"LAND1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"SEAB1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"TAUN1":{
-		"South West (England)": 1.0
+		"UKK": 1.0
 	},
 	"ABTH_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"CARE_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"IMPK_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"MAGA_6":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"PEMB_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"PENT_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"PYLE_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"SWAN_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"TRAW_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"UPPB_1;UPPB_3":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"WYLF_1":{
-		"Wales": 1.0
+		"UKL": 1.0
 	},
 	"ABNE_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ALNE_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ARBR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ARDK_P;CLAC_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ARMO_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"AYRR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BAGA":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BAIN":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BEAU_P;ORRI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BERB_P;CAIF_P;DALL_P;GLEF_P;KEIT_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BOAG_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BONN":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BRAC_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BRAP":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BRID_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BROA_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BROR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BROX":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"BUMU_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CAAD_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CASS_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CATY":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CEAN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CHAR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CHAS":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CLAY_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CLYM":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"COAT":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"COCK":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"COUA_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"COYL":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CRAI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CROO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CUMB":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CUPA":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"CURR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DALM3":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DEVM":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DEVO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DEWP":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DOUN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DRCR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DRUM":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUBE_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUDH_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUGR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUMF":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUNB":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUNF":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DUNO_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"DYCE_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"EERH":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"EKIL":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"EKIS":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ELDE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ELGI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"ERSK":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FASN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FAUG_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FETT_P;KINT_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FIDD_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FINN":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FRAS_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"FWIL_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GALA":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GIFF":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GLLU":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GLNI":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GLRO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GORG":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GOVA":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GRMO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"GRUB_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"G_EXTRA_12":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"HAGR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"HELE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"HUER":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"INKE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"INNE_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"JOHN":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KAIM":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KIER":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KIIN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KILB":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KILS":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KILT":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KILW":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"KINL_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LAIR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LEVE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LING":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LINM":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LUNA_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"LYND_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"MACD_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"MAYB":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"MILC_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"MYBS_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"NAIR_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"NEAR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"NETS":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PAIS":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PART":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PEHG_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PEHS_P;STRI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PERS_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"POOB":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PORA_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"PORD":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"QUOI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"RANN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"REDH":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"REDM_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SACO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SANX":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SFEG_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SFIL_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SHIN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SHRU":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SIGH":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SLOY_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"SPAV":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"STHA":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"STIR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"STLE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"TARL_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"TAYN_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"TELR":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"THSO_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"TONG;CAFA;EAST;GLLE;KEOO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"TUMB_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WFIE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WGEO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WHHO":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WIOW_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WISH;RAVE":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	},
 	"WOHI_P":{
-		"Scotland": 1.0
+		"UKM": 1.0
 	}
 }
