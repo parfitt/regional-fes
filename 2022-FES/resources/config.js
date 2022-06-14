@@ -15,6 +15,10 @@ S(document).ready(function(){
 			"map": {
 				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
 				"attribution": "Vis: National Grid ESO"
+			},
+			"files": {
+				"scenarios": "data/scenarios/index.json",
+				"parameters": "data/scenarios/config.json"
 			}
 		},
 		// How we map from our source data's IDs to a particular geography

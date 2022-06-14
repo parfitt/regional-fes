@@ -13,7 +13,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.4.6";
+		this.version = "1.4.7";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -43,14 +43,17 @@
 		this.mapping = (config.mapping||{});
 		this.events = {};
 		if(config.on) this.events = config.on;
+		if(!this.options.files) this.options.files = {};
+		if(!this.options.files.parameters) this.options.files.parameters = path+"data/scenarios/config.json";
+		if(!this.options.files.scenarios) this.options.files.scenarios = path+"data/scenarios/index.json";
 
-		S().ajax(path+"data/scenarios/config.json",{
+		S().ajax(this.options.files.parameters,{
 			'this':this,
 			'cache':false,
 			'dataType':'json',
 			'success': function(d){
 				this.parameters = d;
-				S().ajax(path+"data/scenarios/index.json",{
+				S().ajax(this.options.files.scenarios,{
 					'this':this,
 					'cache':false,
 					'dataType':'json',
