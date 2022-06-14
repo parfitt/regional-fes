@@ -1,7 +1,5 @@
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-/*UNCOMMENT IF YOU WANT CHANGING COLOURS*/
-
 /* Main site styling */
 /*.steady-progression { background-color: #F8D84B!important; color: black!important; }
 .steady-progression-text { color: #827B7A!important; }
@@ -23,207 +21,137 @@
 .early-net-zero { background-color: #00AB84!important; color: white!important; }
 .early-net-zero-text { color: #00AB84!important; }*/
 
-
-/*SLIDERS (for ESO)*/
-.noUi-marker-horizontal.noUi-marker-large, .noUi-value-horizontal {
-	color: white !important;
-}
+/* Hide slider numbers (for ESO) */
+.noUi-value { display: none; }
 
 
-
-ol { list-style: decimal; margin-left: 1em; }
-ol li { margin-bottom: 1em; }
-ol li:last-child { margin-bottom: 0px; }
 body {
 	background-color: #000000;
-	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-family: "Helvetica Neue", sans-serif !important;
 	font-size: 16px;
 	color: #efefef;
 	margin: 0px;
 	padding: 0px;
-	line-height: 1.44em;
+	line-height: 1.38em;
 }
 p, time, li, td, th, footer, div { font-weight: 300; }
 header {
 	width: 100%;
 	padding: 0px;
 	font-size: 1.2em;
-}
-header nav ul { width: 100%; text-align: center; }
-header nav li {
-	display: inline-block;
-}
-header nav li.search {
-	text-align: right;
-	display: none;
-}
-header nav li a {
-	width: 100%;
-	padding: 0.75em 1em;
-	display: inline-block;
-	color: inherit;
-}
-header nav li a:hover, header nav li a:focus { background-color: #999999; }
-header nav li.seasonal a:hover, header nav li.seasonal a:focus { background-color: inherit; }
-header nav li.search input { font-size: 1em; box-sizing: border-box; }
-header nav li.search input[type=text] { width: 10em; height: 30px; border: 0px; padding: 0; padding-left: 0.25em; }
-header nav li.search input[type=submit] { border: 0px; height: 30px; }
-header .holder {
-	padding-left: 0px;
-}
-header .holder nav { line-height: 1em; }
-#main {
-	background-color: #efefef;
-	color: #333333;
+	line-height: 1em;
 }
 .holder {
 	position: relative;
-	width: 1080px;
+	width: 1200px;
 	max-width: 100%;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
-#main .holder, footer .holder {
-	padding: 1em 1em;
-}
-#left {
-	width: 70%;
-	display: inline-block;
-}
-#left img {
-	max-width: 100%;
-	height: auto;
-}
-#right {
-	width: 30%;
-	float: right;
-	padding-left: 1em;
-}
-.padded {
-	padding: 1em;
-}
-h1, h2, h3, h4 {
-	font-weight: 500;
-	color: #b04a2a;
-}
+.padded { padding: 1em; }
+.tallpadded { padding: 4em 1em; }
+h1, h2, h3, h4 { font-weight: bold; color: #b04a2a; }
 h1 { font-size: 2em; }
 h2 { font-size: 1.7em; }
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
+p { font-weight: 400; }
 strong { font-weight: 700; }
 em { font-style: italic; }
-button, a.button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; }
-	button:hover, a.button:hover {
-		background-color: #873920 !important;
-		color: #efefef;
-	}
+ol { list-style: decimal; margin-left: 1em; }
+ol li { margin-bottom: 1em; }
+ol li:last-child { margin-bottom: 0px; }
+ul,ol { margin-bottom: 1em; }
+.page-header__branding, button, a.button, .scenario { background-color: #b04a2a; color: white; }
+.page-header__branding path { fill: white; }
+button, a.button { border: 0px; font-size: 0.875em; text-decoration: none!important; display: inline-block; padding: 0.7rem 2.5rem; cursor: pointer; line-height: 22px; font-weight: 700; border-radius: 2px; }
+button:hover, a.button:hover { background-color: #873920 !important; color: #efefef; }
 a:hover { text-decoration: underline; }
-h2 a, h3 a,p a, #left a { text-decoration: underline; color: white!important; }
-h2 a:visited, h3 a:visited, p a:visited, #left a:visited { color: #722ea5; }
-header a { text-decoration: none; }
-footer {
-	width: 100%;
-	padding: 1em;
-	padding-bottom: 3em;
-}
-footer a,footer a:visited {
-	color: inherit;
-}
-.block {
-	min-height: 150px;
-}
-blockquote {
-	min-height: auto!important;
-}
-.glory-opacity {
-	background:rgba(255,255,255,1.0);
-	height:100%;
-}
-.glory .holder {
+h2 a, h3 a, p a { text-decoration: underline; color: white!important; }
+h2 a:visited, h3 a:visited, p a:visited { color: #722ea5; }
+footer a,footer a:visited { color: inherit; }
+.phb-topnav { background: white; }
+.phb-topnav .holder {
 	display: block;
 	text-align:left;
 	position: relative;
 	height: 100%;
-	padding: 20px;
+	padding: 25px 1em;
 }
-.glory img {
+.phb-topnav .holder a { display: inline-block; line-height: 25px; font-size: 1em; line-height: 0; }
+.phb-topnav img {
 	margin:auto;
 	width: 174px;
 	height: auto;
 }
-
-.note { width: 12.75em; height: 12.75em; float: left; position: relative; margin-right: 1.5em; padding: 1em; background-color: #f9bc26; margin-bottom: 1em; margin-left: -3em; }
-.note:before {
-	background: #ff6700 none repeat scroll 0 0;
-	border-color: #efefef #f9bc26 #efefef #f9bc26;
-	border-style: solid;
-	border-width: 0 0 16px 16px;
-	box-shadow: -2px -4px 1px rgba(0, 0, 0, 0.2), -4px -2px 1px rgba(0, 0, 0, 0.05);
-	content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 0;
+.page-header__branding.title {
+	background-image: url('https://www.nationalgrideso.com/sites/eso/files/styles/hero_large/public/images/_Welcome%20to%20the%20ESO%20Future%20Energy%20Scenarios%202.jpg?h=8f74817f&itok=vdcDahWf');
+	background-size: cover;
+	background-position: center;
+	height: 400px;
 }
+.holder { clear: both; }
+.holder::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.page-hero { position: relative; height: 100%; display: flex; align-items: flex-end; line-height: 1.4em; }
+.page-hero::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 70%;
+	background: linear-gradient(to bottom,rgba(0,0,0,0),#000);
+	opacity: 0.8;
+}
+.page-hero__content {
+	width: 50%;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	position: relative;
+	z-index: 2;
+}
+.page-header__branding.title .glory { position: relative; top: 60%; height: 40%; line-height: 1.3em; }
+.page-hero h1 { font-size: 1.8em; }
 
 table td.n { text-align: center; }
 
 .b1-bg { background-color: #ffffff; }
-.b2-bg { background-color: #333333; }
+.b2-bg { background-color: #454546; color: white!important; }
 .bk-bg { background-color: #6D6D6D; }
 .b3-bg, .github:hover { background-color: #999999; color: black!important; }
 .b4-bg { background-color: #bbbbbb; color: black!important; }
-.b5-bg { background-color: #454546; color: white!important; }
+.b5-bg { background-color: #efefef; color: black!important; }
 .b6-bg {
 	background: white;
 	color: black !important;
 }
 a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
 .b6-bg .button { background-color: black; color: white!important; }
-.scenario {
-	background-color: #b04a2a;
-}
 
-.white-title, .leaflet-control-container .year {
-	color: white !important;
-}
+.white-title, .leaflet-control-container .year { color: white !important; }
 
-.footer-heading {
-	color: #ffbf22 !important;
-}
+.footer-heading { color: #ffbf22 !important; }
 
 @media only screen and (max-width: 1120px) {
-	footer ul.sponsors .sponsor { width: 100%; margin: 0; }
-	footer ul.sponsors li { width: 20% }
 	.note { margin-left: 0; }
+	.page-hero__content { width: 100%; }
 }
 
 @media only screen and (max-width: 700px) {
-	header nav li { display: block; }
 	h1 { line-height: 1em; }
 	#main > .holder { padding: 1em; }
 	.narrow-only { display: inherit; }
-	header > .holder {
-		position: absolute;
-		background: black;
-		top: 0px;
-		display: block;
-		position: absolute;
-		left: -75%;
-		bottom: 0px;
-		width: 75%;
-		z-index: 10;
-		border-right: 1px solid rgba(255,255,255,0.8);
-	}
-	header nav a {
-		text-align: right;
-	}
 }
 
 
 
 /* FES styles */
 h1 { line-height: 1em; font-size: 1.5em; padding: 0.5em 0; }
+.about ul { margin-bottom: 0; }
 #map { 
 	height: 70vh;
 	display: block;
@@ -232,17 +160,15 @@ h1 { line-height: 1em; font-size: 1.5em; padding: 0.5em 0; }
 header .holder, .holder, footer .holder { padding-left: 1em; padding-right: 1em; }
 footer { padding-left: 0px; padding-right: 0px; }
 .columns {
-	display: flex;
-	padding-top: 2em;
-	padding-bottom: 2em;
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	grid-gap: 2em;
+	padding: 2em;
 	color: #454546 !important;
 }
-select {
-	color: #454546 !important;
-}
-.left { width: 30%; max-width: 300px; margin-right: 2em; }
-.right { width: 70%; }
-h2 { font-size: 1.4em; font-weight: bold; margin-top: 0.5em; margin-bottom: 0.5em; }
+select { color: #454546 !important; }
+h2 { margin-top: 1em; margin-bottom: 0.25em; }
+h2:first-child { margin-top: 0; }
 .left h2 { font-size: 1em; }
 footer h3 { font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.5em; }
 footer h4 { font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; }
@@ -250,7 +176,7 @@ p { margin-bottom: 1em; }
 .spinner { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%,-50%,0); z-index: 1000; }
 .spinner img { width: 5em; margin: auto; }
 footer a:visited, #about a:visited, #about a { color: inherit; }
-#scenario .about { padding: 0.25em 0.5em; }
+#scenario .about { padding: 0.5em 0.75em; background: #f0f0f0; }
 #scenario ul, footer ul, #about ul { list-style-type: disc; margin-left: 1em; }
 input, select { font: inherit; line-height: 2em; width: 100%; height: 2em; }
 select option:hover, select option:checked { filter: hue-rotate(90deg); }
@@ -268,6 +194,8 @@ footer ul { margin-left: 2em; }
 #scale .min { padding-left: 0.25em; border-left-width: 1px; border-left-style: solid; border-right:0px; transform: none; white-space: nowrap; }
 #scale .max { padding-right: 0.25em; padding-left: 0; border-right-width: 1px; border-right-style: solid; transform: translate3d(-100%, 0, 0); border-left: 0; white-space: nowrap; }
 #scale-holder { display: inline-block; }
+#download { margin-top: 1em; text-align: center; }
+#download button { margin: auto; width: 100%; line-height: 1.5em; margin-bottom: 0.5em; }
 #about h2 + p, #about h3 + p { margin-top: 0.5em; }
 #about h3 { margin-top: 1em; }
 .thickline { height: 1.5vh; }
@@ -363,7 +291,7 @@ footer ul { margin-left: 2em; }
 .switch { width: 1.25em; }
 .noUi-pips-horizontal { height: auto; }
 button:disabled { opacity: 0.8; filter: grayscale(100%); cursor: not-allowed; }
-#play, #pause { line-height: 1.2em; }
+#play, #pause { line-height: 20px; font-size: 1.3125em; }
 .leaflet-control-container .year { font-size: 1em; font-weight: bold; padding: 0.5em; }
 .leaflet-popup-content p { margin: 1em 0; }
 .leaflet-popup-content h3 + p { margin-top: 0px; }
@@ -386,7 +314,9 @@ button:disabled { opacity: 0.8; filter: grayscale(100%); cursor: not-allowed; }
 
 @media only screen and (max-width: 1000px) {
 	body{ overflow-x: hidden; }
-	.columns { display: block; }
+	.columns { display: block; padding: 1em; }
+	.tallpadded { padding: 2em 1em; }
 	.left, .right { width: 100%; max-width: 100%; }
+	.right { margin-top: 1em; }
 }
 /* End of FES styles */
