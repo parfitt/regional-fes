@@ -1,0 +1,1019 @@
+{
+	"BERW":{
+		"UKC": 0.4922,
+		"UKM": 0.5078
+	},
+	"BLYTB1":{
+		"UKC": 1.0
+	},
+	"BLYTH132":{
+		"UKC": 1.0
+	},
+	"CHAP":{
+		"UKM": 1.0
+	},
+	"ECCL":{
+		"UKC": 0.1073,
+		"UKM": 0.8927
+	},
+	"FOUR_1":{
+		"UKC": 1.0
+	},
+	"HARK_1;HUTT_1;RRIG":{
+		"UKD": 0.975,
+		"UKE": 0.025
+	},
+	"HARM_6":{
+		"UKC": 1.0
+	},
+	"HAWI":{
+		"UKM": 1.0
+	},
+	"HAWP_6":{
+		"UKC": 1.0
+	},
+	"LACK_6":{
+		"UKC": 0.6119,
+		"UKE": 0.3881
+	},
+	"NORT_1":{
+		"UKC": 0.135,
+		"UKE": 0.865
+	},
+	"OFFE_3":{
+		"UKC": 1.0
+	},
+	"OSBA_1":{
+		"UKC": 0.272,
+		"UKE": 0.728
+	},
+	"SALH_1":{
+		"UKC": 1.0
+	},
+	"SPEN_1":{
+		"UKC": 0.927,
+		"UKE": 0.073
+	},
+	"SSHI_3":{
+		"UKC": 1.0
+	},
+	"STEN_1":{
+		"UKC": 1.0
+	},
+	"STES_1":{
+		"UKC": 1.0
+	},
+	"TYNE_1;TYNE_2":{
+		"UKC": 1.0
+	},
+	"WBOL_6":{
+		"UKC": 1.0
+	},
+	"BIRK_1":{
+		"UKD": 0.8495,
+		"UKL": 0.1505
+	},
+	"BRAW_1":{
+		"UKD": 0.034,
+		"UKE": 0.966
+	},
+	"BRED_1":{
+		"UKD": 0.9833,
+		"UKF": 0.0167
+	},
+	"CAPEA1":{
+		"UKD": 0.896,
+		"UKL": 0.104
+	},
+	"CARR_1":{
+		"UKD": 1.0
+	},
+	"CELL_1":{
+		"UKD": 0.016,
+		"UKG": 0.984
+	},
+	"CONQA1;SASA":{
+		"UKD": 0.0319,
+		"UKL": 0.9681
+	},
+	"ELLA_1":{
+		"UKE": 1.0
+	},
+	"FIDF_1":{
+		"UKD": 1.0
+	},
+	"FROD_1":{
+		"UKD": 0.9165,
+		"UKG": 0.0835
+	},
+	"HEYS_1;HEYS1;ORMO":{
+		"UKD": 1.0
+	},
+	"KEAR_1;KEAR_3":{
+		"UKD": 1.0
+	},
+	"KIBY_1":{
+		"UKD": 1.0
+	},
+	"LEGA_1":{
+		"UKD": 0.0191,
+		"UKG": 0.2193,
+		"UKL": 0.7616
+	},
+	"LISD_1":{
+		"UKD": 1.0
+	},
+	"MACC_3":{
+		"UKD": 1.0
+	},
+	"PADIB1":{
+		"UKD": 0.6776,
+		"UKE": 0.3224
+	},
+	"PENE_1":{
+		"UKD": 1.0
+	},
+	"PENW_1;STAH_1;WABO":{
+		"UKD": 1.0
+	},
+	"RAIN_1":{
+		"UKD": 1.0
+	},
+	"ROCH_1":{
+		"UKD": 1.0
+	},
+	"SMAN_1":{
+		"UKD": 1.0
+	},
+	"STAL_1":{
+		"UKD": 0.366,
+		"UKE": 0.013,
+		"UKF": 0.621
+	},
+	"WASF_1;KIBY_G":{
+		"UKD": 1.0
+	},
+	"WHGA_1":{
+		"UKD": 1.0
+	},
+	"WILL_1":{
+		"UKF": 0.898,
+		"UKG": 0.102
+	},
+	"CAMB_01":{
+		"UKE": 1.0
+	},
+	"CHTE_1":{
+		"UKF": 1.0
+	},
+	"CREB_1":{
+		"UKE": 1.0
+	},
+	"DRAX_1":{
+		"UKE": 1.0
+	},
+	"FERRA2":{
+		"UKE": 1.0
+	},
+	"FERRB1;FERRB_M":{
+		"UKE": 1.0
+	},
+	"GRIW_1":{
+		"UKE": 0.8265,
+		"UKF": 0.1735
+	},
+	"JORD_3":{
+		"UKE": 0.6248,
+		"UKF": 0.3752
+	},
+	"KEAD_1":{
+		"UKE": 0.3135,
+		"UKF": 0.6865
+	},
+	"KIRKB1":{
+		"UKE": 1.0
+	},
+	"KNAR":{
+		"UKE": 1.0
+	},
+	"NEEP_3":{
+		"UKE": 0.9712,
+		"UKF": 0.0288
+	},
+	"NORL_3":{
+		"UKE": 0.9869,
+		"UKF": 0.0131
+	},
+	"PITS_3":{
+		"UKE": 1.0
+	},
+	"POPP_3":{
+		"UKE": 1.0
+	},
+	"SALT_1":{
+		"UKE": 1.0
+	},
+	"SHEC_3":{
+		"UKE": 1.0
+	},
+	"SKLGB1":{
+		"UKE": 1.0
+	},
+	"STAY_1":{
+		"UKF": 1.0
+	},
+	"TEMP_3":{
+		"UKE": 1.0
+	},
+	"THOM_6":{
+		"UKE": 1.0
+	},
+	"THUR_6":{
+		"UKE": 0.8188,
+		"UKF": 0.1812
+	},
+	"WBUR_1":{
+		"UKE": 0.0,
+		"UKF": 1.0
+	},
+	"WIBA_3":{
+		"UKE": 1.0
+	},
+	"WMEL_1":{
+		"UKE": 0.7573,
+		"UKF": 0.2427
+	},
+	"BESW_1":{
+		"UKG": 1.0
+	},
+	"BICF_1":{
+		"UKF": 1.0
+	},
+	"COVE_1":{
+		"UKF": 0.595,
+		"UKG": 0.405
+	},
+	"COWL_1;ECLA_H":{
+		"UKJ": 0.9606,
+		"UKK": 0.0384
+	},
+	"DRAK_1":{
+		"UKF": 0.72,
+		"UKG": 0.28
+	},
+	"EASO_1":{
+		"UKH": 1.0
+	},
+	"ECLA_1":{
+		"UKF": 0.3702,
+		"UKH": 0.0018,
+		"UKJ": 0.628
+	},
+	"ENDE_1":{
+		"UKF": 1.0
+	},
+	"FECK_6":{
+		"UKG": 0.6876,
+		"UKJ": 0.1140,
+		"UKK": 0.1984
+	},
+	"GREN_1":{
+		"UKF": 0.9266,
+		"UKH": 0.0421,
+		"UKJ": 0.0313
+	},
+	"HAMHC1":{
+		"UKF": 0.0706,
+		"UKG": 0.9294
+	},
+	"RATS_1":{
+		"UKF": 1.0
+	},
+	"SBAR":{
+		"UKF": 1.0
+	},
+	"WALP_1":{
+		"UKH": 1.0
+	},
+	"WALP_B":{
+		"UKF": 0.9351,
+		"UKH": 0.0649
+	},
+	"BISW_1":{
+		"UKG": 0.9247,
+		"UKK": 0.0404,
+		"UKL": 0.0349
+	},
+	"BUSH_1":{
+		"UKG": 1.0
+	},
+	"BUST_1":{
+		"UKG": 1.0
+	},
+	"IRONB1":{
+		"UKG": 1.0
+	},
+	"KITW_1":{
+		"UKG": 1.0
+	},
+	"NECE_1":{
+		"UKG": 1.0
+	},
+	"OCKH_1":{
+		"UKG": 1.0
+	},
+	"OLDB_1":{
+		"UKG": 1.0
+	},
+	"PENN_1":{
+		"UKG": 1.0
+	},
+	"RASS_1":{
+		"UKG": 0.0062,
+		"UKL": 0.9938
+	},
+	"RUGEB1":{
+		"UKG": 1.0
+	},
+	"SHRW_1":{
+		"UKG": 0.9374,
+		"UKL": 0.0626
+	},
+	"USKM_1;ALST_3":{
+		"UKK": 0.032,
+		"UKL": 0.968
+	},
+	"WALH_1":{
+		"UKG": 0.122,
+		"UKK": 0.878
+	},
+	"WIEN_1":{
+		"UKG": 1.0
+	},
+	"AMEM_1":{
+		"UKJ": 1.0
+	},
+	"BARKC1;BARKW3":{
+		"UKH": 0.0805,
+		"UKI": 0.9195
+	},
+	"BRAI_1":{
+		"UKH": 1.0
+	},
+	"BRFO_1;CLT03":{
+		"UKH": 1.0
+	},
+	"BRIM_1":{
+		"UKH": 0.642,
+		"UKI": 0.358
+	},
+	"BURM_1":{
+		"UKH": 1.0
+	},
+	"ELST_1":{
+		"UKH": 0.8325,
+		"UKI": 0.1675
+	},
+	"IVER_1;IVER_6":{
+		"UKI": 0.20,
+		"UKJ": 0.80
+	},
+	"MILH_1":{
+		"UKI": 1.0
+	},
+	"NORM_1;SALL1":{
+		"UKH": 1.0
+	},
+	"PELH_1":{
+		"UKH": 1.0
+	},
+	"RAYL_1":{
+		"UKH": 1.0
+	},
+	"RYEH_1":{
+		"UKH": 1.0
+	},
+	"SUND_1":{
+		"UKH": 0.7076,
+		"UKJ": 0.2924
+	},
+	"TILBB_1":{
+		"UKH": 0.9305,
+		"UKI": 0.0695
+	},
+	"TOTT_1":{
+		"UKH": 0.0371,
+		"UKI": 0.9629
+	},
+	"WARL_1":{
+		"UKH": 0.7085,
+		"UKI": 0.2915
+	},
+	"WATFS_1":{
+		"UKH": 0.482,
+		"UKI": 0.088,
+		"UKJ": 0.4299
+	},
+	"WTHU31":{
+		"UKH": 1.0
+	},
+	"WYMOM_1":{
+		"UKH": 1.0
+	},
+	"ACTL_2;CBNK_H;GREE_H;PERI_H":{
+		"UKI": 1.0
+	},
+	"BEDDT1":{
+		"UKI": 1.0
+	},
+	"BEDD_1":{
+		"UKI": 0.6254,
+		"UKJ": 0.3746
+	},
+	"CHSI_1":{
+		"UKI": 0.4212,
+		"UKJ": 0.5788
+	},
+	"CITR_1":{
+		"UKI": 1.0
+	},
+	"EALI_6":{
+		"UKI": 1.0
+	},
+	"HACK_1;HACK_6":{
+		"UKI": 1.0
+	},
+	"HURS_1":{
+		"UKI": 1.0
+	},
+	"LALE1SG003":{
+		"UKI": 0.2476,
+		"UKJ": 0.7524
+	},
+	"LITT_C":{
+		"UKI": 0.6712,
+		"UKJ": 0.3288
+	},
+	"LITT_J":{
+		"UKI": 0.4454,
+		"UKJ": 0.5546
+	},
+	"LODR_6":{
+		"UKI": 1.0
+	},
+	"NEWX_6":{
+		"UKI": 1.0
+	},
+	"NFLE":{
+		"UKI": 0.0499,
+		"UKJ": 0.9501
+	},
+	"NHYD_6":{
+		"UKI": 1.0
+	},
+	"REBR_3":{
+		"UKI": 1.0
+	},
+	"SJOW_1":{
+		"UKI": 1.0
+	},
+	"WHAM_1;ISLI_1":{
+		"UKI": 1.0
+	},
+	"WIMBS1;WIMBN1":{
+		"UKI": 1.0
+	},
+	"WISD_6;WISD_1;ACTL_C":{
+		"UKI": 1.0
+	},
+	"WWEY_1":{
+		"UKJ": 1.0
+	},
+	"BOLN_1":{
+		"UKJ": 1.0
+	},
+	"BOTW_1":{
+		"UKJ": 1.0
+	},
+	"CANTN1;RICH1;RICH_J":{
+		"UKJ": 1.0
+	},
+	"FAWL_1":{
+		"UKJ": 1.0
+	},
+	"FLEE_1;BRLE_1":{
+		"UKJ": 0.9764,
+		"UKK": 0.0236
+	},
+	"KEMS_1":{
+		"UKJ": 1.0
+	},
+	"KINO_1":{
+		"UKJ": 1.0
+	},
+	"LOUD_H":{
+		"UKJ": 1.0
+	},
+	"LOVE_1":{
+		"UKJ": 1.0
+	},
+	"MANN_1":{
+		"UKJ": 0.1722,
+		"UKK": 0.8278
+	},
+	"MELK_1":{
+		"UKJ": 0.0345,
+		"UKK": 0.9655
+	},
+	"MITY_1":{
+		"UKJ": 0.2182,
+		"UKK": 0.7818
+	},
+	"NINF_1":{
+		"UKJ": 1.0
+	},
+	"NURS_1":{
+		"UKJ": 0.9656,
+		"UKK": 0.0344
+	},
+	"SELL_1":{
+		"UKJ": 1.0
+	},
+	"ABHA1":{
+		"UKK": 1.0
+	},
+	"ALVE1":{
+		"UKK": 1.0
+	},
+	"AXMI1":{
+		"UKK": 1.0
+	},
+	"BRWA1":{
+		"UKK": 1.0
+	},
+	"CHIC_1":{
+		"UKK": 1.0
+	},
+	"EXET1":{
+		"UKK": 1.0
+	},
+	"INDQ1":{
+		"UKK": 1.0
+	},
+	"IROA1":{
+		"UKK": 1.0
+	},
+	"LAND1":{
+		"UKK": 1.0
+	},
+	"SEAB1":{
+		"UKK": 1.0
+	},
+	"TAUN1":{
+		"UKK": 1.0
+	},
+	"ABTH_1":{
+		"UKL": 1.0
+	},
+	"CARE_1":{
+		"UKL": 1.0
+	},
+	"IMPK_1":{
+		"UKL": 1.0
+	},
+	"MAGA_6":{
+		"UKL": 1.0
+	},
+	"PEMB_1":{
+		"UKL": 1.0
+	},
+	"PENT_1":{
+		"UKL": 1.0
+	},
+	"PYLE_1":{
+		"UKL": 1.0
+	},
+	"SWAN_1":{
+		"UKL": 1.0
+	},
+	"TRAW_1":{
+		"UKL": 1.0
+	},
+	"UPPB_1;UPPB_3":{
+		"UKL": 1.0
+	},
+	"WYLF_1":{
+		"UKL": 1.0
+	},
+	"ABNE_P":{
+		"UKM": 1.0
+	},
+	"ALNE_P":{
+		"UKM": 1.0
+	},
+	"ARBR_P":{
+		"UKM": 1.0
+	},
+	"ARDK_P;CLAC_P":{
+		"UKM": 1.0
+	},
+	"ARMO_P":{
+		"UKM": 1.0
+	},
+	"AYRR":{
+		"UKM": 1.0
+	},
+	"BAGA":{
+		"UKM": 1.0
+	},
+	"BAIN":{
+		"UKM": 1.0
+	},
+	"BEAU_P;ORRI_P":{
+		"UKM": 1.0
+	},
+	"BERB_P;CAIF_P;DALL_P;GLEF_P;KEIT_P":{
+		"UKM": 1.0
+	},
+	"BOAG_P":{
+		"UKM": 1.0
+	},
+	"BONN":{
+		"UKM": 1.0
+	},
+	"BRAC_P":{
+		"UKM": 1.0
+	},
+	"BRAP":{
+		"UKM": 1.0
+	},
+	"BRID_P":{
+		"UKM": 1.0
+	},
+	"BROA_P":{
+		"UKM": 1.0
+	},
+	"BROR_P":{
+		"UKM": 1.0
+	},
+	"BROX":{
+		"UKM": 1.0
+	},
+	"BUMU_P":{
+		"UKM": 1.0
+	},
+	"CAAD_P":{
+		"UKM": 1.0
+	},
+	"CASS_P":{
+		"UKM": 1.0
+	},
+	"CATY":{
+		"UKM": 1.0
+	},
+	"CEAN_P":{
+		"UKM": 1.0
+	},
+	"CHAR_P":{
+		"UKM": 1.0
+	},
+	"CHAS":{
+		"UKM": 1.0
+	},
+	"CLAY_P":{
+		"UKM": 1.0
+	},
+	"CLYM":{
+		"UKM": 1.0
+	},
+	"COAT":{
+		"UKM": 1.0
+	},
+	"COCK":{
+		"UKM": 1.0
+	},
+	"COUA_P":{
+		"UKM": 1.0
+	},
+	"COYL":{
+		"UKM": 1.0
+	},
+	"CRAI_P":{
+		"UKM": 1.0
+	},
+	"CROO":{
+		"UKM": 1.0
+	},
+	"CUMB":{
+		"UKM": 1.0
+	},
+	"CUPA":{
+		"UKM": 1.0
+	},
+	"CURR":{
+		"UKM": 1.0
+	},
+	"DALM3":{
+		"UKM": 1.0
+	},
+	"DEVM":{
+		"UKM": 1.0
+	},
+	"DEVO":{
+		"UKM": 1.0
+	},
+	"DEWP":{
+		"UKM": 1.0
+	},
+	"DOUN_P":{
+		"UKM": 1.0
+	},
+	"DRCR":{
+		"UKM": 1.0
+	},
+	"DRUM":{
+		"UKM": 1.0
+	},
+	"DUBE_P":{
+		"UKM": 1.0
+	},
+	"DUDH_P":{
+		"UKM": 1.0
+	},
+	"DUGR_P":{
+		"UKM": 1.0
+	},
+	"DUMF":{
+		"UKM": 1.0
+	},
+	"DUNB":{
+		"UKM": 1.0
+	},
+	"DUNF":{
+		"UKM": 1.0
+	},
+	"DUNO_P":{
+		"UKM": 1.0
+	},
+	"DYCE_P":{
+		"UKM": 1.0
+	},
+	"EERH":{
+		"UKM": 1.0
+	},
+	"EKIL":{
+		"UKM": 1.0
+	},
+	"EKIS":{
+		"UKM": 1.0
+	},
+	"ELDE":{
+		"UKM": 1.0
+	},
+	"ELGI_P":{
+		"UKM": 1.0
+	},
+	"ERSK":{
+		"UKM": 1.0
+	},
+	"FASN_P":{
+		"UKM": 1.0
+	},
+	"FAUG_P":{
+		"UKM": 1.0
+	},
+	"FETT_P;KINT_P":{
+		"UKM": 1.0
+	},
+	"FIDD_P":{
+		"UKM": 1.0
+	},
+	"FINN":{
+		"UKM": 1.0
+	},
+	"FRAS_P":{
+		"UKM": 1.0
+	},
+	"FWIL_P":{
+		"UKM": 1.0
+	},
+	"GALA":{
+		"UKM": 1.0
+	},
+	"GIFF":{
+		"UKM": 1.0
+	},
+	"GLLU":{
+		"UKM": 1.0
+	},
+	"GLNI":{
+		"UKM": 1.0
+	},
+	"GLRO":{
+		"UKM": 1.0
+	},
+	"GORG":{
+		"UKM": 1.0
+	},
+	"GOVA":{
+		"UKM": 1.0
+	},
+	"GRMO":{
+		"UKM": 1.0
+	},
+	"GRUB_P":{
+		"UKM": 1.0
+	},
+	"G_EXTRA_12":{
+		"UKM": 1.0
+	},
+	"HAGR":{
+		"UKM": 1.0
+	},
+	"HELE":{
+		"UKM": 1.0
+	},
+	"HUER":{
+		"UKM": 1.0
+	},
+	"INKE":{
+		"UKM": 1.0
+	},
+	"INNE_P":{
+		"UKM": 1.0
+	},
+	"JOHN":{
+		"UKM": 1.0
+	},
+	"KAIM":{
+		"UKM": 1.0
+	},
+	"KIER":{
+		"UKM": 1.0
+	},
+	"KIIN_P":{
+		"UKM": 1.0
+	},
+	"KILB":{
+		"UKM": 1.0
+	},
+	"KILS":{
+		"UKM": 1.0
+	},
+	"KILT":{
+		"UKM": 1.0
+	},
+	"KILW":{
+		"UKM": 1.0
+	},
+	"KINL_P":{
+		"UKM": 1.0
+	},
+	"LAIR_P":{
+		"UKM": 1.0
+	},
+	"LEVE":{
+		"UKM": 1.0
+	},
+	"LING":{
+		"UKM": 1.0
+	},
+	"LINM":{
+		"UKM": 1.0
+	},
+	"LUNA_P":{
+		"UKM": 1.0
+	},
+	"LYND_P":{
+		"UKM": 1.0
+	},
+	"MACD_P":{
+		"UKM": 1.0
+	},
+	"MAYB":{
+		"UKM": 1.0
+	},
+	"MILC_P":{
+		"UKM": 1.0
+	},
+	"MYBS_P":{
+		"UKM": 1.0
+	},
+	"NAIR_P":{
+		"UKM": 1.0
+	},
+	"NEAR":{
+		"UKM": 1.0
+	},
+	"NETS":{
+		"UKM": 1.0
+	},
+	"PAIS":{
+		"UKM": 1.0
+	},
+	"PART":{
+		"UKM": 1.0
+	},
+	"PEHG_P":{
+		"UKM": 1.0
+	},
+	"PEHS_P;STRI_P":{
+		"UKM": 1.0
+	},
+	"PERS_P":{
+		"UKM": 1.0
+	},
+	"POOB":{
+		"UKM": 1.0
+	},
+	"PORA_P":{
+		"UKM": 1.0
+	},
+	"PORD":{
+		"UKM": 1.0
+	},
+	"QUOI_P":{
+		"UKM": 1.0
+	},
+	"RANN_P":{
+		"UKM": 1.0
+	},
+	"REDH":{
+		"UKM": 1.0
+	},
+	"REDM_P":{
+		"UKM": 1.0
+	},
+	"SACO":{
+		"UKM": 1.0
+	},
+	"SANX":{
+		"UKM": 1.0
+	},
+	"SFEG_P":{
+		"UKM": 1.0
+	},
+	"SFIL_P":{
+		"UKM": 1.0
+	},
+	"SHIN_P":{
+		"UKM": 1.0
+	},
+	"SHRU":{
+		"UKM": 1.0
+	},
+	"SIGH":{
+		"UKM": 1.0
+	},
+	"SLOY_P":{
+		"UKM": 1.0
+	},
+	"SPAV":{
+		"UKM": 1.0
+	},
+	"STHA":{
+		"UKM": 1.0
+	},
+	"STIR":{
+		"UKM": 1.0
+	},
+	"STLE":{
+		"UKM": 1.0
+	},
+	"TARL_P":{
+		"UKM": 1.0
+	},
+	"TAYN_P":{
+		"UKM": 1.0
+	},
+	"TELR":{
+		"UKM": 1.0
+	},
+	"THSO_P":{
+		"UKM": 1.0
+	},
+	"TONG;CAFA;EAST;GLLE;KEOO":{
+		"UKM": 1.0
+	},
+	"TUMB_P":{
+		"UKM": 1.0
+	},
+	"WFIE":{
+		"UKM": 1.0
+	},
+	"WGEO":{
+		"UKM": 1.0
+	},
+	"WHHO":{
+		"UKM": 1.0
+	},
+	"WIOW_P":{
+		"UKM": 1.0
+	},
+	"WISH;RAVE":{
+		"UKM": 1.0
+	},
+	"WOHI_P":{
+		"UKM": 1.0
+	}
+}

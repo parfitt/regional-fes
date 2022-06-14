@@ -1,0 +1,322 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+/* Main site styling */
+/*.steady-progression { background-color: #F8D84B!important; color: black!important; }
+.steady-progression-text { color: #827B7A!important; }
+
+.system-transformation {
+	background-color: #CAA416 !important;
+	color: black !important;
+}
+/*PREV #5BCBF5*/
+/*.system-transformation-text { color: #5BCBF5!important; }
+
+.consumer-transformation { background-color: #FFBF22!important; color: black!important; }
+.consumer-transformation-text { color: #FFBF22!important; }
+.leading-the-way {
+	background-color: ##b04a2a !important;
+	color: black !important;
+}
+.leading-the-way-text { color: #C2CD23!important; }
+.early-net-zero { background-color: #00AB84!important; color: white!important; }
+.early-net-zero-text { color: #00AB84!important; }*/
+
+/* Hide slider numbers (for ESO) */
+.noUi-value { display: none; }
+
+
+body {
+	background-color: #000000;
+	font-family: "Helvetica Neue", sans-serif !important;
+	font-size: 16px;
+	color: #efefef;
+	margin: 0px;
+	padding: 0px;
+	line-height: 1.38em;
+}
+p, time, li, td, th, footer, div { font-weight: 300; }
+header {
+	width: 100%;
+	padding: 0px;
+	font-size: 1.2em;
+	line-height: 1em;
+}
+.holder {
+	position: relative;
+	width: 1200px;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.padded { padding: 1em; }
+.tallpadded { padding: 4em 1em; }
+h1, h2, h3, h4 { font-weight: bold; color: #b04a2a; }
+h1 { font-size: 2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+p { font-weight: 400; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+ol { list-style: decimal; margin-left: 1em; }
+ol li { margin-bottom: 1em; }
+ol li:last-child { margin-bottom: 0px; }
+ul,ol { margin-bottom: 1em; }
+.page-header__branding, button, a.button, .scenario { background-color: #b04a2a; color: white; }
+.page-header__branding path { fill: white; }
+button, a.button { border: 0px; font-size: 0.875em; text-decoration: none!important; display: inline-block; padding: 0.7rem 2.5rem; cursor: pointer; line-height: 22px; font-weight: 700; border-radius: 2px; }
+button:hover, a.button:hover { background-color: #873920 !important; color: #efefef; }
+a:hover { text-decoration: underline; }
+h2 a, h3 a, p a { text-decoration: underline; color: white!important; }
+h2 a:visited, h3 a:visited, p a:visited { color: #722ea5; }
+footer a,footer a:visited { color: inherit; }
+.phb-topnav { background: white; }
+.phb-topnav .holder {
+	display: block;
+	text-align:left;
+	position: relative;
+	height: 100%;
+	padding: 25px 1em;
+}
+.phb-topnav .holder a { display: inline-block; line-height: 25px; font-size: 1em; line-height: 0; }
+.phb-topnav img {
+	margin:auto;
+	width: 174px;
+	height: auto;
+}
+.page-header__branding.title {
+	background-image: url('https://www.nationalgrideso.com/sites/eso/files/styles/hero_large/public/images/_Welcome%20to%20the%20ESO%20Future%20Energy%20Scenarios%202.jpg?h=8f74817f&itok=vdcDahWf');
+	background-size: cover;
+	background-position: center;
+	height: 400px;
+}
+.holder { clear: both; }
+.holder::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.page-hero { position: relative; height: 100%; display: flex; align-items: flex-end; line-height: 1.4em; }
+.page-hero::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 70%;
+	background: linear-gradient(to bottom,rgba(0,0,0,0),#000);
+	opacity: 0.8;
+}
+.page-hero__content {
+	width: 50%;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	position: relative;
+	z-index: 2;
+}
+.page-header__branding.title .glory { position: relative; top: 60%; height: 40%; line-height: 1.3em; }
+.page-hero h1 { font-size: 1.8em; }
+
+table td.n { text-align: center; }
+
+.b1-bg { background-color: #ffffff; }
+.b2-bg { background-color: #454546; color: white!important; }
+.bk-bg { background-color: #6D6D6D; }
+.b3-bg, .github:hover { background-color: #999999; color: black!important; }
+.b4-bg { background-color: #bbbbbb; color: black!important; }
+.b5-bg { background-color: #efefef; color: black!important; }
+.b6-bg {
+	background: white;
+	color: black !important;
+}
+a.b1-bg:hover, a.b2-bg:hover, a.b3-bg:hover, a.b4-bg:hover, a.b5-bg:hover, a.b6-bg:hover { background-color: #000000; color: white!important; }
+.b6-bg .button { background-color: black; color: white!important; }
+
+.white-title, .leaflet-control-container .year { color: white !important; }
+
+.footer-heading { color: #ffbf22 !important; }
+
+@media only screen and (max-width: 1120px) {
+	.note { margin-left: 0; }
+	.page-hero__content { width: 100%; }
+}
+
+@media only screen and (max-width: 700px) {
+	h1 { line-height: 1em; }
+	#main > .holder { padding: 1em; }
+	.narrow-only { display: inherit; }
+}
+
+
+
+/* FES styles */
+h1 { line-height: 1em; font-size: 1.5em; padding: 0.5em 0; }
+.about ul { margin-bottom: 0; }
+#map { 
+	height: 70vh;
+	display: block;
+	width: 100%;
+}
+header .holder, .holder, footer .holder { padding-left: 1em; padding-right: 1em; }
+footer { padding-left: 0px; padding-right: 0px; }
+.columns {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	grid-gap: 2em;
+	padding: 2em;
+	color: #454546 !important;
+}
+select { color: #454546 !important; }
+h2 { margin-top: 1em; margin-bottom: 0.25em; }
+h2:first-child { margin-top: 0; }
+.left h2 { font-size: 1em; }
+footer h3 { font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.5em; }
+footer h4 { font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; }
+p { margin-bottom: 1em; }
+.spinner { position: absolute; left: 50%; top: 50%; transform: translate3d(-50%,-50%,0); z-index: 1000; }
+.spinner img { width: 5em; margin: auto; }
+footer a:visited, #about a:visited, #about a { color: inherit; }
+#scenario .about { padding: 0.5em 0.75em; background: #f0f0f0; }
+#scenario ul, footer ul, #about ul { list-style-type: disc; margin-left: 1em; }
+input, select { font: inherit; line-height: 2em; width: 100%; height: 2em; }
+select option:hover, select option:checked { filter: hue-rotate(90deg); }
+footer ul { margin-left: 2em; }
+.message .padded { padding-top: 0.5em; padding-bottom: 0.5em; }
+.message a, .message a:visited { color: inherit; }
+#slider { margin-top: 1em; margin-bottom: 3em; }
+.noUi-handle { box-shadow: inset 0 0 1px #FFF,inset 0 1px 7px #EBEBEB; }
+.noUi-target, .noUi-handle, input, select { border: 1px solid #444444; }
+.noUi-connects, .noUi-target, .noUi-handle { border-radius: 0px; }
+#scale .bar { margin-top: 0.5em; height: 1em; }
+#scale .bar .bar-inner { display: block; border-width: 1px; border-style: solid; height: 100%; }
+#scale .range { display: block; height: 1.5em; position: relative; }
+#scale .lvl { position: absolute; transform: translate3d(-50%,0,0); }
+#scale .min { padding-left: 0.25em; border-left-width: 1px; border-left-style: solid; border-right:0px; transform: none; white-space: nowrap; }
+#scale .max { padding-right: 0.25em; padding-left: 0; border-right-width: 1px; border-right-style: solid; transform: translate3d(-100%, 0, 0); border-left: 0; white-space: nowrap; }
+#scale-holder { display: inline-block; }
+#download { margin-top: 1em; text-align: center; }
+#download button { margin: auto; width: 100%; line-height: 1.5em; margin-bottom: 0.5em; }
+#about h2 + p, #about h3 + p { margin-top: 0.5em; }
+#about h3 { margin-top: 1em; }
+.thickline { height: 1.5vh; }
+
+/* Bar chart */
+#barchart { height: 100px; width: 300px; margin-bottom: 0.5em!important; }
+#barchart .label { display: none; }
+.leaflet-popup-content table td:first-child { padding-right: 0; }
+.leaflet-container a { color: inherit; }
+.barchart .balloon { background-color: black; color: white; text-align: left; }
+.barchart .balloon::after { border-left-color: black; }
+.barchart .bar-right .balloon::after { border-right-color: black; }
+.leaflet-container .leaflet-control-attribution { font-size: 0.7em; }
+
+
+/* Typeahead search */
+.placesearch { min-width: 30px; min-height: 30px; }
+.placesearch .submit {
+	background-image: url(search.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 50% 50%;
+	width: 30px;
+	height: 30px;
+	background-color: white;
+	float: right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 2;
+	cursor: pointer;
+}
+.placesearch form { position: relative; }
+.placesearch .pop-left { display: none; }
+.placesearch .typeahead-results { width: 100% }
+.placesearch .typeahead-results ol { list-style: none; margin: 0px; padding: 0px; }
+.placesearch .typeahead-results li { background-color: white; color: black; margin-bottom: 0; }
+.placesearch .typeahead-results li > a { padding: 0.25em 0.5em; background: #efefef; text-decoration: none; display: block; color: inherit; width: 100%; }
+.placesearch .typeahead-results li.selected { background-color: #dfdfdf; color: black; }
+.placesearch .typeahead-results li.selected a { background-color: #444; color: white; }
+.placesearch.typing input[type="text"]{ display: block; min-width: 16em; height: 30px; padding: 0.25em 0.5em; border: 0px; }
+.placesearch.typing .typeahead-results { display: block; }
+.placesearch.typing .typeahead-results a { border: 0px; width: 100%; height: auto; text-align: left; }
+.placesearch.typing .pop-left { display: inline-block; position: relative; top: 0px; right: 0px; }
+
+/* form toggle */
+.toggleinput { vertical-align: middle; }
+.toggle-label1, .toggle-label2 { display: inline; position: relative; cursor: pointer; }
+.toggle-bg { display: inline-block; }
+.toggle-label1 { margin-right: 5px; }
+.toggle-label2 { margin-left: 5px; }
+.toggle-bg {
+	background: #cccccc;
+	border-radius: 1em;	
+	box-shadow: inset 0 0 3px rgba(0,0,0,0.4), inset 0 10px 0px rgba(0,0,0,0.05);
+	position: relative;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.toggle-bg input {
+	height: 1.25em;
+	left: 0;
+	margin: 0; /* Reset the margins and padding */
+	opacity: 0.0; /* Invisible! */
+	padding: 0;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	cursor: pointer;
+}
+/* As we are hiding the radio buttons we will make the switch glow when the radio button receives focus. We need to use some sibling selectors. */
+.toggle-bg input:focus + .switch, .toggle-bg input:focus + input + .switch, .toggle-bg input:hover + .switch, .toggle-bg input:hover + input + .switch {
+	box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2, 0 0 4px 2px #3366dd;
+}
+.switch{
+	cursor: pointer;
+	background: #ffffff;
+	border-radius: 1em;
+	box-shadow: 0 1px 1px #65727b, 0 0 1px #b6bdc2;
+	display: inline-block;
+	left: -1px; /* This is the starting point. When adding a border radius, a small bit of the background is shown if we use left: 0;, so -1px is best.*/
+	position: absolute;
+	top: 0; /* ...To keep it centered vertically */
+	transition: left .25s ease;
+	z-index: 1; /* Remember, it must be below the invisible inputs */
+}
+.toggler.checked .switch { left: -1px; } /* initial toggle position */
+.toggler.checked .switch { left: 1.25em; } /* final relative toggle position */
+.toggle-bg input:checked { z-index: 0; }
+.toggle-bg, .toggle-bg input, .switch, .toggleinput label { height: 1.25em; }
+.toggle-bg, .toggle-bg input { width: 2.5em; }
+.toggle-label1, .toggle-label2 { top: -0.25em; }
+.switch { width: 1.25em; }
+.noUi-pips-horizontal { height: auto; }
+button:disabled { opacity: 0.8; filter: grayscale(100%); cursor: not-allowed; }
+#play, #pause { line-height: 20px; font-size: 1.3125em; }
+.leaflet-control-container .year { font-size: 1em; font-weight: bold; padding: 0.5em; }
+.leaflet-popup-content p { margin: 1em 0; }
+.leaflet-popup-content h3 + p { margin-top: 0px; }
+#issues { margin-top: 0.5em; text-align: right; }
+
+
+
+/* Leaflet styles */
+.leaflet-container { font-size: 1em; font-weight: 300; }
+.leaflet-popup-content { margin: 1em; }
+.leaflet-popup-content ul { margin: 0px!important; margin-bottom: 0px!important; list-style: none; padding: 0px; }
+.leaflet-popup-content ul li { margin: 0px; list-style: none; padding: 0px; }
+.leaflet-popup-content-wrapper { border-radius: 0px; font-size: 1em; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4); }
+.leaflet-left .leaflet-control { margin-left: 1em; }
+.leaflet-top .leaflet-control { margin-top: 1em; }
+.leaflet-right .leaflet-control { margin-right: 1em; }
+.leaflet-right .leaflet-control-attribution { margin-right: 0em; }
+
+
+@media only screen and (max-width: 1000px) {
+	body{ overflow-x: hidden; }
+	.columns { display: block; padding: 1em; }
+	.tallpadded { padding: 2em 1em; }
+	.left, .right { width: 100%; max-width: 100%; }
+	.right { margin-top: 1em; }
+}
+/* End of FES styles */
