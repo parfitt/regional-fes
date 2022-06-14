@@ -1,8 +1,8 @@
 {
-	"Steady Progression": {
+	"Falling Short": {
 		"description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
 		"color": "#827B7A",
-		"css": "steady-progression",
+		"css": "falling-short",
 		"data": {
 			"demandpk-all":{ "dataBy": "gsp", "file": "gridsupplypoints/SP-DemandPk-All.csv", "key": "Primary" },
 			"demandpk-c":{ "dataBy": "gsp", "file": "gridsupplypoints/SP-DemandPk-C.csv", "key": "Primary" },
