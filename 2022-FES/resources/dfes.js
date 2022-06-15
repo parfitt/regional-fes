@@ -13,7 +13,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.4.7";
+		this.version = "1.5.0";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -52,14 +52,26 @@
 			'cache':false,
 			'dataType':'json',
 			'success': function(d){
-				this.parameters = d;
+				if(d.length){
+					this.parameters = {};
+					// New style (1.5.0) config is an array to preserve order - convert into object
+					for(var i = 0; i < d.length; i++){
+						if(d[i].key) this.parameters[d[i].key] = d[i];
+					}
+				}else this.parameters = d;
 				S().ajax(this.options.files.scenarios,{
 					'this':this,
 					'cache':false,
 					'dataType':'json',
 					'success': function(d,attr){
 						this.log('INFO','Got '+attr.url);
-						this.data.scenarios = d;
+						if(d.length){
+							this.data.scenarios = {};
+							// New style (1.5.0) config is an array to preserve order - convert into object
+							for(var i = 0; i < d.length; i++){
+								if(d[i].key) this.data.scenarios[d[i].key] = d[i];
+							}
+						}else this.data.scenarios = d;
 						this.init();
 					},
 					'error': function(e,attr){
