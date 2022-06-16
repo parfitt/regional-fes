@@ -155,7 +155,7 @@ for $id (sort(keys(%bbdef))){
 $file = $basedir.'scenarios/parameters-building-blocks.json';
 saveJSON($file,$parameters,{'postprocess'=>\&cleanParameters,'name'=>'parameters configuration'});
 print "NOTE: You should check if this looks sensible. If this code has generated new parameters from the data you should make sure that the 'combine' method for each is set correctly to either \"max\" or \"sum\".\n";
-exit;
+
 if(!-d $workdir."building-blocks/"){
 	$dir = $workdir."building-blocks/";
 	`mkdir $dir`;
@@ -209,13 +209,20 @@ for($i = 0; $i < @rows; $i++){
 
 # Load in the existing building blocks scenarios
 $scenarios = loadJSON($basedir.'scenarios/index-building-blocks.json');
-%scenariolookup = {};
+%scenariolookup;
 
 for($s = 0; $s < @{$scenarios} ; $s++){
 	$scode = $scenarios->[$s]{'key'};
 	$scode =~ s/([A-Za-z])[a-z]+(\s|$)/$1/g;
 	$scode = uc(substr($scode,0,2));
 	$scenariolookup{$scenarios->[$s]{'key'}} = $scode;
+	for($i = 0; $i < @{$parameters}; $i++){
+		if($parameters->[$i]{'key'}){
+			if(!$data{$scode}{$parameters->[$i]{'key'}}){
+				print "WARNING: No building block data seems to exist for $scode $parameters->[$i]{'key'}\n";
+			}
+		}
+	}
 }
 
 for $scenario (sort(keys(%data))){

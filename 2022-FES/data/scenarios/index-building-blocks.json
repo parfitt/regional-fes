@@ -160,26 +160,7 @@
 		"key": "Falling Short",
 		"color": "#827B7A",
 		"css": "falling-short",
-		"data": {
-			"demandpk-all": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-All.csv","key": "Primary"},
-			"demandpk-c": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-C.csv","key": "Primary"},
-			"demandpk-d": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-D.csv","key": "Primary"},
-			"demandpk-e": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-E.csv","key": "Primary"},
-			"demandpk-h": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-H.csv","key": "Primary"},
-			"demandpk-i": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-I.csv","key": "Primary"},
-			"demandpk-r": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-R.csv","key": "Primary"},
-			"demandpk-y": {"dataBy": "gsp","file": "gridsupplypoints/SP-DemandPk-Y.csv","key": "Primary"},
-			"dxcapacity-hydro": {"dataBy": "gsp","file": "gridsupplypoints/SP-DxCapacity-Hydro.csv","key": "Primary"},
-			"dxcapacity-other": {"dataBy": "gsp","file": "gridsupplypoints/SP-DxCapacity-Other.csv","key": "Primary"},
-			"dxcapacity-solar": {"dataBy": "gsp","file": "gridsupplypoints/SP-DxCapacity-Solar.csv","key": "Primary"},
-			"dxcapacity-storage": {"dataBy": "gsp","file": "gridsupplypoints/SP-DxCapacity-Storage.csv","key": "Primary"},
-			"dxcapacity-wind": {"dataBy": "gsp","file": "gridsupplypoints/SP-DxCapacity-Wind.csv","key": "Primary"},
-			"mxcapacity-hydro": {"dataBy": "gsp","file": "gridsupplypoints/SP-MxCapacity-Hydro.csv","key": "Primary"},
-			"mxcapacity-other": {"dataBy": "gsp","file": "gridsupplypoints/SP-MxCapacity-Other.csv","key": "Primary"},
-			"mxcapacity-solar": {"dataBy": "gsp","file": "gridsupplypoints/SP-MxCapacity-Solar.csv","key": "Primary"},
-			"mxcapacity-storage": {"dataBy": "gsp","file": "gridsupplypoints/SP-MxCapacity-Storage.csv","key": "Primary"},
-			"mxcapacity-wind": {"dataBy": "gsp","file": "gridsupplypoints/SP-MxCapacity-Wind.csv","key": "Primary"}
-		},
+		"data": {},
 		"description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>"
 	}
 ]
