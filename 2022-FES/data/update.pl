@@ -119,7 +119,8 @@ for $id (sort(keys(%bbdef))){
 		if($bbdef{$id}{'Template'} eq "Generation"){
 			$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
 		}elsif($bbdef{$id}{'Template'} eq "Demand"){
-			$name = $bbdef{$id}{'Template'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+			#$name = $bbdef{$id}{'Template'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+			$name = $bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
 		}elsif($bbdef{$id}{'Template'} eq "Demand Low Carbon Technologies"){
 			$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
 		}elsif($bbdef{$id}{'Template'} eq "Storage & Flexibility"){
@@ -199,9 +200,7 @@ for($i = 0; $i < @rows; $i++){
 	}else{
 		$data{$scenario}{$bb}{$id} = "";
 		for($yy = $ystart; $yy <= $yend; $yy++){
-			if($rows[$i]{$yy}){
-				$data{$scenario}{$bb}{$id} .= ($data{$scenario}{$bb}{$id} ? ",":"").$rows[$i]{$yy};
-			}
+			$data{$scenario}{$bb}{$id} .= ",".($rows[$i]{$yy}||"");
 		}
 	}
 }
@@ -228,7 +227,7 @@ for $scenario (sort(keys(%data))){
 		print $fh "\n";
 		# We could either print the data we have or create placeholder data
 		for $gsp (sort(keys(%{$data{$scenario}{$bb}}))){
-			print $fh $gsp.",$data{$scenario}{$bb}{$gsp}\n";
+			print $fh $gsp."$data{$scenario}{$bb}{$gsp}\n";
 		}
 		close($fh);
 	}
