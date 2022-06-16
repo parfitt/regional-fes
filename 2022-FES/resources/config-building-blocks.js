@@ -9,7 +9,7 @@ S(document).ready(function(){
 			"scenario": "Leading the Way",
 			"view": "NUTS",
 			"key": (new Date()).getFullYear()+'',
-			"parameter": "Dem_BB001a",
+			"parameter": "Dem_BB002a",
 			"scale": "relative",
 			"years": {"min":2020, "max":2050},
 			"map": {
