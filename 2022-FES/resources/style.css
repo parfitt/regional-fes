@@ -51,7 +51,8 @@ a:hover { text-decoration: underline; }
 h2 a, h3 a, p a { text-decoration: underline; color: white!important; }
 h2 a:visited, h3 a:visited, p a:visited { color: #722ea5; }
 footer a,footer a:visited { color: inherit; }
-#error { color: #D8000C; background-color: #FFBABA; }
+.warning { color: #9F6000; background-color: #FEEFB3; text-align:center; }
+#error, .error { color: #D8000C; background-color: #FFBABA; text-align:center; }
 .phb-topnav { background: white; }
 .phb-topnav .holder {
 	display: block;
