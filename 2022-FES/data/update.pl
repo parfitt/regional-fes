@@ -91,7 +91,7 @@ for $gsp (sort(keys(%gsps))){
 ##################
 # Building Blocks
 
-$parameters = loadJSON('scenarios/parameters-building-blocks.json');
+$parameters = loadJSON($basedir.'scenarios/parameters-building-blocks.json');
 
 # STEP 1 - process the building block definitions
 %bbdef = getCSV($csvs->{'bb-defs'}{'file'},{
@@ -112,48 +112,50 @@ $parameters = loadJSON('scenarios/parameters-building-blocks.json');
 		'Units'=>1
 	}
 });
-$parameterconfig = "";
 for $id (sort(keys(%bbdef))){
 	$name = "";
-	if($bbdef{$id}{'ESO Comments'} !~ /Not included/i){
-		if($bbdef{$id}{'Template'} eq "Generation"){
-			$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
-		}elsif($bbdef{$id}{'Template'} eq "Demand"){
-			#$name = $bbdef{$id}{'Template'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
-			$name = $bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
-		}elsif($bbdef{$id}{'Template'} eq "Demand Low Carbon Technologies"){
-			$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
-		}elsif($bbdef{$id}{'Template'} eq "Storage & Flexibility"){
-			$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
-		}
-		$desc = $bbdef{$id}{'Detail'};
-		if($bbdef{$id}{'Comments'}){ $desc .= "\n".$bbdef{$id}{'Comments'}; }
-		if($bbdef{$id}{'ESO Comments'}){ $desc .= "\n".$bbdef{$id}{'ESO Comments'}; }
-		$desc =~ s/\n/<br \/>/g;
-		$match = -1;
-		for($i = 0; $i < @{$parameters}; $i++){
-			if($parameters->[$i]{'key'} eq $id){
-				$match = $i;
-			}
-		}
-		if($match >= 0){
-			# Exists in config already so update
-			$parameters->[$match]{"title"} = $name;
-			$parameters->[$match]{"optgroup"} = $bbdef{$id}{'Template'};
-		}else{
-			# Create a new entry
-			print "Add new $id\n";
-			push(@{$parameters},{"title"=>$name, "optgroup"=> $bbdef{$id}{'Template'}, "combine"=>"sum", "dp"=>1, "description"=>$desc});
+	if($bbdef{$id}{'Template'} eq "Generation"){
+		$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+	}elsif($bbdef{$id}{'Template'} eq "Demand"){
+		#$name = $bbdef{$id}{'Template'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+		$name = $bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+	}elsif($bbdef{$id}{'Template'} eq "Demand Low Carbon Technologies"){
+		$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.")";#." ".$bbdef{$id}{'Detail'};
+	}elsif($bbdef{$id}{'Template'} eq "Storage & Flexibility"){
+		$name = $bbdef{$id}{'Technology'}.": ".$bbdef{$id}{'Technology Detail'}." (".$bbdef{$id}{'Units'}.") ".$bbdef{$id}{'Detail'};
+	}
+	$desc = $bbdef{$id}{'Detail'};
+	if($bbdef{$id}{'Comments'}){ $desc .= "\n".$bbdef{$id}{'Comments'}; }
+	if($bbdef{$id}{'ESO Comments'}){ $desc .= "\n".$bbdef{$id}{'ESO Comments'}; }
+	$desc =~ s/\n/<br \/>/g;
+	$match = -1;
+	for($i = 0; $i < @{$parameters}; $i++){
+		if($parameters->[$i]{'key'} && $parameters->[$i]{'key'} eq $id){
+			$match = $i;
 		}
 	}
+	if($match >= 0){
+		# Exists in config already so update
+		$parameters->[$match]{"title"} = $name;
+		$parameters->[$match]{"optgroup"} = $bbdef{$id}{'Template'};
+	}else{
+		# Create a new entry
+		print "Add new $id\n";
+		push(@{$parameters},{"key"=> $id, "title"=>$name, "optgroup"=> $bbdef{$id}{'Template'}, "combine"=>"sum", "dp"=>1, "description"=>$desc});
+		$match = @{$parameters} - 1;
+	}
+
+	if($bbdef{$id}{'ESO Comments'} =~ /Not included/i || $bbdef{$id}{'ESO Comments'} =~ /We are unable to redistribute this data/){
+		print "WARNING: Excluding $id because the ESO Comments say it isn't there.\n";
+		splice(@{$parameters},$match,1);
+	}
+
+
 }
-$file = $workdir."parameters-building-blocks.json";
-print "Saving parameter config JSON to $file\n";
-print "You should check if this looks sensible - particularly if the combine method for each parameter should be \"max\" instead of \"sum\".\n";
-print "If it looks OK you may wish to copy it to scenarios/ and update the config JS for the visualisation with the file name.\n";
-saveJSON($file,$parameters,{'postprocess'=>\&cleanParameters});
-
-
+$file = $basedir.'scenarios/parameters-building-blocks.json';
+saveJSON($file,$parameters,{'postprocess'=>\&cleanParameters,'name'=>'parameters configuration'});
+print "NOTE: You should check if this looks sensible. If this code has generated new parameters from the data you should make sure that the 'combine' method for each is set correctly to either \"max\" or \"sum\".\n";
+exit;
 if(!-d $workdir."building-blocks/"){
 	$dir = $workdir."building-blocks/";
 	`mkdir $dir`;
@@ -206,7 +208,7 @@ for($i = 0; $i < @rows; $i++){
 }
 
 # Load in the existing building blocks scenarios
-$scenarios = loadJSON('scenarios/index-building-blocks.json');
+$scenarios = loadJSON($basedir.'scenarios/index-building-blocks.json');
 %scenariolookup = {};
 
 for($s = 0; $s < @{$scenarios} ; $s++){
@@ -246,7 +248,8 @@ for $scenario (sort(keys(%data))){
 	}
 }
 
-saveJSON($workdir."index-building-blocks.json",$scenarios,{'postprocess'=>\&cleanScenarios});
+$file = $basedir.'scenarios/index-building-blocks.json';
+saveJSON($file,$scenarios,{'postprocess'=>\&cleanScenarios,'name'=>'scenarios configuration'});
 
 
 
@@ -296,6 +299,7 @@ sub getCSV {
 			if(@header > 0){
 				undef %datum;
 				for($c = 0; $c < @cols; $c++){
+					$cols[$c] =~ s/\’/\'/g;
 					if($cols[$c] =~ /^" ?([0-9\,]+) ?"$/){
 						$cols[$c] =~ s/(^" ?| ?"$)//g;
 						$cols[$c] =~ s/\,//g;
@@ -370,7 +374,7 @@ sub saveJSON {
 	}
 
 	# Save the event file
-	print "Saving JSON to $file\n";
+	print "Saving ".($conf->{'name'} || "JSON")." to $file\n";
 	open(FILE,">",$file);
 	print FILE $str;
 	close(FILE);
