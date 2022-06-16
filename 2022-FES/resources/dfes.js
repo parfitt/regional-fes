@@ -13,7 +13,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.5.0";
+		this.version = "1.5.1";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -137,8 +137,11 @@
 				}
 				if(g != "all") html += '</optgroup>';
 			}
+			if(!this.parameters[this.options.parameter]){
+				this.message('No parameter '+this.options.parameter+' exists. Sorry.',{'id':'parameter','type':'ERROR'});
+			}
 			S('#parameter-holder').html('<select id="parameters">'+html+'</select><div class="about"></div>');
-			S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+'');
+			S('#parameter-holder .about').html(this.parameters[this.options.parameter] ? (this.parameters[this.options.parameter].description||'') : '').attr('class','about '+css+'');
 			S('#parameters').on('change',{'me':this},function(e){
 				e.preventDefault();
 				e.data.me.setParameter(e.currentTarget.value);
@@ -241,7 +244,7 @@
 		var css = this.data.scenarios[scenario].css;
 		if(S('#scenario-holder .about').length==0) S('#scenario-holder').append('<div class="about"></div>');
 		S('#scenario-holder .about').html(this.data.scenarios[scenario].description||'').attr('class','about '+css+'');
-		S('#parameter-holder .about').html(this.parameters[this.options.parameter].description||'').attr('class','about '+css+'');
+		S('#parameter-holder .about').html(this.parameters[this.options.parameter] ? (this.parameters[this.options.parameter].description||'') : '').attr('class','about '+css+'');
 
 		for(var s in this.data.scenarios){
 			S('#scenarios').removeClass(this.data.scenarios[s].css);
@@ -529,17 +532,19 @@
 					for(a in data.layers[v].processing){
 						for(key in data.layers[v].processing[a]){
 							val = 0;
-							for(i = 0; i < data.layers[v].processing[a][key].length; i++){
-								if(this.parameters[p].combine=="sum" || this.parameters[p].combine=="average"){
-									// Find the fractional contribution
-									val += data.layers[v].processing[a][key][i].v*data.layers[v].processing[a][key][i].f;
-								}else if(this.parameters[p].combine=="max"){
-									// Find the maximum of any contribution
-									val = Math.max(val,data.layers[v].processing[a][key][i].v);
+							if(this.parameters[p]){
+								for(i = 0; i < data.layers[v].processing[a][key].length; i++){
+									if(this.parameters[p].combine=="sum" || this.parameters[p].combine=="average"){
+										// Find the fractional contribution
+										val += data.layers[v].processing[a][key][i].v*data.layers[v].processing[a][key][i].f;
+									}else if(this.parameters[p].combine=="max"){
+										// Find the maximum of any contribution
+										val = Math.max(val,data.layers[v].processing[a][key][i].v);
+									}
 								}
-							}
-							if(this.parameters[p].combine=="average"){
-								val /= data.layers[v].processing[a][key].length;
+								if(this.parameters[p].combine=="average"){
+									val /= data.layers[v].processing[a][key].length;
+								}
 							}
 							data.layers[v].values[a][key] = val;
 						}
@@ -809,7 +814,7 @@
 						this.views[this.options.view].layers[l].colour.addScale(this.views[this.options.view].layers[l].colourscale,getRGBAstr(color,0.0)+' 0%, '+getRGBAstr(color,0.8)+' 100%');
 
 						// If the colourscale for this parameter is diverging we change the scale
-						if(this.parameters[this.options.parameter].diverging){
+						if(this.parameters[this.options.parameter] && this.parameters[this.options.parameter].diverging){
 							// Set a text label (not used anywhere yet)
 							this.views[this.options.view].layers[l].colourscale = 'DFES-diverging';
 							// Set the colour stops from ncolour (opacity 1) to white (opacity 0) to colour (opacity 1)
@@ -925,7 +930,7 @@
 					'value': v,
 					'properties':feature.properties,
 					'scenario': me.data.scenarios[me.options.scenario],
-					'parameter': me.parameters[me.options.parameter]
+					'parameter': me.parameters[me.options.parameter]||{}
 				});
 			}
 		}
@@ -938,8 +943,8 @@
 		if(!attr.type) attr.type = 'message';
 		if(msg) this.log(attr.type,msg);
 		var css = "b5-bg";
-		if(attr.type=="ERROR") css = "c12-bg";
-		if(attr.type=="WARNING") css = "c14-bg";
+		if(attr.type=="ERROR") css = "error";
+		if(attr.type=="WARNING") css = "warning";
 
 		var msgel = S('.message');
 		if(msgel.length == 0){
@@ -964,18 +969,21 @@
 	
 	FES.prototype.formatValue = function(v,param){
 		if(!param) param = this.options.parameter;
-		var units = this.parameters[param].units;
-		var format;
-		// Do we need to round it?
-		if(typeof this.parameters[param].dp==="number") v = parseFloat(v.toFixed(this.parameters[param].dp));
-		if(this.parameters[param].format){
-			try {
-				format = eval('('+this.parameters[param].format+')');
-			}catch(e){ }
-			return format.call(this,v,units);
-		}else{
-			return v.toLocaleString()+(units ? '&thinsp;'+units : '');
+		if(this.parameters[param]){
+			var units = this.parameters[param].units;
+			var format;
+			// Do we need to round it?
+			if(typeof this.parameters[param].dp==="number") v = parseFloat(v.toFixed(this.parameters[param].dp));
+			if(this.parameters[param].format){
+				try {
+					format = eval('('+this.parameters[param].format+')');
+				}catch(e){ }
+				return format.call(this,v,units);
+			}else{
+				return v.toLocaleString()+(units ? '&thinsp;'+units : '');
+			}
 		}
+		return '?';
 	};
 
 	FES.prototype.makeScaleBar = function(grad,attr){
