@@ -1,5 +1,12 @@
 /*!
- * Open Innovations Future Energy Scenario viewer
+	Open Innovations Future Energy Scenario viewer
+	Changeset:
+	1.5.2
+	- Allow values in files to be scaled on load
+	1.5.1
+	- If the initial parameter key in the config is set to one that doesn't exist we need to fail nicely with an error message.
+	1.5.0
+	- scenario and parameter config is now in an array (rather than an object) to make sure order is preserved
  */
 (function(root){
 	
@@ -13,7 +20,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.5.1";
+		this.version = "1.5.2";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -598,17 +605,15 @@
 			// Find the column number for the column containing the name
 			// And convert year headings to integers
 			col = -1;
-			for(i = 0; i < data.raw.fields.name.length; i++){
-				n = data.raw.fields.name[i];
-				if(parseFloat(n) == n) data.raw.fields.name[i] = parseInt(n);
-				if(data.raw.fields.name[i] == data.key) col = i;
-				// Loop over columns
-				for(c = 0; c < data.raw.fields.name.length; c++){
-					if(parseInt(data.raw.fields.name[c])==data.raw.fields.name[c]){
-						for(r = 0; r < data.raw.rows.length; r++){
-							// Convert to numbers - if the number doesn't parse replace with zero
-							data.raw.rows[r][c] = (parseFloat(data.raw.rows[r][c])||0);
-						}
+			for(c = 0; c < data.raw.fields.name.length; c++){
+				n = data.raw.fields.name[c];
+				if(parseFloat(n) == n) data.raw.fields.name[c] = parseInt(n);
+				if(data.raw.fields.name[c] == data.key) col = c;
+				if(parseInt(data.raw.fields.name[c])==data.raw.fields.name[c]){
+					for(r = 0; r < data.raw.rows.length; r++){
+						// Convert to numbers - if the number doesn't parse replace with zero
+						data.raw.rows[r][c] = (parseFloat(data.raw.rows[r][c])||0);
+						if(typeof this.parameters[parameter].scaleValuesBy==="number") data.raw.rows[r][c] *= this.parameters[parameter].scaleValuesBy;
 					}
 				}
 			}
