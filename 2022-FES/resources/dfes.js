@@ -3,6 +3,7 @@
 	Changeset:
 	1.5.2
 	- Allow values in files to be scaled on load
+	- Fix minor pips on year slider
 	1.5.1
 	- If the initial parameter key in the config is set to one that doesn't exist we need to fail nicely with an error message.
 	1.5.0
@@ -178,7 +179,7 @@
 				mode: 'values',
 				stepped: true,
 				values: [2020,2030,2040,2050],
-				density: 3
+				density: 100/(2050-2020)
 			}
 		});
 		var _obj = this;
