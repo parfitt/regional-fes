@@ -30,15 +30,10 @@ S(document).ready(function(){
 		},
 		// Define our layers so that they can be used in the views
 		"layers": {
-			"NUTSlayer":{
-				"geojson": "data/maps/nuts1_BUC_4326.geojson",	// The GeoJSON file with the NUTS 1 features
-				"key": "nuts118cd",	// The key used in the properties of the GeoJSON feature
-				"name": "nuts118nm"
-			},
 			"LADlayer":{
 				"geojson":"data/maps/Local_Authority_Districts_(December_2019)_Boundaries_UK_BUC.min.geojson",	// The GeoJSON file with the non-overlapping LAD features
 				"key": "lad19cd",	// The key used in the properties of the GeoJSON feature
-				"name": "lad12nm"
+				"name": "lad19nm"
 			}
 		},
 		// Define our map views
@@ -173,7 +168,7 @@ S(document).ready(function(){
 			var csv = "";
 			var opt = e.data.me.options;
 			var filename = ("FES-2021--{{scenario}}--{{parameter}}--{{view}}.csv").replace(/\{\{([^\}]+)\}\}/g,function(m,p1){ return (opt[p1]||"").replace(/[ ]/g,"_") });
-			var values,r,rs,y,v,l,layerid;
+			var values,r,rs,y,v,l,layerid,p,ky,nm;
 			values = e.data.me.data.scenarios[e.data.me.options.scenario].data[e.data.me.options.parameter].layers[e.data.me.options.view].values;
 			v = e.data.me.options.view;
 			layerid = '';
@@ -181,20 +176,34 @@ S(document).ready(function(){
 			for(l = 0; l < e.data.me.views[v].layers.length; l++){
 				if(e.data.me.views[v].layers[l].heatmap) layerid = l;
 			}
+			ky = e.data.me.layers[e.data.me.views[v].layers[layerid].id].key;
+			nm = e.data.me.layers[e.data.me.views[v].layers[layerid].id].name;
+
 			rs = Object.keys(values).sort();
-			csv = e.data.me.views[v].title+',Name';
-			for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y++) csv += ','+y+(e.data.me.parameters[e.data.me.options.parameter] ? ' ('+e.data.me.parameters[e.data.me.options.parameter].units+')' : '');
+			csv = ky.toUpperCase()+','+e.data.me.views[v].title;
+			for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y+=5) csv += ','+y+(e.data.me.parameters[e.data.me.options.parameter] && e.data.me.parameters[e.data.me.options.parameter].units ? ' ('+e.data.me.parameters[e.data.me.options.parameter].units+')' : '');
 			csv += '\n';
 			for(i = 0; i < rs.length; i++){
 				r = rs[i];
+				p = getGeoJSONPropertiesByKeyValue(e.data.me.layers[e.data.me.views[v].layers[layerid].id].geojson,ky,r);
 				csv += r;
-				csv += ','+getGeoJSONPropertyValue(e.data.me.views[v].layers[layerid].id,r);
-				for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y++) csv += ','+(typeof e.data.me.parameters[e.data.me.options.parameter].dp==="number" ? values[r][y].toFixed(e.data.me.parameters[e.data.me.options.parameter].dp) : values[r][y]);
+				csv += ','+(p[nm].match(',') ? '"'+p[nm]+'"' : p[nm]);
+				for(y = e.data.me.options.years.min; y <= e.data.me.options.years.max; y+=5) csv += ','+(typeof e.data.me.parameters[e.data.me.options.parameter].dp==="number" ? values[r][y].toFixed(e.data.me.parameters[e.data.me.options.parameter].dp) : values[r][y]);
 				csv += '\n'
 			}
 			saveToFile(csv,filename,'text/plain');
 		});
 	}
+	function getGeoJSONPropertiesByKeyValue(geojson,key,value){
+		if(!geojson.features || typeof geojson.features!=="object"){
+			fes.log('WARNING','Invalid GeoJSON',geojson);
+			return {};
+		}
+		for(var i = 0; i < geojson.features.length; i++){
+			if(geojson.features[i].properties[key] == value) return geojson.features[i].properties;
+		}
+		return {};
+	};
 	function getGeoJSONPropertyValue(l,value){
 		if(!fes.layers[l].key){
 			fes.log('WARNING','No key set for layer '+l);
