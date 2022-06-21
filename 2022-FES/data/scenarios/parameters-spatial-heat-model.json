@@ -8,7 +8,7 @@
 	{ "key": "stock_Gas_boiler", "title": "Gas boilers (number of)", "optgroup": "Stock Volumes", "combine": "sum", "units": "", "dp": 1, "description": "" },
 	{ "key": "stock_Oil_boiler", "title": "Oil Boilers (number of)", "optgroup": "Stock Volumes", "combine": "sum", "units": "", "dp": 1, "description": "" },
 	{ "key": "stock_Total", "title": "Total – All Technologies (number of)", "optgroup": "Stock Volumes", "combine": "sum", "units": "", "dp": 1, "description": "" },
-	{ "key": "stock_TotalHPs", "title": "Total - Heap pumps only (number of)", "optgroup": "Stock Volumes", "combine": "sum", "units": "", "dp": 1, "description": "" },
+	{ "key": "stock_TotalHPs", "title": "Total – Heap pumps only (number of)", "optgroup": "Stock Volumes", "combine": "sum", "units": "", "dp": 1, "description": "" },
 	{ "key": "stock_proportion_ASHP", "title": "Air Source Heat Pumps (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
 	{ "key": "stock_proportion_Community", "title": "Community heating schemes (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
 	{ "key": "stock_proportion_DH", "title": "District Heating schemes (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
@@ -18,5 +18,5 @@
 	{ "key": "stock_proportion_Gas_boiler", "title": "Gas boilers (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
 	{ "key": "stock_proportion_Oil_boiler", "title": "Oil Boilers (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
 	{ "key": "stock_proportion_Total", "title": "Total – All Technologies (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" },
-	{ "key": "stock_proportion_TotalHPs", "title": "Total - Heap pumps only (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" }
+	{ "key": "stock_proportion_TotalHPs", "title": "Total – Heap pumps only (Proportion)", "optgroup": "Stock Proportions", "combine": "sum", "units": "%", "dp": 1, "scaleValuesBy": 100, "description": "" }
 ]
