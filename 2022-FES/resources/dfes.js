@@ -4,6 +4,7 @@
 	1.5.2
 	- Allow values in files to be scaled on load
 	- Fix minor pips on year slider
+	- Add callback for setScale
 	1.5.1
 	- If the initial parameter key in the config is set to one that doesn't exist we need to fail nicely with an error message.
 	1.5.0
@@ -391,6 +392,7 @@
 		if(checked) S('#scale-holder').addClass('checked');
 		else S('#scale-holder').removeClass('checked');
 		this.mapData();
+		if(typeof this.events.setScale==="function") this.events.setScale.call(this,this.options.scale);
 		return this;
 	};
 
