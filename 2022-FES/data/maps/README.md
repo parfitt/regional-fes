@@ -34,3 +34,7 @@ We wanted to also show the pseudo-Primaries on the map as small "cut-outs" at th
 12. Use the `Merge vector layers` tool to combine the new difference layer with the pseudo-Primary layer;
 13. Export the result with only the `Primary` key and with coordinate precision set to 4 decimal places;
 14. Use a JSON minifier to shrink the file size.
+
+## Simplifying the GeoJSON
+
+We used [MapShaper](https://mapshaper.org/) to simplify with the following settings: prevent shape removal; visvalingam / weighted area; 66.1%. 

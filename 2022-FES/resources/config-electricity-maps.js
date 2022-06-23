@@ -40,7 +40,7 @@ S(document).ready(function(){
 				"name": "nuts118nm"
 			},
 			"GSPlayer":{
-				"geojson":"data/maps/gridsupplypoints-unique-all.geojson",	// The GeoJSON file with the non-overlapping GSP features
+				"geojson":"data/maps/gridsupplypoints-unique-all-simplified.geojson",	// The GeoJSON file with the non-overlapping GSP features
 				"key": "GSP"	// The key used in the properties of the GeoJSON feature
 			}
 		},
