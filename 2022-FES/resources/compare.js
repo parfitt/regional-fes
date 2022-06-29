@@ -56,8 +56,8 @@
 		for(c in this.input) this.maps[c] = OI.BasicMap(document.getElementById('map-'+c),mapattr);
 
 		// Load initial data files
-		this.getJSON("data/scenarios/index.json", this.addScenarios );
-		this.getJSON("data/scenarios/config.json", this.addParameters );
+		this.getJSON("data/scenarios/index-electricity-maps.json", this.addScenarios );
+		this.getJSON("data/scenarios/parameters-electricity-maps.json", this.addParameters );
 		this.getJSON("data/gridsupplypoints2nuts1.json", this.addSplits );
 		this.getJSON("data/maps/nuts1_BUC_4326.geojson", this.addMap );
 
@@ -138,7 +138,7 @@
 			});
 		}
 		if(this.values[c].area){
-			console.log('setArea',c,this.values[c].area);
+			console.info('Set area',c,this.values[c].area);
 		}
 		return this;
 	};
@@ -151,7 +151,7 @@
 			if(typeof cb==="function") cb.call(this,json);
 			else console.warn('No callback function provided for getJSON');
 		}).catch(error => {
-			console.error('Unable to load the data',error);
+			console.error('Unable to load the data from '+file,error);
 		});
 		return this;
 	};
@@ -190,7 +190,13 @@
 	// Save the loaded scenarios and update the dropdowns
 	Compare.prototype.addScenarios = function(json){
 		var s,c;
-		this.scenarios = json;
+		if(json.length){
+			this.scenarios = {};
+			// New style (1.5.0) config is an array to preserve order - convert into object
+			for(var i = 0; i < json.length; i++){
+				if(json[i].key) this.scenarios[json[i].key] = json[i];
+			}
+		}else this.scenarios = json;
 		var html = "";
 		for(s in this.scenarios) html += '<option'+(this.options.scenario == s ? ' selected="selected"':'')+' class="'+(this.scenarios[s].css ? this.scenarios[s].css : 'b1-bg')+'" value="'+s+'">'+s+'</option>';
 		for(c in this.input) this.input[c].scenario.innerHTML += html;
@@ -200,7 +206,13 @@
 	// Save the loaded parameters and update the dropdowns
 	Compare.prototype.addParameters = function(json){
 		var p,g,gorder,groups,i,j,html,c;
-		this.parameters = json;
+		if(json.length){
+			this.parameters = {};
+			// New style (1.5.0) config is an array to preserve order - convert into object
+			for(var i = 0; i < json.length; i++){
+				if(json[i].key) this.parameters[json[i].key] = json[i];
+			}
+		}else this.parameters = json;
 		gorder = [];
 		groups = {};
 		html = '';
@@ -333,8 +345,8 @@
 					v = this.attr.values;
 					code = feature.properties[v.key];
 					r = v.compare.lookup[code];
-					op = 0.1 + 0.8*(v.data[code][v.year]-v.min)/(v.max-v.min);
-					//console.log('style',feature,code,el,r,v.compare.areas[r].colour,v.data[code][v.year],v.min,v.max,op,v.compare,v);
+					if(typeof v.data[code][v.year]!=="number") console.warn('No data for '+code+' in '+v.year+'.',v.data[code]);
+					op = 0.1 + 0.8*((v.data[code][v.year]||0)-v.min)/(v.max-v.min);
 					el.style.fillOpacity = op;
 					el.style.fill = v.colour; //v.compare.areas[r].colour;
 					el.style.stroke = v.colour; //v.compare.areas[r].colour;
@@ -362,8 +374,10 @@
 					
 					for(i = 0; i < series.length; i++){
 						this.series[c][i] = {'orig':series[i],'areas':series[i].split(/\+/g),'data':[],'title':(s + '\n'+this.parameters[p].title + '\n' + this.lookup[series[i]]),'id':series[i]};
-						//for(y in this.data[c]
-						this.mapdata[c][this.series[c][i].areas[0]] = {};
+						//this.mapdata[c][this.series[c][i].areas[0]] = {};
+						for(a = 0; a < this.series[c][i].areas.length; a++){
+							if(!this.mapdata[c][this.series[c][i].areas[a]]) this.mapdata[c][this.series[c][i].areas[a]] = {};
+						}
 						for(y in this.data[c][this.series[c][i].areas[0]]){
 
 							// If this column is a number
@@ -388,6 +402,7 @@
 								if(this.parameters[p].combine=="average") v.val /= (v.n||1);
 
 								for(a = 0; a < this.series[c][i].areas.length; a++){
+									//if(!this.mapdata[c][this.series[c][i].areas[a]]) this.mapdata[c][this.series[c][i].areas[a]] = {};
 									this.mapdata[c][this.series[c][i].areas[a]][y] = v.val;
 								}
 
