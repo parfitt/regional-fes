@@ -10,7 +10,7 @@ S(document).ready(function(){
 			"view": "NUTS",
 			"key": (new Date()).getFullYear()+'',
 			"parameter": "Dem_BB001a",
-			"scale": "relative",
+			"scale": "absolute",
 			"years": {"min":2020, "max":2050},
 			"map": {
 				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],

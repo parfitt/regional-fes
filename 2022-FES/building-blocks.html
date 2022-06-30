@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Future Energy Scenario (FES) Building Block Data</title>
-    <link rel="StyleSheet" href="resources/nouislider.min.css" type="text/css" />
-    <link rel="StyleSheet" href="resources/leaflet.css" type="text/css" />
-    <link rel="stylesheet" href="resources/stuquery.barchart.css" type="text/css" />
-    <link rel="StyleSheet" href="resources/style.css" type="text/css" />
-    <script type="text/javascript" src="resources/stuquery.js"></script>
-    <script type="text/javascript" src="resources/stuquery.barchart.min.js"></script>
-    <script type="text/javascript" src="resources/nouislider.min.js"></script>
-    <script type="text/javascript" src="resources/typeahead.js"></script>
-    <script type="text/javascript" src="resources/dfes.js"></script>
-    <script type="text/javascript" src="resources/config-building-blocks.js"></script>
-    <script type="text/javascript" src="resources/leaflet.js"></script>
-    <link rel="shortcut icon" href="resources/favicon.ico" type="image/vnd.microsoft.icon" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Future Energy Scenario (FES) Building Block Data</title>
+	<link rel="StyleSheet" href="resources/nouislider.min.css" type="text/css" />
+	<link rel="StyleSheet" href="resources/leaflet.css" type="text/css" />
+	<link rel="stylesheet" href="resources/stuquery.barchart.css" type="text/css" />
+	<link rel="StyleSheet" href="resources/style.css" type="text/css" />
+	<script type="text/javascript" src="resources/stuquery.js"></script>
+	<script type="text/javascript" src="resources/stuquery.barchart.min.js"></script>
+	<script type="text/javascript" src="resources/nouislider.min.js"></script>
+	<script type="text/javascript" src="resources/typeahead.js"></script>
+	<script type="text/javascript" src="resources/dfes.js"></script>
+	<script type="text/javascript" src="resources/config-building-blocks.js"></script>
+	<script type="text/javascript" src="resources/leaflet.js"></script>
+	<link rel="shortcut icon" href="resources/favicon.ico" type="image/vnd.microsoft.icon" />
 </head>
 <body>
 	<div class="warning padded">WARNING: This is a prototype under development. The data and visualisations may not be correct and may use old or dummy data.</div>
-    <header class="b1-bg">
-        <div class="b1-bg phb-topnav">
+	<header class="b1-bg">
+		<div class="b1-bg phb-topnav">
 			<div class="holder">
 				<a href="https://www.nationalgrideso.com/" class="ODIlogo"><img alt="National Grid ESO" src="https://www.nationalgrideso.com/themes/custom/national_grid_eso/logo.svg" title="ODI Leeds"></a>
 			</div>
-        </div>
-        <div class="page-header__branding title">
+		</div>
+		<div class="page-header__branding title">
 			<div class="page-hero">
 				<div class="holder">
 					<div class="page-hero__content">
@@ -34,34 +34,34 @@
 					</div>
 				</div>
 			</div>
-        </div>
-    </header>
-    <div class="b6-bg" id="scenario">
-        <div class="columns">
-            <div class="left" data-scroll="is-outside fadeInLeft">
-                <h2><label for="scenarios">Choose a scenario</label>:</h2>
-                <div id="scenario-holder"></div>
-                <h2><label for="parameters">Choose a parameter</label>:</h2>
-                <div id="parameter-holder"></div>
-                <h2><label for="views">View by</label>:</h2>
-                <div id="view-holder"></div>
-                <div class="info-bubble warning" data-scale="absolute" style="display:none;"><p>To improve the contrast between areas within your chosen year you may wish to change the colour scale.</p></div>
+		</div>
+	</header>
+	<div class="b6-bg" id="scenario">
+		<div class="columns">
+			<div class="left" data-scroll="is-outside fadeInLeft">
+				<h2><label for="scenarios">Choose a scenario</label>:</h2>
+				<div id="scenario-holder"></div>
+				<h2><label for="parameters">Choose a parameter</label>:</h2>
+				<div id="parameter-holder"></div>
+				<h2><label for="views">View by</label>:</h2>
+				<div id="view-holder"></div>
+				<div class="info-bubble warning" data-scale="absolute" style="display:none;"><p>To improve the contrast between areas within your chosen year you may wish to change the colour scale.</p></div>
 				<h2>Select year (<span class="year"></span>):</h2>
-                <div id="slider"></div>
-                <div><button id="play" class="page-header__branding" title="Play">&#9658;</button> <button id="pause" title="Pause" disabled>&#10074;&#10074;</button></div>
+				<div id="slider"></div>
+				<div><button id="play" class="page-header__branding" title="Play">&#9658;</button> <button id="pause" title="Pause" disabled>&#10074;&#10074;</button></div>
 				<div class="info-bubble warning" data-scale="relative"><p>To better show changes in values over time you may wish to change the colour scale.</p></div>
 				<div id="download">
 					<button class="page-header__branding" id="download-csv"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download CSV for this view</button>
 					<!--<button class="page-header__branding" id="download-svg"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download SVG for this view</button>-->
 				</div>
-            </div>
-            <div class="right" data-scroll="is-outside fadeInRight">
-                <div id="map">
-                    <div class="spinner">
-                       	<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
-                    </div>
-                </div>
-                <div id="scale"></div>
+			</div>
+			<div class="right" data-scroll="is-outside fadeInRight">
+				<div id="map">
+					<div class="spinner">
+					   	<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
+					</div>
+				</div>
+				<div id="scale"></div>
 				<div>
 					<label for="scale-mode">Adjust colour scale to current year?</label>
 					<div id="scale-holder" class="toggleinput toggler">
@@ -74,30 +74,30 @@
 				<div class="info-bubble warning">
 					<p>Selecting <strong>Yes</strong> will improve contrast between areas within your chosen year. Selecting <strong>No</strong> will better show changes in values over time.</p>
 				</div>
-            </div>
-        </div>
-    </div>
-    <div data-scroll="is-outside fadeUp" data-scroll-repeat="false">
-        <div class="page-header__branding thickline">&nbsp;</div>
-        <div class="b2-bg" id="about">
-            <div class="holder tallpadded">
-                <h2 class="footer-heading">About this visualisation</h2>
-                <p>These maps show electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a>. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
-                <p>The demands shown are the typical demands that could be expected in each region at time of national system peak demand. Individually each region may experience higher demands as factors such as local weather conditions and local engagement with distributed energy resources impact demands at a local level throughout the year.</p>
-                <p>Transmission demands (such as large industrial customers connected directly to the transmission network) and transmission connected generation are omitted from this visualisation. The transmission demands are available to download from our <a href="https://data.nationalgrideso.com/future-energy-scenarios/regional-breakdown-of-fes-data-electricity/r/regional_breakdown_of_fes:_demand_(active_power)">data portal</a> whilst the transmission generation aggregated by fuel type are available in our FES data workbook.</p>
-                <p>If you have any comments, questions or feedback on our scenarios, please send them to <a href="mailto:FES@nationalgrideso.com?subject=FES electricity demand maps">FES@nationalgrideso.com</a>.</p>
-                <h3 class="footer-heading">Acknowledgements</h3>
-                <p>This visualisation would not be possible without the prior work of others. We are grateful to the following organisations for sharing data and code under an open licence that allowed for re-use.</p>
-                <ul>
-                    <li>Interactive visualisation: The underlying code and website layout. &copy; Open Innovations (Stuart Lowe &amp; Patrick Lake) 2020. Released under an MIT licence.</li>
-                    <li>Underlying map: This uses data from <a href="http://www.openstreetmap.org/copyright">OpenStreetMap Contributors</a> and &copy; <a href="https://carto.com/attribution/">CartoDB</a>. The Leaflet library is used to show the map.</li>
-                    <li>Overlaid boundaries: NUTS1 boundaries are from the ONS geo service. They are released under the OGL (Contains National Statistics data &copy; Crown copyright and database right 2019, Contains OS data &copy; Crown copyright and database right 2019)</li>
-                </ul>
-                <p>We are sharing our own data under an open licence on the <a href="https://data.nationalgrideso.com/">ESO Data Portal</a>.</p>
-            </div>
-        </div>
-    </div>
-    <script>
+			</div>
+		</div>
+	</div>
+	<div data-scroll="is-outside fadeUp" data-scroll-repeat="false">
+		<div class="page-header__branding thickline">&nbsp;</div>
+		<div class="b2-bg" id="about">
+			<div class="holder tallpadded">
+				<h2 class="footer-heading">About this visualisation</h2>
+				<p>These maps show electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a>. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
+				<p>The demands shown are the typical demands that could be expected in each region at time of national system peak demand. Individually each region may experience higher demands as factors such as local weather conditions and local engagement with distributed energy resources impact demands at a local level throughout the year.</p>
+				<p>Transmission demands (such as large industrial customers connected directly to the transmission network) and transmission connected generation are omitted from this visualisation. The transmission demands are available to download from our <a href="https://data.nationalgrideso.com/future-energy-scenarios/regional-breakdown-of-fes-data-electricity/r/regional_breakdown_of_fes:_demand_(active_power)">data portal</a> whilst the transmission generation aggregated by fuel type are available in our FES data workbook.</p>
+				<p>If you have any comments, questions or feedback on our scenarios, please send them to <a href="mailto:FES@nationalgrideso.com?subject=FES electricity demand maps">FES@nationalgrideso.com</a>.</p>
+				<h3 class="footer-heading">Acknowledgements</h3>
+				<p>This visualisation would not be possible without the prior work of others. We are grateful to the following organisations for sharing data and code under an open licence that allowed for re-use.</p>
+				<ul>
+					<li>Interactive visualisation: The underlying code and website layout. &copy; Open Innovations (Stuart Lowe &amp; Patrick Lake) 2020. Released under an MIT licence.</li>
+					<li>Underlying map: This uses data from <a href="http://www.openstreetmap.org/copyright">OpenStreetMap Contributors</a> and &copy; <a href="https://carto.com/attribution/">CartoDB</a>. The Leaflet library is used to show the map.</li>
+					<li>Overlaid boundaries: NUTS1 boundaries are from the ONS geo service. They are released under the OGL (Contains National Statistics data &copy; Crown copyright and database right 2019, Contains OS data &copy; Crown copyright and database right 2019)</li>
+				</ul>
+				<p>We are sharing our own data under an open licence on the <a href="https://data.nationalgrideso.com/">ESO Data Portal</a>.</p>
+			</div>
+		</div>
+	</div>
+	<script>
 	/*! onscroll-effect v1.3.1 | (c) 2020 Matthieu Bué <https://twikito.com> | MIT license | https://twikito.github.io/onscroll-effect/ */
 	(()=>{const e=new Event("insideViewport"),t=new Event("outsideViewport"),n=document.documentElement.getAttribute("data-onscroll-effect-custom-prefix")||"scroll";let i=!1;const s=e=>"onscrollEffect_"+e,o=e=>void 0===e,a=()=>{const a=[...document.querySelectorAll(`[data-${n}]`)];if(!i&&0===a.length)return i=!0,console.warn(`onScroll Effect is not used: there's no element with 'data-${n}' attribute.`);i=!1,a.filter(e=>o(e[s("isRepeating")])||e[s("isRepeating")]).forEach(i=>{const a={className:i.dataset[n].split(" ").filter(Boolean),repeat:i.dataset[n+"Repeat"],offset:Number(i.dataset[n+"Offset"]),count:Number(i.dataset[n+"Count"]),reverse:i.dataset[n+"Reverse"]},r=i.getBoundingClientRect(),c="true"===a.reverse,d=a.className.length?a.className:[c?"is-inside":"is-outside"],l="true"===a.repeat,p=isNaN(a.offset)?0:a.offset,u=isNaN(Number(a.repeat))?1:Number(a.repeat),g=!d.filter(e=>!i.classList.contains(e)).length;return i[s("repeatingCount")]=o(i[s("repeatingCount")])?0:i[s("repeatingCount")],i[s("isRepeating")]=!!o(i[s("isRepeating")])||i[s("isRepeating")],(!c&&g||c&&!g)&&r.top+p<=window.innerHeight&&r.bottom-p>=0?(i.classList[c?"add":"remove"](...d),i[s("repeatingCount")]+=1,i[s("isInsideViewport")]=!0,i.dispatchEvent(e),!l&&i[s("repeatingCount")]>=u&&(i[s("isRepeating")]=!1),!0):(!c&&!g||c&&g)&&(0===i[s("repeatingCount")]||(l||i[s("repeatingCount")]<u)&&(r.top>window.innerHeight||r.bottom<0))?(i.classList[c?"remove":"add"](...d),i[s("isInsideViewport")]=!1,i.dispatchEvent(t),!1):void 0})},r=()=>{a(),"complete"===document.readyState&&document.removeEventListener("readystatechange",r)};document.addEventListener("readystatechange",r),window.addEventListener("scroll",((e,t,n)=>{let i;return function(){const s=arguments,o=this;clearTimeout(i),i=setTimeout(()=>{i=null,n||Reflect.apply(e,o,s)},t),n&&!i&&Reflect.apply(e,o,s)}})(a,10),!0),window.onScrollEffect=Object.assign(()=>{a(),a()},{isRepeating:e=>e[s("isRepeating")],repeatingCount:e=>e[s("repeatingCount")],isInsideViewport:e=>e[s("isInsideViewport")]})})();
 	</script>
