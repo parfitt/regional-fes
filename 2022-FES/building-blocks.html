@@ -45,11 +45,11 @@
                 <div id="parameter-holder"></div>
                 <h2><label for="views">View by</label>:</h2>
                 <div id="view-holder"></div>
-                <div class="info-bubble" data-scale="absolute" style="display:none;"><p>Note that the colour scale (below the map) is across the range of years so it may be harder to see variations between areas in a single year.</p></div>
+                <div class="info-bubble warning" data-scale="absolute" style="display:none;"><p>To improve the contrast between areas within your chosen year you may wish to change the colour scale.</p></div>
 				<h2>Select year (<span class="year"></span>):</h2>
                 <div id="slider"></div>
                 <div><button id="play" class="page-header__branding" title="Play">&#9658;</button> <button id="pause" title="Pause" disabled>&#10074;&#10074;</button></div>
-				<div class="info-bubble" data-scale="relative"><p>Note that the colour scale (below the map) is set to adjust to the data range in the current year so it may be hard to see changes between years.</p></div>
+				<div class="info-bubble warning" data-scale="relative"><p>To better show changes in values over time you may wish to change the colour scale.</p></div>
 				<div id="download">
 					<button class="page-header__branding" id="download-csv"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download CSV for this view</button>
 					<!--<button class="page-header__branding" id="download-svg"><svg width="1em" height="1em" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M 0 32 l 32 0 l 0 -10 l -4 0 l 0 6 l -24 0 l 0 -6 l -4 0 l 0 10 M 12 5 l 8 0 l 0 10 l 8 0 l -12 12 l -12 -12 l 8 0" fill="white"></path></svg> Download SVG for this view</button>-->
@@ -71,7 +71,9 @@
 						</div><span class="toggle-label2" title="To compare the values of different areas across the the full range of years">No</span>
 					</div>
 				</div>
-				<p>Selecting <strong>Yes</strong> will improve contrast between areas within your chosen year. Selecting <strong>No</strong> will use the same colour scale across all the years so is best for comparing over time.</p>
+				<div class="info-bubble warning">
+					<p>Selecting <strong>Yes</strong> will improve contrast between areas within your chosen year. Selecting <strong>No</strong> will better show changes in values over time.</p>
+				</div>
             </div>
         </div>
     </div>
