@@ -10,7 +10,7 @@ S(document).ready(function(){
 			"view": "NUTS",
 			"key": (new Date()).getFullYear()+'',
 			"parameter": "demandpk-all",
-			"scale": "relative",
+			"scale": "absolute",
 			"years": {"min":2020, "max":2050},
 			"map": {
 				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
@@ -277,6 +277,7 @@ S(document).ready(function(){
 			"setScale": function(t){
 				var abs = document.querySelectorAll("[data-scale='absolute']");
 				var rel = document.querySelectorAll("[data-scale='relative']");
+				console.log('setScale',abs,rel,t);
 				if(abs.length > 0) abs.forEach(function(e){ e.style.display = (t=="absolute") ? '' : 'none'; });
 				if(rel.length > 0) rel.forEach(function(e){ e.style.display = (t=="relative") ? '' : 'none'; });
 				return this;

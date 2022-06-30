@@ -186,11 +186,14 @@
 		var _obj = this;
 		// Bind the changing function to the update event.
 		this.slider.noUiSlider.on('update',function(){ _obj.setYear(''+parseInt(this.get())); });
-		
+
 		this.setScenario(this.options.scenario);
-		
+
 		// Trigger the setParameter callback (because we aren't explicity calling it)
 		if(typeof this.events.setParameter==="function") this.events.setParameter.call(this);
+
+		// Trigger the setScale callback (because we aren't explicity calling it)
+		if(typeof this.events.setScale==="function") this.events.setScale.call(this,this.options.scale);
 
 		S('#play').on('click',{me:this},function(e){
 			e.preventDefault();
