@@ -70,7 +70,7 @@ S(document).ready(function(){
 						div = document.createElement('div');
 						div.classList.add('leaflet-control');
 						div.classList.add('leaflet-bar');
-						div.innerHTML = '<div class="placesearch"><div class="submit" href="#" title="Search" role="button" aria-label="Search"></div><form class="placeform layersearch pop-left" action="search" method="GET" autocomplete="off"><input class="place" id="search" name="place" value="" placeholder="Search for a named area" type="text" /><div class="searchresults" id="searchresults"></div></div></form>';
+						div.innerHTML = '<div class="placesearch"><div class="submit" href="#" title="Search" role="button" aria-label="Search"></div><form class="placeform layersearch pop-left" action="search" method="GET" autocomplete="off"><input class="place" id="search" name="place" value="" placeholder="Search for a named area" type="text" aria-label="Search for a named area" /><div class="searchresults" id="searchresults"></div></div></form>';
 						el.appendChild(div);
 						
 						function toggleActive(state){
