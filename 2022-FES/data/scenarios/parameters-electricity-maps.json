@@ -6,7 +6,6 @@
 	"demandpk-h": { "title": "Demand at peak: Heat pumps (MW)", "optgroup": "Demand at peak", "combine": "sum", "units":"MW", "dp": 1, "description": "Typical heat pump demand at time of national peak demand." },
 	"demandpk-i": { "title": "Demand at peak: Industrial (MW)", "optgroup": "Demand at peak", "combine": "sum", "units":"MW", "dp": 1, "description": "Typical industrial demand at time of national peak demand." },
 	"demandpk-r": { "title": "Demand at peak: Residential (MW)", "optgroup": "Demand at peak", "combine": "sum", "units":"MW", "dp": 1, "description": "Typical residential demand at time of national peak demand." },
-	"demandpk-y": { "title": "Demand at peak: Electrolyser (MW)", "optgroup": "Demand at peak", "combine": "sum", "units":"MW", "dp": 1, "description": "Typical electrolyser demand at time of national peak demand." },
 	"dxcapacity-wind": { "title": "Distributed capacity: Wind (MW)", "optgroup": "Distributed capacity", "combine": "sum", "units":"MW", "dp": 1, "description": "Installed capacity of decentralised wind sites sized 1 MW or above." },
 	"dxcapacity-solar": { "title": "Distributed capacity: Solar (MW)", "optgroup": "Distributed capacity", "combine": "sum", "units":"MW", "dp": 1, "description": "Installed capacity of decentralised solar sites sized 1 MW or above." },
 	"dxcapacity-hydro": { "title": "Distributed capacity: Hydro (MW)", "optgroup": "Distributed capacity", "combine": "sum", "units":"MW", "dp": 1, "description": "Installed capacity of decentralised hydro sites sized 1 MW or above." },
