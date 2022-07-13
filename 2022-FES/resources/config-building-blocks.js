@@ -11,7 +11,7 @@ S(document).ready(function(){
 			"key": (new Date()).getFullYear()+'',
 			"parameter": "Dem_BB001a",
 			"scale": "absolute",
-			"years": {"min":2020, "max":2050},
+			"years": {"min":2021, "max":2050},
 			"map": {
 				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
 				"attribution": "Vis: National Grid ESO"

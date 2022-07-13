@@ -1,6 +1,8 @@
 /*!
 	Open Innovations Future Energy Scenario viewer
 	Changeset:
+	1.5.3
+	- Improve large pips to deal with not including 2020
 	1.5.2
 	- Allow values in files to be scaled on load
 	- Fix minor pips on year slider
@@ -22,7 +24,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.5.2";
+		this.version = "1.5.3";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -170,6 +172,9 @@
 
 		// Create the slider
 		this.slider = document.getElementById('slider');
+		var pips = [];
+		var dy = 10;
+		for(var i = Math.ceil(this.options.years.min/10)*10; i <= this.options.years.max; i += dy) pips.push(i);
 		noUiSlider.create(this.slider, {
 			start: [parseInt(this.options.key)],
 			step: 1,
@@ -179,7 +184,7 @@
 			pips: {
 				mode: 'values',
 				stepped: true,
-				values: [2020,2030,2040,2050],
+				values: pips,
 				density: 100/(2050-2020)
 			}
 		});
