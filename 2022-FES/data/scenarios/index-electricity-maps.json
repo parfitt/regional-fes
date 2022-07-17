@@ -1,0 +1,98 @@
+{
+	"Falling Short": {
+		"description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
+		"color": "#827B7A",
+		"css": "falling-short",
+		"data": {
+			"demandpk-all":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-All.csv", "key": "Primary" },
+			"demandpk-c":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-C.csv", "key": "Primary" },
+			"demandpk-d":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-D.csv", "key": "Primary" },
+			"demandpk-e":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-E.csv", "key": "Primary" },
+			"demandpk-h":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-H.csv", "key": "Primary" },
+			"demandpk-i":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-I.csv", "key": "Primary" },
+			"demandpk-r":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DemandPk-R.csv", "key": "Primary" },
+			"dxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DxCapacity-Wind.csv", "key": "Primary" },
+			"dxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DxCapacity-Solar.csv", "key": "Primary" },
+			"dxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DxCapacity-Hydro.csv", "key": "Primary" },
+			"dxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DxCapacity-Storage.csv", "key": "Primary" },
+			"dxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-DxCapacity-Other.csv", "key": "Primary" },
+			"mxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-MxCapacity-Wind.csv", "key": "Primary" },
+			"mxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-MxCapacity-Solar.csv", "key": "Primary" },
+			"mxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-MxCapacity-Hydro.csv", "key": "Primary" },
+			"mxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-MxCapacity-Storage.csv", "key": "Primary" },
+			"mxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/FS-MxCapacity-Other.csv", "key": "Primary" }
+		}
+	},
+	"System Transformation": {
+		"description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility.</li></ul>",
+		"color": "#5BCBF5",
+		"css": "system-transformation",
+		"data": {
+			"demandpk-all":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-All.csv", "key": "Primary" },
+			"demandpk-c":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-C.csv", "key": "Primary" },
+			"demandpk-d":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-D.csv", "key": "Primary" },
+			"demandpk-e":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-E.csv", "key": "Primary" },
+			"demandpk-h":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-H.csv", "key": "Primary" },
+			"demandpk-i":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-I.csv", "key": "Primary" },
+			"demandpk-r":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DemandPk-R.csv", "key": "Primary" },
+			"dxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DxCapacity-Wind.csv", "key": "Primary" },
+			"dxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DxCapacity-Solar.csv", "key": "Primary" },
+			"dxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DxCapacity-Hydro.csv", "key": "Primary" },
+			"dxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DxCapacity-Storage.csv", "key": "Primary" },
+			"dxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-DxCapacity-Other.csv", "key": "Primary" },
+			"mxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-MxCapacity-Wind.csv", "key": "Primary" },
+			"mxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-MxCapacity-Solar.csv", "key": "Primary" },
+			"mxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-MxCapacity-Hydro.csv", "key": "Primary" },
+			"mxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-MxCapacity-Storage.csv", "key": "Primary" },
+			"mxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/ST-MxCapacity-Other.csv", "key": "Primary" }
+		}
+	},
+	"Consumer Transformation": {
+		"description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High demand side flexibility.</li></ul>",
+		"color": "#FFBF22",
+		"css": "consumer-transformation",
+		"data": {
+			"demandpk-all":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-All.csv", "key": "Primary" },
+			"demandpk-c":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-C.csv", "key": "Primary" },
+			"demandpk-d":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-D.csv", "key": "Primary" },
+			"demandpk-e":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-E.csv", "key": "Primary" },
+			"demandpk-h":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-H.csv", "key": "Primary" },
+			"demandpk-i":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-I.csv", "key": "Primary" },
+			"demandpk-r":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DemandPk-R.csv", "key": "Primary" },
+			"dxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DxCapacity-Wind.csv", "key": "Primary" },
+			"dxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DxCapacity-Solar.csv", "key": "Primary" },
+			"dxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DxCapacity-Hydro.csv", "key": "Primary" },
+			"dxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DxCapacity-Storage.csv", "key": "Primary" },
+			"dxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-DxCapacity-Other.csv", "key": "Primary" },
+			"mxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-MxCapacity-Wind.csv", "key": "Primary" },
+			"mxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-MxCapacity-Solar.csv", "key": "Primary" },
+			"mxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-MxCapacity-Hydro.csv", "key": "Primary" },
+			"mxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-MxCapacity-Storage.csv", "key": "Primary" },
+			"mxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/CT-MxCapacity-Other.csv", "key": "Primary" }
+		}
+	},
+	"Leading the Way": {
+		"description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
+		"color": "#C2CD23",
+		"css": "leading-the-way",
+		"data": {
+			"demandpk-all":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-All.csv", "key": "Primary" },
+			"demandpk-c":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-C.csv", "key": "Primary" },
+			"demandpk-d":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-D.csv", "key": "Primary" },
+			"demandpk-e":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-E.csv", "key": "Primary" },
+			"demandpk-h":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-H.csv", "key": "Primary" },
+			"demandpk-i":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-I.csv", "key": "Primary" },
+			"demandpk-r":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DemandPk-R.csv", "key": "Primary" },
+			"dxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DxCapacity-Wind.csv", "key": "Primary" },
+			"dxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DxCapacity-Solar.csv", "key": "Primary" },
+			"dxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DxCapacity-Hydro.csv", "key": "Primary" },
+			"dxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DxCapacity-Storage.csv", "key": "Primary" },
+			"dxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-DxCapacity-Other.csv", "key": "Primary" },
+			"mxcapacity-wind":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-MxCapacity-Wind.csv", "key": "Primary" },
+			"mxcapacity-solar":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-MxCapacity-Solar.csv", "key": "Primary" },
+			"mxcapacity-hydro":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-MxCapacity-Hydro.csv", "key": "Primary" },
+			"mxcapacity-storage":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-MxCapacity-Storage.csv", "key": "Primary" },
+			"mxcapacity-other":{ "dataBy": "gsp", "file": "gridsupplypoints/LW-MxCapacity-Other.csv", "key": "Primary" }
+		}
+	}
+}

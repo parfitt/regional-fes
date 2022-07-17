@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="resources/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>FES 2022: Compare</title>
+    <link rel="StyleSheet" href="resources/nouislider.min.css" type="text/css" />
+    <script type="text/javascript" src="resources/nouislider.min.js"></script>
+    <link rel="StyleSheet" href="resources/style.css" type="text/css" />
+    <script type="text/javascript" src="resources/oi.linechart.js"></script>
+    <script type="text/javascript" src="resources/oi.basicmap.js"></script>
+    <script type="text/javascript" src="resources/compare.js"></script>
+	<style>
+	.compare {
+		display: grid;
+		grid-template-columns: 1fr auto auto 1fr;
+		row-gap: 1em;
+		grid-auto-flow: row dense;
+	}
+	.compare .title { background: #b04a2a; color: white; }
+	.compare .title h2 { color: inherit; margin: 0; }
+	.compare h2 { font-size: 1.2em; }
+	.compare h3 { font-size: 1em; }
+	.compare select { margin-bottom: 0.25em; border-radius: 2px; }
+	.compare .vs { grid-column: 2 / span 2; position: relative; display: grid; align-items:center; font-size: 1.4em; background: white; }
+	.compare .comparison-a { grid-column: 1; }
+	.compare .comparison-b { grid-column: 4; }
+	.compare .comparison { grid-column: 1 / span 4; }
+	.compare .head.comparison-1 { text-align: left; }
+	.compare .head.vs { text-align: center; font-style:italic; font-family: serif; }
+	.compare .head.comparison-b { text-align: right; }
+	.map { width: 100%; aspect-ratio: 1 / 1.8; max-height: 80vh; line-height: 0; padding: 1em; position: relative; }
+	.data-layer path:hover, .data-layer path.highlight { stroke-width: 2px!important; stroke-opacity: 1!important; cursor: pointer; }
+	.chart { position: relative; aspect-ratio: 1 / 0.7; }
+	.chart .linechart-series circle.highlight { stroke-width: 3px; stroke: #000000; }
+	.chart .linechart-series circle { cursor: pointer; }
+	#chart { height: 400px; max-height: 90vh; width: 100%; position: relative; }
+	#chart .linechart-tooltip { padding: 0.5em 1em; background: #454546; }
+	#chart .linechart-tooltip::after { border-top-color: #454546; }
+	#chart .linechart-series circle:focus, .linechart-series circle.highlight { stroke: #454546; }
+	.compare .padded { padding: 1.5em; }
+	.smallpadded { padding: 0.5em; }
+	.sticky { position: sticky!important; top: 0; z-index: 1001; }
+	.sticky.title { box-shadow: 0 2px 2px 0px rgba(0,0,0,0.2); }
+	.slider { margin: 1em 1em 2em 1em; padding: 0px; }
+	.slider .noUi-pips-horizontal { padding: 2px 0 10px 0; }
+	</style>
+</head>
+<body>
+	<div class="warning padded">WARNING: This is an experimental tool under development. The data and visualisations may not be correct and may use old or dummy data.</div>
+    <header class="b1-bg">
+        <div class="b1-bg phb-topnav">
+			<div class="holder">
+				<a href="https://www.nationalgrideso.com/" class="ODIlogo"><img alt="National Grid ESO" src="https://www.nationalgrideso.com/themes/custom/national_grid_eso/logo.svg" title="ODI Leeds"></a>
+			</div>
+        </div>
+        <div class="page-header__branding title">
+			<div class="page-hero">
+				<div class="holder">
+					<div class="page-hero__content">
+							<h1 class="white-title">FES 2022: Compare</h1>
+							<p>Explore the geographical differences in electricity demand within National Grid ESO's Future Energy Scenarios 2022.</p>
+					</div>
+				</div>
+			</div>
+        </div>
+    </header>
+    <div class="b6-bg">
+		<div class="holder tallpadded">
+			<p>Welcome to the experimental comparison tool. This will let you compare two sets of selections side-by-side. You must select a combination of scenario, parameter, and geographic areas of interest (e.g. GB, nations, and regions). You will then get maps and charts for each selection below.</p>
+			<div class="compare">
+				<div class="smallpadded comparison-a title sticky" data-scroll="is-outside fadeInLeft" data-scroll-repeat="false">
+					<h2 style="text-align:center;">A</h2>
+				</div>
+				<div class="smallpadded vs head sticky"><span>vs</span></div>
+				<div class="smallpadded comparison-b title sticky" data-scroll="is-outside fadeInRight" data-scroll-repeat="false">
+					<h2 style="text-align:center;">B</h2>
+				</div>
+				<div class="comparison-a head" data-scroll="is-outside fadeInLeft" data-scroll-repeat="false">
+					<select id="scenario-a" aria-label="Select a scenario">
+						<option value="">Select a scenario</option>
+					</select>
+					<select id="parameter-a" aria-label="Select a parameter">
+						<option value="">Select a parameter</option>
+					</select>
+					<select id="area-a" aria-label="Select an area">
+						<option value="">Select an area</option>
+					</select>
+				</div>
+				<div class="comparison-b head" data-scroll="is-outside fadeInRight" data-scroll-repeat="false">
+					<select id="scenario-b" aria-label="Select a scenario">
+						<option value="">Select a scenario</option>
+					</select>
+					<select id="parameter-b" aria-label="Select a parameter">
+						<option value="">Select a parameter</option>
+					</select>
+					<select id="area-b" aria-label="Select an area">
+						<option value="">Select an area</option>
+					</select>
+				</div>
+				<div class="padded comparison-a b5-bg" data-scroll="is-outside fadeInLeft" data-scroll-repeat="false">
+					<div id="map-a" class="map">
+						<div class="spinner">
+							<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
+						</div>
+					</div>
+					<h3>Select year (<span class="year-a"></span>):</h3>
+					<div id="slider-a" class="slider"></div>
+					<button id="download-map-a">Download map as SVG</button>
+				</div>
+				<div class="padded comparison-b b5-bg" data-scroll="is-outside fadeInRight" data-scroll-repeat="false">
+					<div id="map-b" class="map">
+						<div class="spinner">
+							<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
+						</div>
+					</div>
+					<h3>Select year (<span class="year-b"></span>):</h3>
+					<div id="slider-b" class="slider"></div>
+					<button id="download-map-b">Download map as SVG</button>
+				</div>
+				<div class="padded comparison-a b5-bg" data-scroll="is-outside fadeInLeft" data-scroll-repeat="false">
+					<h2>Chart A</h2>
+					<p>This chart will be automatically scaled to maximise the data range. Hover over data points to see details.</p>
+					<div id="chart-a" class="chart">
+						<div class="spinner">
+							Waiting for <a href="#scenario-a">selection</a>...
+						</div>
+					</div>
+					<button id="download-chart-a">Download chart as SVG</button>
+				</div>
+				<div class="padded comparison-b b5-bg" data-scroll="is-outside fadeInRight" data-scroll-repeat="false">
+					<h2>Chart B</h2>
+					<p>This chart will be automatically scaled to maximise the data range. Hover over data points to see details.</p>
+					<div id="chart-b" class="chart">
+						<div class="spinner">
+							Waiting for <a href="#scenario-b">selection</a>...
+						</div>
+					</div>
+					<button id="download-chart-b">Download chart as SVG</button>
+				</div>
+				<div class="padded comparison b5-bg">
+					<h2>Combined chart</h2>
+					<p>This chart will show all the areas in Charts A (solid lines) and B (dashed lines) on the same vertical scale.</p>
+					<div id="chart">
+						<div class="spinner">
+							Waiting for <a href="#scenario-a">selections</a>...
+						</div>
+					</div>
+					<button id="download-chart">Download chart as SVG</button>
+				</div>
+			</div>
+		
+		</div>
+	
+    </div>
+    <div data-scroll="is-outside fadeUp" data-scroll-repeat="false">
+        <div class="page-header__branding thickline">&nbsp;</div>
+        <div class="b2-bg" id="about">
+            <div class="holder tallpadded">
+                <h2 class="footer-heading">About this visualisation</h2>
+                <p>This tool lets you compare electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a> side-by-side. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
+                <p>The demands shown are the typical demands that could be expected in each region at time of national system peak demand. Individually each region may experience higher demands as factors such as local weather conditions and local engagement with distributed energy resources impact demands at a local level throughout the year.</p>
+                <p>Transmission demands (such as large industrial customers connected directly to the transmission network) and transmission connected generation are omitted from this visualisation. The transmission demands are available to download from our <a href="https://data.nationalgrideso.com/future-energy-scenarios/regional-breakdown-of-fes-data-electricity/r/regional_breakdown_of_fes:_demand_(active_power)">data portal</a> whilst the transmission generation aggregated by fuel type are available in our FES data workbook.</p>
+                <p>If you have any comments, questions or feedback on our scenarios, please send them to <a href="mailto:FES@nationalgrideso.com?subject=FES electricity demand maps">FES@nationalgrideso.com</a>.</p>
+                <h3 class="footer-heading">Acknowledgements</h3>
+                <p>This visualisation would not be possible without the prior work of others. We are grateful to the following organisations for sharing data and code under an open licence that allowed for re-use.</p>
+                <ul>
+                    <li>Interactive visualisation: The underlying code and website layout &copy; Open Innovations 2020-2022 (MIT licence).</li>
+                    <li>Underlying map: This uses <a href="https://geoportal.statistics.gov.uk/datasets/ons::countries-december-2021-uk-buc/explore">GB country boundaries from ONS</a> (OGLv3), <a href="data/maps/motorway-simple.geojson">simplified motorways</a> from <a href="http://www.openstreetmap.org/copyright">OpenStreetMap Contributors</a> (ODbL), and <a href="data/maps/places.tsv">place names</a> from the <a href="http://download.geonames.org/export/dump/readme.txt">GeoNames Gazetteer</a> (CC-BY-4.0)</li>
+                    <li>Overlaid boundaries: NUTS1 boundaries are from the ONS geo service. They are released under the OGL (Contains National Statistics data &copy; Crown copyright and database right 2019, Contains OS data &copy; Crown copyright and database right 2019)</li>
+                </ul>
+                <p>We are sharing our own data under an open licence on the <a href="https://data.nationalgrideso.com/">ESO Data Portal</a>.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+	/*! onscroll-effect v1.3.1 | (c) 2020 Matthieu Bué <https://twikito.com> | MIT license | https://twikito.github.io/onscroll-effect/ */
+	(()=>{const e=new Event("insideViewport"),t=new Event("outsideViewport"),n=document.documentElement.getAttribute("data-onscroll-effect-custom-prefix")||"scroll";let i=!1;const s=e=>"onscrollEffect_"+e,o=e=>void 0===e,a=()=>{const a=[...document.querySelectorAll(`[data-${n}]`)];if(!i&&0===a.length)return i=!0,console.warn(`onScroll Effect is not used: there's no element with 'data-${n}' attribute.`);i=!1,a.filter(e=>o(e[s("isRepeating")])||e[s("isRepeating")]).forEach(i=>{const a={className:i.dataset[n].split(" ").filter(Boolean),repeat:i.dataset[n+"Repeat"],offset:Number(i.dataset[n+"Offset"]),count:Number(i.dataset[n+"Count"]),reverse:i.dataset[n+"Reverse"]},r=i.getBoundingClientRect(),c="true"===a.reverse,d=a.className.length?a.className:[c?"is-inside":"is-outside"],l="true"===a.repeat,p=isNaN(a.offset)?0:a.offset,u=isNaN(Number(a.repeat))?1:Number(a.repeat),g=!d.filter(e=>!i.classList.contains(e)).length;return i[s("repeatingCount")]=o(i[s("repeatingCount")])?0:i[s("repeatingCount")],i[s("isRepeating")]=!!o(i[s("isRepeating")])||i[s("isRepeating")],(!c&&g||c&&!g)&&r.top+p<=window.innerHeight&&r.bottom-p>=0?(i.classList[c?"add":"remove"](...d),i[s("repeatingCount")]+=1,i[s("isInsideViewport")]=!0,i.dispatchEvent(e),!l&&i[s("repeatingCount")]>=u&&(i[s("isRepeating")]=!1),!0):(!c&&!g||c&&g)&&(0===i[s("repeatingCount")]||(l||i[s("repeatingCount")]<u)&&(r.top>window.innerHeight||r.bottom<0))?(i.classList[c?"remove":"add"](...d),i[s("isInsideViewport")]=!1,i.dispatchEvent(t),!1):void 0})},r=()=>{a(),"complete"===document.readyState&&document.removeEventListener("readystatechange",r)};document.addEventListener("readystatechange",r),window.addEventListener("scroll",((e,t,n)=>{let i;return function(){const s=arguments,o=this;clearTimeout(i),i=setTimeout(()=>{i=null,n||Reflect.apply(e,o,s)},t),n&&!i&&Reflect.apply(e,o,s)}})(a,10),!0),window.onScrollEffect=Object.assign(()=>{a(),a()},{isRepeating:e=>e[s("isRepeating")],repeatingCount:e=>e[s("repeatingCount")],isInsideViewport:e=>e[s("isInsideViewport")]})})();
+	</script>
+	<style>
+	<!-- styles for onscroll -->
+	#scenario { overflow-x: hidden; }
+	[data-scroll] { transition: 0.5s ease-out; }
+	[data-scroll].is-outside {
+		transition: none;
+		animation: none;
+		opacity: 0;
+		transition: none;
+	}
+	.fadeUp { transform: translateY(5em); }
+	.fadeDown { transform: translateY(-5em); }
+	.fadeInRight { transform: translateX(100%); }
+	.fadeInLeft { transform: translateX(-100%); }
+	</style>
+	<script>
+	var compare;
+	OI.ready(function(){
+		compare = Compare({
+			'areas': {
+				'GB (total)':{'areas':'UKC+UKD+UKE+UKF+UKG+UKH+UKI+UKJ+UKK+UKL+UKM','colour':'#E6007C'},
+				'GB (regions)':{'areas':'UKC;UKD;UKE;UKF;UKG;UKH;UKI;UKJ;UKK;UKL;UKM'},
+				'England (total)':{'areas':'UKC+UKD+UKE+UKF+UKG+UKH+UKI+UKJ+UKK','colour':'#D60303'},
+				'England (regions)':{'areas':'UKC;UKD;UKE;UKF;UKG;UKH;UKI;UKJ;UKK'},
+				'North East (England)':{'areas':'UKC','colour':'#EF3AAB'},
+				'North West (England)':{'areas':'UKD','colour':'#D60303'},
+				'Yorkshire and The Humber':{'areas':'UKE','colour':'#F9BC26'},
+				'East Midlands (England)':{'areas':'UKF','colour':'#08DEF9'},
+				'West Midlands (England)':{'areas':'UKG','colour':'#00B6FF'},
+				'East of England':{'areas':'UKH','colour':'#1DD3A7'},
+				'London':{'areas':'UKI','colour':'#722EA5'},
+				'South East (England)':{'areas':'UKJ','colour':'#D73058'},
+				'South West (England)':{'areas':'UKK','colour':'#FF6700'},
+				'Wales':{'areas':'UKL','colour':'#0DBC37'},
+				'Scotland':{'areas':'UKM','colour':'#2254F4'}
+			},
+			'map':{
+				'background': 'transparent',
+				'layers': [{
+					'id': 'outline',
+					'data': 'data/maps/uk.geojson',
+					'options': { 'color': '#fafaf8' }
+				},{
+					'id': 'motorways',
+					'data': 'data/maps/motorway-simple.geojson',
+					'options': { 'color': '#e8e8e7', 'stroke-width': 1.2 }
+				},{
+					'id': 'labels',
+					'data': 'data/maps/places.tsv',
+					'options': { 'fill': '#4c5862', 'stroke': 'white', 'stroke-width': '0.7%', 'stroke-linejoin': 'round'  },
+					'type': 'text',
+					'process': function(d,map){
+						d = d.split(/[\r\n]+/);
+						var header,i,c,cols,num,locations,fs,f,loc,dlat,threshold;
+						header = d[0].split(/\t/);
+						locations = [];
+						fs = 1;
+						threshold = 100000;
+
+						for(i = 1; i < d.length; i++){
+							loc = {'type':'Feature','properties':{},'geometry':{'type':'Point','coordinates':[]}};
+							cols = d[i].split(/\t/);
+							for(c = 0; c < cols.length; c++){
+								num = parseFloat(cols[c]);
+								loc.properties[header[c]] = (isNaN(num) ? cols[c] : num);
+							}
+							loc.name = loc.properties.Name;
+							f = fs*0.75;
+							if(loc.properties.Population){
+								if(loc.properties.Population > 100000) f += fs*0.125;
+								if(loc.properties.Population > 250000) f += fs*0.125;
+								if(loc.properties.Population > 750000) loc.name = loc.name.toUpperCase();
+							}
+							loc.properties.fontsize = '14';
+							loc.geometry.coordinates = [loc.properties.Longitude,loc.properties.Latitude];
+							if(loc.properties.Population >= threshold) locations.push(loc);
+						}
+						this.data = {'features':locations};
+					}
+				}],
+				'complete': function(){
+					//console.log('complete',this,this.getLayerPos('data-layer'));
+					if(this.getLayerPos('data-layer') >= 0) this.zoomToData('data-layer');
+					else this.zoomToData('outline');
+				}
+			}
+		});
+	});
+	</script>
+</body>
+</html>
