@@ -1,6 +1,8 @@
 /*!
 	Open Innovations Future Energy Scenario viewer
 	Changeset:
+	1.5.4
+	- Bug fix for CSV columns with quotation marks
 	1.5.3
 	- Improve large pips to deal with not including 2020
 	1.5.2
@@ -24,7 +26,7 @@
 	// Main function
 	function FES(config){
 
-		this.version = "1.5.3";
+		this.version = "1.5.4";
 		this.title = "FES";
 		if(!config) config = {};
 		this.options = (config.options||{});
@@ -1111,7 +1113,8 @@
 			for(j=0; j < line.length; j++){
 
 				// Remove any quotes around the column value
-				datum[j] = (line[j][0]=='"' && line[j][line[j].length-1]=='"') ? line[j].substring(1,line[j].length-1) : line[j];
+				datum[j] = (line[j] && line[j][0]=='"' && line[j][line[j].length-1]=='"') ? line[j].substring(1,line[j].length-1) : line[j];
+				if(typeof datum[j]==="undefined") datum[j] = "";
 
 				// If the value parses as a float
 				if(typeof parseFloat(datum[j])==="number" && parseFloat(datum[j]) == datum[j]){
