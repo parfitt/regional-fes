@@ -166,7 +166,14 @@ S(document).ready(function(){
 					"text": function(attr){
 						var popup,title,dp,value;
 						popup = '<h3>%TITLE%</h3><p>%VALUE%</p>';
-						title = (attr.properties.GSP||'?');
+						title = '?';
+						if(attr.properties['Name']){
+							title = attr.properties['Name']+' ('+attr.properties['GSP']+')';
+						}else{
+							if(attr.properties.GSP){
+								title = attr.properties.GSP;
+							}
+						}
 						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
 						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '?');
 						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
