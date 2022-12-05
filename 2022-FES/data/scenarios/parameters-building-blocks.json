@@ -18,12 +18,66 @@
         "dp":""
     },
     {
+        "key":"Gen_BB003",
+        "optgroup":"Generation",
+        "title":"Micro CHP",
+        "combine":"sum",
+        "description":"Domestic (G98\/G83)",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Gen_BB004",
+        "optgroup":"Generation",
+        "title":"Renewable Engines (Landfill Gas, Sewage Gas, Biogas)",
+        "combine":"sum",
+        "description":"Reciprocating engines, gas Turbines, includes anaerobic digestion",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Gen_BB005",
+        "optgroup":"Generation",
+        "title":"Non-renewable Engines (Diesel) (non CHP)",
+        "combine":"sum",
+        "description":"",
+        "units":"MW",
+        "dp":""
+    },
+    {
         "key":"Gen_BB014",
         "optgroup":"Generation",
         "title":"Offshore Wind",
         "combine":"sum",
         "description":"",
         "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB001a",
+        "optgroup":"Demand",
+        "title":"Number of domestic customers",
+        "combine":"sum",
+        "description":"",
+        "units":"Number of",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB002a",
+        "optgroup":"Demand",
+        "title":"Number of I&C customers",
+        "combine":"sum",
+        "description":"",
+        "units":"Number of ",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB003",
+        "optgroup":"Demand",
+        "title":"Total Demand at GSP",
+        "combine":"sum",
+        "description":"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",
+        "units":"GWh",
         "dp":""
     }
 ]
