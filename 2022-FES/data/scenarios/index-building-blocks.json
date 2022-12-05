@@ -5,6 +5,21 @@
         "css": "leading-the-way",
         "description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
         "data": {
+            "Dem_BB001a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB001a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB002a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB002a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB003.csv",
+                "key": "GSP"
+            },
             "Gen_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Gen_BB001.csv",
@@ -13,6 +28,21 @@
             "Gen_BB002": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Gen_BB002.csv",
+                "key": "GSP"
+            },
+            "Gen_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Gen_BB003.csv",
+                "key": "GSP"
+            },
+            "Gen_BB004": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Gen_BB004.csv",
+                "key": "GSP"
+            },
+            "Gen_BB005": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/LTW_building-block_Gen_BB005.csv",
                 "key": "GSP"
             },
             "Gen_BB014": {
@@ -28,6 +58,21 @@
         "css": "system-transformation",
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility.</li></ul>",
         "data": {
+            "Dem_BB001a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Dem_BB001a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB002a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Dem_BB002a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Dem_BB003.csv",
+                "key": "GSP"
+            },
             "Gen_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Gen_BB001.csv",
@@ -36,6 +81,21 @@
             "Gen_BB002": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Gen_BB002.csv",
+                "key": "GSP"
+            },
+            "Gen_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Gen_BB003.csv",
+                "key": "GSP"
+            },
+            "Gen_BB004": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Gen_BB004.csv",
+                "key": "GSP"
+            },
+            "Gen_BB005": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/ST_building-block_Gen_BB005.csv",
                 "key": "GSP"
             },
             "Gen_BB014": {
@@ -51,6 +111,21 @@
         "css": "consumer-transformation",
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High demand side flexibility.</li></ul>",
         "data": {
+            "Dem_BB001a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Dem_BB001a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB002a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Dem_BB002a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Dem_BB003.csv",
+                "key": "GSP"
+            },
             "Gen_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Gen_BB001.csv",
@@ -59,6 +134,21 @@
             "Gen_BB002": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Gen_BB002.csv",
+                "key": "GSP"
+            },
+            "Gen_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Gen_BB003.csv",
+                "key": "GSP"
+            },
+            "Gen_BB004": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Gen_BB004.csv",
+                "key": "GSP"
+            },
+            "Gen_BB005": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/CT_building-block_Gen_BB005.csv",
                 "key": "GSP"
             },
             "Gen_BB014": {
@@ -74,6 +164,21 @@
         "css": "falling-short",
         "description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
         "data": {
+            "Dem_BB001a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Dem_BB001a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB002a": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Dem_BB002a.csv",
+                "key": "GSP"
+            },
+            "Dem_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Dem_BB003.csv",
+                "key": "GSP"
+            },
             "Gen_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Gen_BB001.csv",
@@ -82,6 +187,21 @@
             "Gen_BB002": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Gen_BB002.csv",
+                "key": "GSP"
+            },
+            "Gen_BB003": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Gen_BB003.csv",
+                "key": "GSP"
+            },
+            "Gen_BB004": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Gen_BB004.csv",
+                "key": "GSP"
+            },
+            "Gen_BB005": {
+                "dataBy": "gsp",
+                "file": "gridsupplypoints/building-blocks/FS_building-block_Gen_BB005.csv",
                 "key": "GSP"
             },
             "Gen_BB014": {
