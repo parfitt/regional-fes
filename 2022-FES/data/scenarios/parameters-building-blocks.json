@@ -45,6 +45,42 @@
         "dp":""
     },
     {
+        "key":"Gen_BB008",
+        "optgroup":"Generation",
+        "title":"OCGTs (non CHP)",
+        "combine":"sum",
+        "description":"Open Cycle Gas Turbines",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Gen_BB009",
+        "optgroup":"Generation",
+        "title":"CCGTs (non CHP)",
+        "combine":"sum",
+        "description":"Combined Cycle Gas Turbines",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Gen_BB012",
+        "optgroup":"Generation",
+        "title":"Solar Generation - Large (G99)",
+        "combine":"sum",
+        "description":"",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Gen_BB013",
+        "optgroup":"Generation",
+        "title":"Solar Generation - Small (G98\/G83)",
+        "combine":"sum",
+        "description":"",
+        "units":"MW",
+        "dp":""
+    },
+    {
         "key":"Gen_BB014",
         "optgroup":"Generation",
         "title":"Offshore Wind",
@@ -78,6 +114,15 @@
         "combine":"sum",
         "description":"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",
         "units":"GWh",
+        "dp":""
+    },
+    {
+        "key":"Srg_BB001",
+        "optgroup":"Storage",
+        "title":"Batteries",
+        "combine":"sum",
+        "description":"",
+        "units":"MW",
         "dp":""
     }
 ]
