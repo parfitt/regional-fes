@@ -1,68 +1,5 @@
 [
     {
-        "key":"Gen_BB001",
-        "optgroup":"Generation",
-        "title":"Non-renewable CHP (>1MW)",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB002",
-        "optgroup":"Generation",
-        "title":"Non-renewable CHP (<1MW)",
-        "combine":"sum",
-        "description":"Excluding domestic Micro CHP",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB003",
-        "optgroup":"Generation",
-        "title":"Micro CHP",
-        "combine":"sum",
-        "description":"Domestic (G98\/G83)",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB004",
-        "optgroup":"Generation",
-        "title":"Renewable Engines (Landfill Gas, Sewage Gas, Biogas)",
-        "combine":"sum",
-        "description":"Reciprocating engines, gas Turbines, includes anaerobic digestion",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB005",
-        "optgroup":"Generation",
-        "title":"Non-renewable Engines (Diesel) (non CHP)",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB008",
-        "optgroup":"Generation",
-        "title":"OCGTs (non CHP)",
-        "combine":"sum",
-        "description":"Open Cycle Gas Turbines",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Gen_BB009",
-        "optgroup":"Generation",
-        "title":"CCGTs (non CHP)",
-        "combine":"sum",
-        "description":"Combined Cycle Gas Turbines",
-        "units":"MW",
-        "dp":""
-    },
-    {
         "key":"Gen_BB012",
         "optgroup":"Generation",
         "title":"Solar Generation - Large (G99)",
@@ -81,15 +18,6 @@
         "dp":""
     },
     {
-        "key":"Gen_BB014",
-        "optgroup":"Generation",
-        "title":"Offshore Wind",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
         "key":"Dem_BB001a",
         "optgroup":"Demand",
         "title":"Number of domestic customers",
@@ -99,21 +27,75 @@
         "dp":""
     },
     {
-        "key":"Dem_BB002a",
-        "optgroup":"Demand",
-        "title":"Number of I&C customers",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of ",
-        "dp":""
-    },
-    {
         "key":"Dem_BB003",
         "optgroup":"Demand",
         "title":"Total Demand at GSP",
         "combine":"sum",
         "description":"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",
         "units":"GWh",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB004",
+        "optgroup":"Demand",
+        "title":"Residential Heat Pump Demand ",
+        "combine":"sum",
+        "description":"Heat demand due to residential HPs (including hybrid HPs)",
+        "units":"GWh",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB008",
+        "optgroup":"Demand",
+        "title":"Baseline Demand ",
+        "combine":"sum",
+        "description":"The gross energy consumption excluding EVs and HPs",
+        "units":"GWh",
+        "dp":""
+    },
+    {
+        "key":"Dem_BB009",
+        "optgroup":"Demand",
+        "title":"Hydrogen electrolysis",
+        "combine":"sum",
+        "description":"",
+        "units":"MW",
+        "dp":""
+    },
+    {
+        "key":"Lct_BB001",
+        "optgroup":"Electric Vehicles",
+        "title":"Pure Electric  (vans, cars & motorbikes)",
+        "combine":"sum",
+        "description":"",
+        "units":"Number of",
+        "dp":""
+    },
+    {
+        "key":"Lct_BB005",
+        "optgroup":"Heat Pumps",
+        "title":"Heat pumps - Domestic - Non-hybrid",
+        "combine":"sum",
+        "description":"Excluding those supplying district heating",
+        "units":"Number of",
+        "dp":""
+    },
+    {
+        "key":"Lct_BB006",
+        "optgroup":"Heat Pumps",
+        "title":"Heat pumps - Domestic - Hybrid",
+        "combine":"sum",
+        "description":"Excluding those supplying district heating",
+        "units":"Number of",
+        "dp":""
+    },
+    {
+        "key":"Lct_BB009",
+        "optgroup":"District Heating",
+        "title":"Properties connected to district heating",
+        "combine":"sum",
+        "description":"",
+        "units":"Number of",
         "dp":""
     },
     {
