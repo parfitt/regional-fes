@@ -10,11 +10,6 @@
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB001a.csv",
                 "key": "GSP"
             },
-            "Dem_BB002a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB002a.csv",
-                "key": "GSP"
-            },
             "Dem_BB003": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Dem_BB003.csv",
@@ -135,16 +130,6 @@
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Lct_BB006.csv",
                 "key": "GSP"
             },
-            "Lct_BB007": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Lct_BB007.csv",
-                "key": "GSP"
-            },
-            "Lct_BB008": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Lct_BB008.csv",
-                "key": "GSP"
-            },
             "Lct_BB009": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Lct_BB009.csv",
@@ -153,21 +138,6 @@
             "Srg_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/LTW_building-block_Srg_BB001.csv",
-                "key": "GSP"
-            },
-            "Srg_BB002": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Srg_BB002.csv",
-                "key": "GSP"
-            },
-            "Srg_BB005": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Srg_BB005.csv",
-                "key": "GSP"
-            },
-            "Srg_BB006a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/LTW_building-block_Srg_BB006a.csv",
                 "key": "GSP"
             }
         }
@@ -181,11 +151,6 @@
             "Dem_BB001a": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Dem_BB001a.csv",
-                "key": "GSP"
-            },
-            "Dem_BB002a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Dem_BB002a.csv",
                 "key": "GSP"
             },
             "Dem_BB003": {
@@ -308,16 +273,6 @@
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Lct_BB006.csv",
                 "key": "GSP"
             },
-            "Lct_BB007": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Lct_BB007.csv",
-                "key": "GSP"
-            },
-            "Lct_BB008": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Lct_BB008.csv",
-                "key": "GSP"
-            },
             "Lct_BB009": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Lct_BB009.csv",
@@ -326,21 +281,6 @@
             "Srg_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/ST_building-block_Srg_BB001.csv",
-                "key": "GSP"
-            },
-            "Srg_BB002": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Srg_BB002.csv",
-                "key": "GSP"
-            },
-            "Srg_BB005": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Srg_BB005.csv",
-                "key": "GSP"
-            },
-            "Srg_BB006a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/ST_building-block_Srg_BB006a.csv",
                 "key": "GSP"
             }
         }
@@ -354,11 +294,6 @@
             "Dem_BB001a": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Dem_BB001a.csv",
-                "key": "GSP"
-            },
-            "Dem_BB002a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Dem_BB002a.csv",
                 "key": "GSP"
             },
             "Dem_BB003": {
@@ -481,16 +416,6 @@
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Lct_BB006.csv",
                 "key": "GSP"
             },
-            "Lct_BB007": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Lct_BB007.csv",
-                "key": "GSP"
-            },
-            "Lct_BB008": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Lct_BB008.csv",
-                "key": "GSP"
-            },
             "Lct_BB009": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Lct_BB009.csv",
@@ -499,21 +424,6 @@
             "Srg_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/CT_building-block_Srg_BB001.csv",
-                "key": "GSP"
-            },
-            "Srg_BB002": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Srg_BB002.csv",
-                "key": "GSP"
-            },
-            "Srg_BB005": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Srg_BB005.csv",
-                "key": "GSP"
-            },
-            "Srg_BB006a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/CT_building-block_Srg_BB006a.csv",
                 "key": "GSP"
             }
         }
@@ -527,11 +437,6 @@
             "Dem_BB001a": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Dem_BB001a.csv",
-                "key": "GSP"
-            },
-            "Dem_BB002a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Dem_BB002a.csv",
                 "key": "GSP"
             },
             "Dem_BB003": {
@@ -654,16 +559,6 @@
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Lct_BB006.csv",
                 "key": "GSP"
             },
-            "Lct_BB007": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Lct_BB007.csv",
-                "key": "GSP"
-            },
-            "Lct_BB008": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Lct_BB008.csv",
-                "key": "GSP"
-            },
             "Lct_BB009": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Lct_BB009.csv",
@@ -672,21 +567,6 @@
             "Srg_BB001": {
                 "dataBy": "gsp",
                 "file": "gridsupplypoints/building-blocks/FS_building-block_Srg_BB001.csv",
-                "key": "GSP"
-            },
-            "Srg_BB002": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Srg_BB002.csv",
-                "key": "GSP"
-            },
-            "Srg_BB005": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Srg_BB005.csv",
-                "key": "GSP"
-            },
-            "Srg_BB006a": {
-                "dataBy": "gsp",
-                "file": "gridsupplypoints/building-blocks/FS_building-block_Srg_BB006a.csv",
                 "key": "GSP"
             }
         }

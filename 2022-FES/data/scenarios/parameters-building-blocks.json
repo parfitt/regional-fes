@@ -90,24 +90,6 @@
         "dp":""
     },
     {
-        "key":"Dem_BB002a",
-        "optgroup":"Demand",
-        "title":"Number of I&C customers",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of ",
-        "dp":""
-    },
-    {
-        "key":"Dem_BB002b",
-        "optgroup":"Demand",
-        "title":"Area of I&C customers",
-        "combine":"sum",
-        "description":"",
-        "units":" Metres squared ",
-        "dp":""
-    },
-    {
         "key":"Dem_BB003",
         "optgroup":"Demand",
         "title":"Total Demand at GSP",
@@ -199,8 +181,8 @@
     },
     {
         "key":"Lct_BB002",
-        "optgroup":"",
-        "title":"Plug-in-hybrid (vans, cars and motorbikes)",
+        "optgroup":"Electric Vehicles",
+        "title":"Plug-in-hybrid (vans, cars & motorbikes)",
         "combine":"sum",
         "description":"",
         "units":"Number of",
@@ -208,19 +190,19 @@
     },
     {
         "key":"Lct_BB003",
-        "optgroup":"",
-        "title":"Pure Electric (road vehicles other than vans, cars and motorbikes)",
+        "optgroup":"Electric Vehicles",
+        "title":"Pure Electric (other)",
         "combine":"sum",
-        "description":"",
+        "description":"Not cars, vans and motorbikes",
         "units":"Number of",
         "dp":""
     },
     {
         "key":"Lct_BB004",
-        "optgroup":"",
-        "title":"Plug-in-hybrid (road vehicles other than vans, cars and motorbikes)",
+        "optgroup":"Electric Vehicles",
+        "title":"Plug-in-hybrid (other)",
         "combine":"sum",
-        "description":"",
+        "description":"Not cars, vans and motorbikes",
         "units":"Number of",
         "dp":""
     },
@@ -243,117 +225,9 @@
         "dp":""
     },
     {
-        "key":"Lct_BB007",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - I&C - Non-hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB008",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - I&C - Hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":""
-    },
-    {
         "key":"Lct_BB009",
         "optgroup":"District Heating",
         "title":"Properties connected to district heating",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB010a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Domestic",
-        "combine":"sum",
-        "description":"Excludes three-pin plugs",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB010b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Domestic",
-        "combine":"sum",
-        "description":"Excludes three-pin plugs",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB011a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Workplace",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB011b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Workplace",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB012a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Public Slow\/Fast",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB012b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Public Slow\/Fast",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB013a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Public Rapid ",
-        "combine":"sum",
-        "description":"Chargers defined as >=43kW",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB013b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Public Rapid ",
-        "combine":"sum",
-        "description":"Chargers defined as >=43kW",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB014",
-        "optgroup":"Air Conditioning",
-        "title":"A\/C Domestic units",
-        "combine":"sum",
-        "description":"",
-        "units":"Number of",
-        "dp":""
-    },
-    {
-        "key":"Lct_BB015",
-        "optgroup":"Air Conditioning",
-        "title":"A\/C I&C units",
         "combine":"sum",
         "description":"",
         "units":"Number of",
@@ -366,78 +240,6 @@
         "combine":"sum",
         "description":"",
         "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB002",
-        "optgroup":"Storage",
-        "title":"Domestic Batteries (G98)",
-        "combine":"sum",
-        "description":"",
-        "units":"MW",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB005",
-        "optgroup":"Flexibility",
-        "title":"V2G",
-        "combine":"sum",
-        "description":"Potential MW available to participate",
-        "units":"MW availability",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB006a",
-        "optgroup":"Flexibility",
-        "title":"I&C Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB006b",
-        "optgroup":"Flexibility",
-        "title":"I&C Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB007a",
-        "optgroup":"Flexibility",
-        "title":"Electric Vehicle Smart Charging (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB007b",
-        "optgroup":"Flexibility",
-        "title":"Electric Vehicle Smart Charging (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB08a",
-        "optgroup":"Flexibility",
-        "title":"Domestic Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":""
-    },
-    {
-        "key":"Srg_BB08b",
-        "optgroup":"Flexibility",
-        "title":"Domestic Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
         "dp":""
     }
 ]
